@@ -1,4 +1,6 @@
 ﻿using IMM.Classes;
+using IMM.UControl.RaktarControl;
+using IMM.Model.RaktarModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace IMM.Forms.RaktarForms {
         Database database = new Database();
         string oldalSzoveg;
         TabControl frmControl;
+        raktarKezelesUC rkuc;
         public mindenRaktarForm(TabControl tbc) {    
             InitializeComponent();
             oldalSzoveg = this.Text;
@@ -22,6 +25,14 @@ namespace IMM.Forms.RaktarForms {
 
         private void mindenRaktarForm_Load(object sender, EventArgs e) {
             gridFeltolt();
+            rkuc = new raktarKezelesUC(mindenRaktarGridView);
+            rkuc.Parent = tabPage2;
+            rkuc.Dock = DockStyle.Fill;
+            AutoScroll = false;
+            HorizontalScroll.Enabled = false;
+            HorizontalScroll.Visible = false;
+            HorizontalScroll.Maximum = 0;
+            AutoScroll = true;
         }
 
         void gridFeltolt() {
@@ -46,6 +57,13 @@ namespace IMM.Forms.RaktarForms {
             raktarHozzaadForm frm = new raktarHozzaadForm();
             frm.ShowDialog();
             gridFeltolt();
+        }
+
+        private void mindenRaktarGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            if (mindenRaktarGridView.Columns[e.ColumnIndex] == kivalasztBtn) {
+                rkuc.Rlokacio = database.raktarLokacioFindByRaktarID(Convert.ToInt32(mindenRaktarGridView.Rows[e.RowIndex].Cells["RaktarID"].Value)).ToList();
+                tabControl1.SelectedTab = tabPage2;
+            }
         }
     }
 }

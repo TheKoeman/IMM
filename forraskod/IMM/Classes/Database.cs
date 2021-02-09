@@ -271,6 +271,23 @@ namespace IMM.Classes
             }
             return raktarak;
         }
+        public List<RaktarLokacio> getAllRaktarLokacio() {
+            List<RaktarLokacio> raktarLokaciok = new List<RaktarLokacio>();
+            SQLiteDataReader dr;
+            try {
+                sqlc.CommandText = "SELECT * FROM RaktarLokaciok";
+                dr = sqlc.ExecuteReader();
+                while (dr.Read()) {
+                    RaktarLokacio jelenlegiLokacio = new RaktarLokacio(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), dr.GetValue(2).ToString());
+                    raktarLokaciok.Add(jelenlegiLokacio);
+                }
+                dr.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Raktár lokációk kiolvasása SQL hiba!");
+                Logger.Log("Database", ex.Message);
+            }
+            return raktarLokaciok;
+        }
         #endregion
         #endregion
         #region FINDBY
@@ -359,6 +376,21 @@ namespace IMM.Classes
                                               where x.MrAzonosito == azon
                                               select x).ToList();
             return jelenlegiLista;
+        }
+        #endregion
+        #region Raktár Modul
+        public List<Raktar> raktarFindByID(int id) {
+            List<Raktar> jelenlegiLista = (from x in getAllRaktar()
+                                           where x.RaktarID == id
+                                           select x).ToList();
+            return jelenlegiLista;
+        }
+        public List<RaktarLokacio> raktarLokacioFindByRaktarID(int id) {
+            List<RaktarLokacio> jelenlegi = (from x in getAllRaktarLokacio()
+                                             where x.RID == id
+                                             select x).ToList();
+            return jelenlegi;
+
         }
         #endregion
         #endregion

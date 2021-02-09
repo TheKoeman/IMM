@@ -23,14 +23,20 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.close = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.frissitesBtn = new System.Windows.Forms.Button();
             this.ujRaktarBtn = new System.Windows.Forms.Button();
             this.mindenRaktarGridView = new System.Windows.Forms.DataGridView();
             this.kivalasztBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mindenRaktarGridView)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // close
@@ -90,12 +96,21 @@
             this.mindenRaktarGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mindenRaktarGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.kivalasztBtn});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mindenRaktarGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.mindenRaktarGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mindenRaktarGridView.Location = new System.Drawing.Point(0, 47);
+            this.mindenRaktarGridView.Location = new System.Drawing.Point(3, 3);
             this.mindenRaktarGridView.Name = "mindenRaktarGridView";
             this.mindenRaktarGridView.ReadOnly = true;
-            this.mindenRaktarGridView.Size = new System.Drawing.Size(1226, 570);
+            this.mindenRaktarGridView.Size = new System.Drawing.Size(1212, 538);
             this.mindenRaktarGridView.TabIndex = 10;
+            this.mindenRaktarGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mindenRaktarGridView_CellContentClick);
             // 
             // kivalasztBtn
             // 
@@ -105,12 +120,44 @@
             this.kivalasztBtn.ReadOnly = true;
             this.kivalasztBtn.Width = 55;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 47);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1226, 570);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.mindenRaktarGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1218, 544);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Minden raktár";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1218, 544);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Adatok";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // mindenRaktarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 617);
-            this.Controls.Add(this.mindenRaktarGridView);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -121,6 +168,8 @@
             this.Load += new System.EventHandler(this.mindenRaktarForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mindenRaktarGridView)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -133,5 +182,8 @@
         private System.Windows.Forms.Button ujRaktarBtn;
         private System.Windows.Forms.DataGridView mindenRaktarGridView;
         private System.Windows.Forms.DataGridViewButtonColumn kivalasztBtn;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

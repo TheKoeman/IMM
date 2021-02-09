@@ -96,22 +96,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Database.cs" />
-    <Compile Include="Control\GepControl\GepHozzaadUC.cs">
+    <Compile Include="UControl\GepControl\GepHozzaadUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\GepControl\GepHozzaadUC.Designer.cs">
+    <Compile Include="UControl\GepControl\GepHozzaadUC.Designer.cs">
       <DependentUpon>GepHozzaadUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\GepControl\GepKezelesUC.cs">
+    <Compile Include="UControl\GepControl\GepKezelesUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\GepControl\GepKezelesUC.Designer.cs">
+    <Compile Include="UControl\GepControl\GepKezelesUC.Designer.cs">
       <DependentUpon>GepKezelesUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\TermekControl\TermekKategoriakUC.cs">
+    <Compile Include="UControl\RaktarControl\raktarKezelesUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\TermekControl\TermekKategoriakUC.Designer.cs">
+    <Compile Include="UControl\RaktarControl\raktarKezelesUC.Designer.cs">
+      <DependentUpon>raktarKezelesUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\TermekControl\TermekKategoriakUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\TermekControl\TermekKategoriakUC.Designer.cs">
       <DependentUpon>TermekKategoriakUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AllomasForms\allomasHozzaadForm.cs">
@@ -198,12 +204,6 @@
     <Compile Include="Forms\ParameterForms\parameterKezelesForm.Designer.cs">
       <DependentUpon>parameterKezelesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RaktarForms\mindenLokacioForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RaktarForms\mindenLokacioForm.Designer.cs">
-      <DependentUpon>mindenLokacioForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\RaktarForms\mindenRaktarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,7 +241,9 @@
     <Compile Include="Model\GyartasModel\Munkarend.cs" />
     <Compile Include="Model\GyartasModel\MunkarendStatusz.cs" />
     <Compile Include="Model\GyartasModel\MunkarendTermekek.cs" />
+    <Compile Include="Model\RaktarModel\AlLokacio.cs" />
     <Compile Include="Model\RaktarModel\Raktar.cs" />
+    <Compile Include="Model\RaktarModel\RaktarLokacio.cs" />
     <Compile Include="Model\TermekModel\Kategoria.cs" />
     <Compile Include="Model\GepModel\Gep.cs" />
     <Compile Include="Model\TermekModel\Lokacio.cs" />
@@ -274,19 +276,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Control\TermekControl\TermekAdatokUC.cs">
+    <Compile Include="UControl\TermekControl\TermekAdatokUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\TermekControl\TermekAdatokUC.Designer.cs">
+    <Compile Include="UControl\TermekControl\TermekAdatokUC.Designer.cs">
       <DependentUpon>TermekAdatokUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Control\GepControl\GepHozzaadUC.resx">
+    <EmbeddedResource Include="UControl\GepControl\GepHozzaadUC.resx">
       <DependentUpon>GepHozzaadUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\GepControl\GepKezelesUC.resx">
+    <EmbeddedResource Include="UControl\GepControl\GepKezelesUC.resx">
       <DependentUpon>GepKezelesUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\TermekControl\TermekKategoriakUC.resx">
+    <EmbeddedResource Include="UControl\RaktarControl\raktarKezelesUC.resx">
+      <DependentUpon>raktarKezelesUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\TermekControl\TermekKategoriakUC.resx">
       <DependentUpon>TermekKategoriakUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AllomasForms\allomasHozzaadForm.resx">
@@ -337,9 +342,6 @@
     <EmbeddedResource Include="Forms\ParameterForms\parameterKezelesForm.resx">
       <DependentUpon>parameterKezelesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RaktarForms\mindenLokacioForm.resx">
-      <DependentUpon>mindenLokacioForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RaktarForms\mindenRaktarForm.resx">
       <DependentUpon>mindenRaktarForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,7 +372,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Control\TermekControl\TermekAdatokUC.resx">
+    <EmbeddedResource Include="UControl\TermekControl\TermekAdatokUC.resx">
       <DependentUpon>TermekAdatokUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="IMM_TemporaryKey.pfx" />

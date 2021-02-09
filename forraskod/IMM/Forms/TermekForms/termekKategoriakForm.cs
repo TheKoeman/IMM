@@ -1,5 +1,5 @@
 ﻿using IMM.Classes;
-using IMM.Control;
+using IMM.UControl;
 using IMM.Model;
 using System;
 using System.Collections.Generic;
@@ -69,6 +69,9 @@ namespace IMM.Forms {
             }
         }
         private void termekKategoriakForm_Load(object sender, EventArgs e) {
+            AutoSize = false;
+            this.HorizontalScroll.Enabled = false;
+            AutoSize = true;
             database = new Database();
             terkatUC = new TermekKategoriakUC();
             terkatUC.Parent = adatokTabpage;

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMM.Classes;
 using IMM.Forms;
@@ -34,10 +26,6 @@ namespace IMM
 
 
         #region GOMB EVENTEK
-        private void lokacioBtn_Click(object sender, EventArgs e) {
-            mindenLokacioForm frm = new mindenLokacioForm(tabControl2);
-            mdiMutat(frm);
-        }
         private void raktarBtn_Click(object sender, EventArgs e) {
             mindenRaktarForm frm = new mindenRaktarForm(tabControl2);
             mdiMutat(frm);
@@ -99,6 +87,7 @@ namespace IMM
         void mdiMutat(Form _frm) {
             TabPage tp = new TabPage();
             if (!formActive(_frm)) {
+                tp.Size = this.Size;
                 _frm.Dock = DockStyle.Fill;
                 _frm.TopLevel = false;
                 tp.Text = _frm.Text;
@@ -124,5 +113,15 @@ namespace IMM
         private void bottomMenuLoggerTextbox_Click(object sender, EventArgs e) {
             Logger.mappaMegnyit();
         }
+
+        private void mindenTermekBtn_Resize(object sender, EventArgs e) {
+
+        }
+
+        private void main_Resize(object sender, EventArgs e) {
+           
+        }
+
+
     }
 }

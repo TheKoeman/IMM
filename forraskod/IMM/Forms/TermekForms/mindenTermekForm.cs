@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMM.Model;
+using IMM.UControl;
 using IMM.Forms.Termek;
 
 namespace IMM
@@ -34,6 +35,7 @@ namespace IMM
             tauc.Dock = DockStyle.Fill;
             termekekLista = database.getAllTermek();
             gridFeltolt();
+            
         }
 
         #region BEZÁRÁS GOMB
