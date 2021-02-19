@@ -14,8 +14,9 @@ using IMM.Model.RaktarModel;
 
 namespace IMM.Classes
 {
-    class Database {
+    public class Database {
         private string conString = Properties.Settings.Default.dbConn;
+        public static string connection = Properties.Settings.Default.dbConn;
         private SQLiteConnection con;
         private SQLiteCommand sqlc;
         public Database() {
@@ -27,7 +28,7 @@ namespace IMM.Classes
         }
         #region GETALL
         #region Termék Modul
-        public List<Termek> getAllTermek() {
+      /*  public List<Termek> getAllTermek() {
             List<Termek> termekek = new List<Termek>();
             SQLiteDataReader dr;
             try {
@@ -81,10 +82,10 @@ namespace IMM.Classes
                 Logger.Log("Database", ex.Message);
             }
             return lokaciok;
-        }
+        }*/
         #endregion
         #region Felhasználó modul
-        public List<User> getAllUser() {
+      /*  public List<User> getAllUser() {
             List<User> felhasznalok = new List<User>();
             SQLiteDataReader dr;
             try {
@@ -100,7 +101,7 @@ namespace IMM.Classes
                 Logger.Log("Database", ex.Message);
             }
             return felhasznalok;
-        }
+        }*/
         #endregion
         #region Gép Modul
         public List<Gep> getAllGep() {
@@ -292,7 +293,7 @@ namespace IMM.Classes
         #endregion
         #region FINDBY
         #region Termék Modul
-        public List<Termek> termekFindById(int id) {
+       /* public List<Termek> termekFindById(int id) {
             List<Termek> actual = new List<Termek>();
             actual = (from x in getAllTermek()
                      where x.ID == id
@@ -305,7 +306,7 @@ namespace IMM.Classes
                                where x.KategoriaNev == name
                                select x).ToList();
             return actualKategoria;
-        }
+        }*/
         #endregion
         #region Gép Modul
         public List<Gep> gepFindById(int id) {
@@ -396,7 +397,7 @@ namespace IMM.Classes
         #endregion
         #region UPDATE/INSERT/DELETE
         #region Termék Modul
-        public void termekModositas(Termek _termek) {
+       /* public void termekModositas(Termek _termek) {
             try {
                 sqlc.CommandText = "UPDATE Termekek SET termekNev='"+ _termek.TermekNev+"',termekNev2='"+ _termek.TermekNev2 + "',cikkszam='"+ _termek.Cikkszam + "',kategoria='"+ _termek.Kategoria+ "',csomagolasidarabszam='"+_termek.CsomagolasiDarabszam+"',minimumgyarthato='"+_termek.MinimumGyarthato+"',felkesztermek='"+_termek.Felkesztermek+"',beepuloanyag='"+_termek.BeepuloAnyag+"',aktiv='"+_termek.Aktiv+"',raktar='"+_termek.Raktar+"' where id='" + _termek.ID + "'";
                 sqlc.ExecuteNonQuery();
@@ -404,10 +405,10 @@ namespace IMM.Classes
                 MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");
                 Logger.Log("Database", ex.Message);
             }
-        }
+        }*/
         public void termekHozzaad(Termek _termek) {
             try {
-                sqlc.CommandText = "INSERT INTO Termekek (termekNev,termekNev2,cikkszam,kategoria,raktar) VALUES('" + _termek.TermekNev + "','" + _termek.TermekNev2 + "','" + _termek.Cikkszam + "','"+ _termek.Kategoria+"','"+_termek.Raktar+"')";
+                sqlc.CommandText = "INSERT INTO Termekek (termekNev,termekNev2,cikkszam,kategoria,raktar) VALUES('" + _termek.TermekNev + "','" + _termek.TermekNev2 + "','" + _termek.Cikkszam + "','"+ _termek.KategoriaID+"','"+_termek.Raktar+"')";
                 sqlc.ExecuteNonQuery();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Termék hozzáadása SQL hiba!");
@@ -551,7 +552,7 @@ namespace IMM.Classes
         }
         public void munkarendTermekAdd(MunkarendTermekek _mt) {
             try {
-                sqlc.CommandText = "INSERT INTO MunkarendTermekek (mrid,termekid,szuksegesdarabszam,statusz)VALUES('" + _mt.MrID + "','" + _mt.TermekID + "','"+termekFindById(_mt.TermekID).First().MinimumGyarthato+ "','"+ _mt.Statusz+ "')";
+                sqlc.CommandText = "INSERT INTO MunkarendTermekek (mrid,termekid,szuksegesdarabszam,statusz)VALUES('" + _mt.MrID + "','" + _mt.TermekID + "','"+Termek.findByID(_mt.TermekID).MinimumGyarthato+ "','"+ _mt.Statusz+ "')";
                 sqlc.ExecuteNonQuery();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Munkarend Termék hozzáadása SQL hiba!");

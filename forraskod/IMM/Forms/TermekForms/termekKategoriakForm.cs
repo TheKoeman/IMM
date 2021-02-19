@@ -20,7 +20,7 @@ namespace IMM.Forms {
 
        void populateTreeview() {
             kategoriakTree.Nodes.Clear();
-            List<Kategoria> katList = database.getAllKategoria();
+            List<Kategoria> katList = Kategoria.getAll();
             List<GepKategoria> gkLista = database.getAllGepKategoria();
             try {
                 foreach (var kategoria in katList) {
@@ -53,12 +53,12 @@ namespace IMM.Forms {
                 var kivalasztott = kategoriakTree.SelectedNode;
                 if (kivalasztott != null) {
                     if (kivalasztott.Parent != null) {
-                        Kategoria kat = new Kategoria(Convert.ToInt32(database.kategoriaFindByName(kivalasztott.Parent.Text).First().Id), kivalasztott.Parent.Text.ToString());
+                        Kategoria kat = new Kategoria(Convert.ToInt32(Kategoria.findByName(kivalasztott.Parent.Text).Id), kivalasztott.Parent.Text.ToString());
                         terkatUC.Kategoria = kat;
                         tabControl1.SelectedTab = adatokTabpage;
                         terkatUC.populateGridView();
                     } else {
-                        Kategoria kat = new Kategoria(Convert.ToInt32(database.kategoriaFindByName(kivalasztott.Text).First().Id), kivalasztott.Text.ToString());
+                        Kategoria kat = new Kategoria(Convert.ToInt32(Kategoria.findByName(kivalasztott.Text).Id), kivalasztott.Text.ToString());
                         terkatUC.Kategoria = kat;
                         tabControl1.SelectedTab = adatokTabpage;
                         terkatUC.populateGridView();

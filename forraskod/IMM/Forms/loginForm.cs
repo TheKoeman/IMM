@@ -56,7 +56,7 @@ namespace IMM.Install
         string vez, ker;
         void parseLogin(string uname, string pass)
         {
-            List<User> ur = database.getAllUser();
+            List<User> ur = User.getAll();
             if (User.CheckUser(ur, uname,pass)){
                 var kiolvasott = from x in ur
                                  where x.FelhasznaloNev == uname
@@ -67,8 +67,8 @@ namespace IMM.Install
                     ker = sor.KeresztNev;
                 }
                 main frm = new main(uname, vez, ker);
-                IMM.Properties.Settings.Default.lastUser = uname;
-                IMM.Properties.Settings.Default.Save();
+                Settings.Default.lastUser = uname;
+                Settings.Default.Save();
                 this.Hide();
                 frm.ShowDialog();
                 this.Close();

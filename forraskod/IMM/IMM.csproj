@@ -96,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Forms\GyartasForms\gyartasSzuresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GyartasForms\gyartasSzuresForm.Designer.cs">
+      <DependentUpon>gyartasSzuresForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControl\GepControl\GepHozzaadUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     <Compile Include="UControl\TermekControl\TermekAdatokUC.Designer.cs">
       <DependentUpon>TermekAdatokUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\GyartasForms\gyartasSzuresForm.resx">
+      <DependentUpon>gyartasSzuresForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControl\GepControl\GepHozzaadUC.resx">
       <DependentUpon>GepHozzaadUC.cs</DependentUpon>
     </EmbeddedResource>

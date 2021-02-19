@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using IMM.Classes;
 
 namespace IMM.Model
 {
-    class User
+    public class User
     {
         #region init
         private int id;
@@ -44,7 +46,7 @@ namespace IMM.Model
             get
             {
                 Database = new Database();
-                List<User> mindenUser = Database.getAllUser();
+                List<User> mindenUser = getAll();
                 var szurtUser = from x in mindenUser
                             where x.FelhasznaloNev == FelhasznaloNev
                             && x.Jelszo == Jelszo
@@ -86,6 +88,28 @@ namespace IMM.Model
             }
         }
 
+        public static List<User> getAll() {
+            List<User> _userek = new List<User>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            SQLiteDataReader dr;
+            sqlc.Open();
+            try {
+                sqlcommand.CommandText = "SELECT * FROM Felhasznalok";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    User _user = new User(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), Convert.ToInt32(dr.GetValue(6)));
+                    _userek.Add(_user);
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Felhasználók kiolvasása hiba!", ex.Message);
+                Logger.Log("users getAll", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+            return _userek;
+        }
 
     }
 }

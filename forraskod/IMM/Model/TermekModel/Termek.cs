@@ -1,12 +1,15 @@
 ﻿using IMM.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using IMM.Model;
+using System.Data;
 
 namespace IMM.Model
 {
@@ -16,7 +19,7 @@ namespace IMM.Model
         private string termekNev;
         private string termekNev2;
         private string cikkszam;
-        private int kategoria;
+        private int kategoriaID;
         private int raktar;
         private int csomagolasiDarabszam;
         private int minimumGyarthato;
@@ -30,7 +33,7 @@ namespace IMM.Model
             this.TermekNev = tnev;
             this.TermekNev2 = tnev2;
             this.Cikkszam = cszam;
-            this.Kategoria = kat;
+            this.KategoriaID = kat;
             this.Raktar = raktar;
             this.CsomagolasiDarabszam = csomagdb;
             this.MinimumGyarthato = mingyarth;
@@ -42,7 +45,7 @@ namespace IMM.Model
         public string TermekNev { get => termekNev; set => termekNev = value; }
         public string TermekNev2 { get => termekNev2; set => termekNev2 = value; }
         public string Cikkszam { get => cikkszam; set => cikkszam = value; }
-        public int Kategoria { get => kategoria; set => kategoria = value; }
+        public int KategoriaID { get => kategoriaID; set => kategoriaID = value; }
         public int CsomagolasiDarabszam { get => csomagolasiDarabszam; set => csomagolasiDarabszam = value; }
         public int MinimumGyarthato { get => minimumGyarthato; set => minimumGyarthato = value; }
         public int Felkesztermek { get => felkesztermek; set => felkesztermek = value; }
@@ -60,7 +63,7 @@ namespace IMM.Model
         }
         public string KategoriaNev {
             get {
-                return (from x in database.getAllKategoria() where x.Id == kategoria select x.KategoriaNev).First().ToString();
+                return (from x in Kategoria.getAll() where x.Id == kategoriaID select x.KategoriaNev).First().ToString();
             }
         }
         public override string ToString()
@@ -68,5 +71,51 @@ namespace IMM.Model
             return ID + " | " + termekNev + " | " + termekNev2;
         }
 
+
+        public static List<Termek> getAll() {
+            List<Termek> _termekek = new List<Termek>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            sqlc.Open();
+            SQLiteDataReader dr;
+            try {
+                sqlcommand.CommandText = "SELECT * FROM Termekek";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    Termek jelenlegiTermek = new Termek(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), Convert.ToInt32(dr.GetValue(4)), Convert.ToInt32(dr.GetValue(5)), Convert.ToInt32(dr.GetValue(6)), Convert.ToInt32(dr.GetValue(7)), Convert.ToInt32(dr.GetValue(8)), Convert.ToInt32(dr.GetValue(9)), Convert.ToInt32(dr.GetValue(10)));
+
+                    _termekek.Add(jelenlegiTermek);
+                }
+                dr.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Termékek kiolvasása SQL hiba!");
+                Logger.Log("Termek getAll", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+            return _termekek;
+        }
+        public static Termek findByID(int id) {
+            Termek _termek = (from x in getAll()
+                              where x.id == id
+                              select x).First();
+            return _termek;
+        }
+        public static void termekModosit(Termek _termek) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            sqlc.Open();
+            try {
+                sqlcommand.CommandText = "UPDATE Termekek SET termekNev='" + _termek.TermekNev + "',termekNev2='" + _termek.TermekNev2 + "',cikkszam='" + _termek.Cikkszam + "',kategoria='" + _termek.KategoriaID + "',csomagolasidarabszam='" + _termek.CsomagolasiDarabszam + "',minimumgyarthato='" + _termek.MinimumGyarthato + "',felkesztermek='" + _termek.Felkesztermek + "',beepuloanyag='" + _termek.BeepuloAnyag + "',aktiv='" + _termek.Aktiv + "',raktar='" + _termek.Raktar + "' where id='" + _termek.ID + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");
+                Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

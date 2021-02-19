@@ -28,7 +28,7 @@ namespace IMM.UControl
                 _termek.TermekNev = termekNevTextbox.Text;
                 _termek.TermekNev2 = termekNev2Textbox.Text;
                 _termek.Cikkszam = cikkszamTextbox.Text;
-                _termek.Kategoria = (from x in kategoriak where x.Id == _termek.Kategoria select x.Id).First();
+                _termek.KategoriaID = (from x in kategoriak where x.Id == _termek.KategoriaID select x.Id).First();
                 _termek.Raktar = (from x in raktarak where x.RaktarID == _termek.Raktar select x.RaktarID).First();
                 return _termek;
             }
@@ -38,7 +38,7 @@ namespace IMM.UControl
                 termekNevTextbox.Text = _termek.TermekNev;
                 termekNev2Textbox.Text = _termek.TermekNev2;
                 cikkszamTextbox.Text = _termek.Cikkszam;
-                kategoriaCombobox.Text = (from x in kategoriak where x.Id == _termek.Kategoria select x.KategoriaNev).First();
+                kategoriaCombobox.Text = (from x in kategoriak where x.Id == _termek.KategoriaID select x.KategoriaNev).First();
                 raktarCombobox.Text = (from x in raktarak where x.RaktarID == _termek.Raktar select x.RaktarMegnevezes).First();
                 if (_termek.Aktiv == 1) { aktivCheckbox.Checked = true; } else { aktivCheckbox.Checked = false; }
                 if (_termek.Felkesztermek == 1) { felkesztermekCheckbox.Checked = true; } else { felkesztermekCheckbox.Checked = false; }
@@ -51,7 +51,7 @@ namespace IMM.UControl
         {
             this._dgv = dgv;
             InitializeComponent();
-            kategoriak = database.getAllKategoria();
+            kategoriak = Kategoria.getAll();
             raktarak = database.getAllRaktar();
         }
 
@@ -60,8 +60,8 @@ namespace IMM.UControl
         #region EVENTS
         void updateEllenoriz(Termek t) {
             try {
-                database.termekModositas(t);
-                _dgv.DataSource = database.getAllTermek();
+                Model.Termek.termekModosit(t);
+                _dgv.DataSource = Model.Termek.getAll();
                 modositas();
                 MessageBox.Show("Termék módosítása sikeres volt!", "Sikeres termék módosítás");
                 Logger.Log("Termék adatok", "Termék módosítása sikeres:" + t.TermekNev);
@@ -77,7 +77,7 @@ namespace IMM.UControl
                         if (t.CsomagolasiDarabszam != 0) {
                             try {
                                 database.termekHozzaad(t);
-                                _dgv.DataSource = database.getAllTermek();
+                                _dgv.DataSource = Model.Termek.getAll();
                                 ujTermek();
                                 MessageBox.Show("Termék hozzáadása sikeres volt!","Sikeres termék hozzáadás");
                                 Logger.Log("Termék adatok", "Termék hozzáadása sikeres:" + t.TermekNev);
@@ -165,11 +165,11 @@ namespace IMM.UControl
             raktarCombobox.ValueMember = "RaktarID";
         }
         void kategoriaFeltolt() {
-            kategoriaCombobox.DataSource = database.getAllKategoria();
+            kategoriaCombobox.DataSource = Kategoria.getAll();
             kategoriaCombobox.DisplayMember = "KategoriaNev";
             kategoriaCombobox.ValueMember = "Id";
             if (_termek != null) {
-                kategoriaCombobox.SelectedValue = _termek.Kategoria;
+                kategoriaCombobox.SelectedValue = _termek.KategoriaID;
             }
         }
         public void ujTermek() {

@@ -1,0 +1,13 @@
+users getAll | Database is not open | 2021. 02. 19. 12:04:11 | 
+users getAll | SQL logic error
+no such table: users | 2021. 02. 19. 12:06:46 | 
+Fő oldal | Főoldal betöltése, sikeres bejelentkezés felhasználó:admin | 2021. 02. 19. 12:07:14 | 
+Kategoria getAll | Database is not open | 2021. 02. 19. 12:07:17 | 
+Fő oldal | Főoldal betöltése, sikeres bejelentkezés felhasználó:admin | 2021. 02. 19. 12:08:37 | 
+Fő oldal | Főoldal betöltése, sikeres bejelentkezés felhasználó:admin | 2021. 02. 19. 12:08:48 | 
+Fő oldal | Program bezárása | 2021. 02. 19. 12:09:00 | 
+Fő oldal | Főoldal betöltése, sikeres bejelentkezés felhasználó:admin | 2021. 02. 19. 12:09:22 | 
+Fő oldal | Program bezárása | 2021. 02. 19. 12:09:28 | 
+Fő oldal | Főoldal betöltése, sikeres bejelentkezés felhasználó:admin | 2021. 02. 19. 12:09:37 | 
+Minden termék | Termékek szűrése | 2021. 02. 19. 12:09:51 | 
+Fő oldal | Program bezárása | 2021. 02. 19. 12:11:36 | 

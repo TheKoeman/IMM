@@ -26,7 +26,7 @@ namespace IMM.Model {
         }
         public string KategoriaNev {
             get {
-                List<Kategoria> katList = database.getAllKategoria();
+                List<Kategoria> katList = Kategoria.getAll();
                 string eredmeny = (from x in katList
                                    where x.Id == KategoriaId
                                    select x.KategoriaNev).First().ToString();

@@ -33,7 +33,7 @@ namespace IMM
             tauc = new TermekAdatokUC(termekekGrid);
             tauc.Parent = adatokTabpage;
             tauc.Dock = DockStyle.Fill;
-            termekekLista = database.getAllTermek();
+            termekekLista = Termek.getAll();
             gridFeltolt();
             
         }
@@ -65,15 +65,15 @@ namespace IMM
         {
             termekekGrid.DataSource = termekekLista;
             termekekGrid.Columns["ID"].Visible = false;
-            termekekGrid.Columns["kategoria"].Visible = false;
+            termekekGrid.Columns["kategoriaID"].Visible = false;
             termekekGrid.Columns["TermekNev"].HeaderText = "Terméknév";
             termekekGrid.Columns["TermekNev2"].HeaderText = "Terméknév 2";
             termekekGrid.Columns["Cikkszam"].HeaderText = "Cikkszám";
-            termekekGrid.Columns["Kategoria"].HeaderText = "Kategória";
+            termekekGrid.Columns["KategoriaID"].HeaderText = "KategóriaID";
             termekekGrid.Columns["TermekNev"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["TermekNev2"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["Cikkszam"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["Kategoria"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            termekekGrid.Columns["KategoriaID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["CsomagolasiDarabszam"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["MinimumGyarthato"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["CsomagolasiDarabszam"].HeaderText = "Csomagolási darabszám";
@@ -102,7 +102,7 @@ namespace IMM
             try
             {
                 if (e.RowIndex >= 0)
-                    tauc.Termek = database.termekFindById(Convert.ToInt32(termekekGrid.Rows[e.RowIndex].Cells["ID"].Value)).FirstOrDefault();
+                    tauc.Termek = Termek.findByID(Convert.ToInt32(termekekGrid.Rows[e.RowIndex].Cells["ID"].Value));
             }
             catch (Exception ex)
             {
@@ -120,7 +120,7 @@ namespace IMM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            termekekGrid.DataSource = database.getAllTermek();
+            termekekGrid.DataSource = Termek.getAll();
         }
 
         private void ujTermekBtn_Click(object sender, EventArgs e) {

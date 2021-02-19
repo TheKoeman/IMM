@@ -83,22 +83,22 @@ namespace IMM.UControl {
             try {
                 if (_gepAdatok != null) {
                     if (_gepAdatok.Lokacio != 0) {
-                        var lokacioNev = (from x in database.getAllLokacio()
+                        var lokacioNev = (from x in Lokacio.getAll()
                                           where x.LokId == _gepAdatok.Lokacio
                                           select x.LokNev).FirstOrDefault();
 
-                        gepLokaciojaTextbox.DataSource = database.getAllLokacio();
+                        gepLokaciojaTextbox.DataSource = Lokacio.getAll();
                         gepLokaciojaTextbox.DisplayMember = "LokNev";
                         gepLokaciojaTextbox.ValueMember = "LokId";
-                        gepLokaciojaTextbox.Text = (from x in database.getAllLokacio()
+                        gepLokaciojaTextbox.Text = (from x in Lokacio.getAll()
                                                     where x.LokId == _gepAdatok.Lokacio
                                                     select x.LokNev).FirstOrDefault();
-                        gepLokaciojaTextbox.SelectedValue = (from x in database.getAllLokacio()
+                        gepLokaciojaTextbox.SelectedValue = (from x in Lokacio.getAll()
                                                              where x.LokId == _gepAdatok.Lokacio
                                                              select x.LokId).FirstOrDefault();
                     }
                 } else {
-                    gepLokaciojaTextbox.DataSource = database.getAllLokacio();
+                    gepLokaciojaTextbox.DataSource = Lokacio.getAll();
                     gepLokaciojaTextbox.DisplayMember = "LokNev";
                     gepLokaciojaTextbox.ValueMember = "LokId";
                     gepLokaciojaTextbox.Text = "";

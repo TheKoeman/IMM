@@ -19,7 +19,7 @@ namespace IMM.Model.GyartasModel {
         public int SzuksegesDarabszam { get => szuksegesDarabszam; set => szuksegesDarabszam = value; }
         public string TermekNev {
             get {
-                return database.termekFindById(TermekID).First().TermekNev;
+                return Model.Termek.findByID(TermekID).TermekNev;
             }
         }
         public string MunkarendMegnevezes {

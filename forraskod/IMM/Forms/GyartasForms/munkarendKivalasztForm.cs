@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMM.Model;
 
 namespace IMM.Forms.GyartasForms {
     public partial class munkarendKivalasztForm : Form {
@@ -99,9 +100,9 @@ namespace IMM.Forms.GyartasForms {
                 }
                 termekGridFeltolt();
             } else if (munkarendGyartasGridView.Columns[e.ColumnIndex] == gepListaColumn) {
-                Model.Termek termek = database.termekFindById(Convert.ToInt32(munkarendGyartasGridView.Rows[e.RowIndex].Cells["TermekID"].Value)).First();
+                Model.Termek termek = Model.Termek.findByID(Convert.ToInt32(munkarendGyartasGridView.Rows[e.RowIndex].Cells["TermekID"].Value));
                 List<GepKategoria> gepLista = (from x in database.getAllGepKategoria()
-                                      where x.KategoriaId == termek.Kategoria
+                                      where x.KategoriaId == termek.KategoriaID
                                       select x).OrderBy(x => x.GepId).ToList();
                 Form frm = new Form();
                 frm.Size = new Size(500, 500);

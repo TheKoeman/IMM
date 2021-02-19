@@ -27,7 +27,7 @@ namespace IMM.Forms.GyartasForms {
 
         void gridFeltolt() {
             termekekGridView.DataSource = null;
-            termekekGridView.DataSource = (from x in database.getAllTermek()
+            termekekGridView.DataSource = (from x in Model.Termek.getAll()
                                            where x.Aktiv == 1
                                            select x).ToList();
             termekekGridView.Columns["ID"].Visible = false;
@@ -51,7 +51,7 @@ namespace IMM.Forms.GyartasForms {
         private void jovahagyBtn_Click(object sender, EventArgs e) {
             foreach (DataGridViewRow dgvr in termekekGridView.Rows) {
                 if (Convert.ToBoolean(dgvr.Cells[0].Value)) {
-                    Model.Termek _termek = database.termekFindById(Convert.ToInt32(dgvr.Cells["ID"].Value)).First();
+                    Model.Termek _termek = Model.Termek.findByID(Convert.ToInt32(dgvr.Cells["ID"].Value));
                     MunkarendTermekek _mrT = new MunkarendTermekek(0, MunkarendID, _termek.ID, _termek.MinimumGyarthato, (from x in database.getAllMunkarendStatuszok() where x.Sorszam==1 select x).First().Megnevezes);
                     // database.munkarendTermekAdd(MunkarendID, Convert.ToInt32(dgvr.Cells["ID"].Value), _termek.MinimumGyarthato, "Felvéve");
                     database.munkarendTermekAdd(_mrT);

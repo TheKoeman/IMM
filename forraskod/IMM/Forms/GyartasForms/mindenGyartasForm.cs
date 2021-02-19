@@ -83,5 +83,11 @@ namespace IMM.Forms.GyartasForms {
                 frm.ShowDialog();
             }
         }
+
+        private void szuresBtn_Click(object sender, EventArgs e) {
+            gyartasSzuresForm frm = new gyartasSzuresForm(mindenGyartasGridView);
+            frm.ShowDialog();
+
+        }
     }
 }

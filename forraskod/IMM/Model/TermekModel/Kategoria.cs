@@ -1,8 +1,12 @@
-﻿using System;
+﻿using IMM.Classes;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IMM.Model
 {
@@ -22,7 +26,34 @@ namespace IMM.Model
         public string KategoriaNev { get => kategoriaNev; set => kategoriaNev = value; }
         public int Aktiv { get => aktiv; set => aktiv = value; }
 
-
+        public static List<Kategoria> getAll() {
+            List<Kategoria> _kategoriak = new List<Kategoria>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            SQLiteDataReader dr;
+            sqlc.Open();
+            try {
+                sqlcommand.CommandText = "SELECT * FROM kategoriak";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    Kategoria jelenlegiKategoria = new Kategoria(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
+                    _kategoriak.Add(jelenlegiKategoria);
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Kategóriák kiolvasása hiba!", ex.Message);
+                Logger.Log("Kategoria getAll", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+            return _kategoriak;
+        }
+        public static Kategoria findByName(string name) {
+            Kategoria _kategoria = (from x in getAll()
+                                    where x.kategoriaNev == name
+                                    select x).First();
+            return _kategoria;
+        }
 
 
     }

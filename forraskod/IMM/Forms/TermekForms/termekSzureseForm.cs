@@ -26,7 +26,7 @@ namespace IMM.Forms.Termek {
         }
 
         void kategoriaFeltoltes() {
-            kategoriaCombobox.DataSource = database.getAllKategoria();
+            kategoriaCombobox.DataSource = Kategoria.getAll();
             kategoriaCombobox.ValueMember = "Id";
             kategoriaCombobox.DisplayMember = "KategoriaNev";
         }
@@ -40,23 +40,23 @@ namespace IMM.Forms.Termek {
             List<Model.Termek> szurtLista = new List<Model.Termek>();
 
             if (cikkCheck.Checked) {
-                szurtLista = (from x in database.getAllTermek()
+                szurtLista = (from x in Model.Termek.getAll()
                               where x.Cikkszam.Contains(cikkszamTextbox.Text)
                               select x).ToList();
             } else if (termekNevCheck.Checked) {
-                szurtLista = (from x in database.getAllTermek()
+                szurtLista = (from x in Model.Termek.getAll()
                               where x.TermekNev.Contains(termeknevTextbox.Text)
                               select x).ToList();
             } else if (termekNev2Check.Checked) {
-                szurtLista = (from x in database.getAllTermek()
+                szurtLista = (from x in Model.Termek.getAll()
                               where x.TermekNev2.Contains(termeknev2Textbox.Text)
                               select x).ToList();
             } else if (kategoriaCheck.Checked) {
-                szurtLista = (from x in database.getAllTermek()
-                              where x.Kategoria == Convert.ToInt32(kategoriaCombobox.SelectedValue)
+                szurtLista = (from x in Model.Termek.getAll()
+                              where x.KategoriaID == Convert.ToInt32(kategoriaCombobox.SelectedValue)
                               select x).ToList();
             } else if (raktarCheck.Checked) {
-                szurtLista = (from x in database.getAllTermek()
+                szurtLista = (from x in Model.Termek.getAll()
                               where x.Raktar == Convert.ToInt32(raktarCombobox.SelectedValue)
                               select x).ToList();
             }
@@ -80,7 +80,7 @@ namespace IMM.Forms.Termek {
         }
 
         private void szuresTorlesBtn_Click(object sender, EventArgs e) {
-            dgv.DataSource = database.getAllTermek();
+            dgv.DataSource = Model.Termek.getAll();
         }
 
         private void raktarCheck_CheckedChanged(object sender, EventArgs e) {
