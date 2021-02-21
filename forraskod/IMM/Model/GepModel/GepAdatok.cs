@@ -1,6 +1,7 @@
 ﻿using IMM.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,29 @@ namespace IMM.Model {
             this.Ismetlodes = ismetles;
         }
 
-        
 
-        
+        public static List<GepAdatok> getAll() {
+            List<GepAdatok> _gepAdatLista = new List<GepAdatok>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            SQLiteDataReader dr;
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "SELECT * FROM GepAdatok";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    GepAdatok _gepAdat = new GepAdatok(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), Convert.ToInt32(dr.GetValue(2)), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString());
+                    _gepAdatLista.Add(_gepAdat);
+                }
+                dr.Close();
+            } catch (Exception ex) {
+                Logger.Log("GepAdatok osztály", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+            return _gepAdatLista;
+        }
+
     }
 }

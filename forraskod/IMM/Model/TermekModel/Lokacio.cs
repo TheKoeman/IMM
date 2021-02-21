@@ -33,6 +33,7 @@ namespace IMM.Model {
                     Lokacio jelenlegiLokacio = new Lokacio(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
                     _lokaciok.Add(jelenlegiLokacio);
                 }
+                dr.Close();
             } catch (Exception ex) {
                 MessageBox.Show("Lokációk kiolvasása hiba!", ex.Message);
                 Logger.Log("Lokaciok getAll", ex.Message);

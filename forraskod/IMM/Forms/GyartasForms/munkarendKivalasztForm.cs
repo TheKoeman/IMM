@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IMM.Model;
+
 
 namespace IMM.Forms.GyartasForms {
     public partial class munkarendKivalasztForm : Form {
@@ -27,7 +27,7 @@ namespace IMM.Forms.GyartasForms {
         private void munkarendKivalasztForm_Load(object sender, EventArgs e) {
             if (munkarendId >= 0) {
                 mr = database.munkarendFindByID(munkarendId).First();
-                mrt = (from x in database.getAllMunkarendTermekek()
+                mrt = (from x in MunkarendTermekek.getAll()
                       where x.MrID==munkarendId
                       select x).ToList();
                 
@@ -40,7 +40,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         void termekGridFeltolt() {
-            munkarendGyartasGridView.DataSource = (from x in database.getAllMunkarendTermekek()
+            munkarendGyartasGridView.DataSource = (from x in MunkarendTermekek.getAll()
                                                    where x.MrID == munkarendId
                                                    select x).ToList();
             munkarendGyartasGridView.Columns["MrtID"].Visible = false;
@@ -64,7 +64,7 @@ namespace IMM.Forms.GyartasForms {
             
             foreach (DataGridViewRow dgvr in munkarendGyartasGridView.Rows) {
                 if (dgvr.Cells["Statusz"].Value.ToString().Length > 1) {
-                    MunkarendStatusz mrs = (from x in database.getAllMunkarendStatuszok()
+                    MunkarendStatusz mrs = (from x in MunkarendStatusz.getAll()
                                             where x.Megnevezes == dgvr.Cells["Statusz"].Value.ToString()
                                             select x).First();
                     if (dgvr.Cells["Statusz"].Value.ToString() == mrs.Megnevezes) {
@@ -82,18 +82,18 @@ namespace IMM.Forms.GyartasForms {
 
         private void munkarendGyartasGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (munkarendGyartasGridView.Columns[e.ColumnIndex] == modositasColumnBtn) {
-                MunkarendTermekek mrt = (from x in database.getAllMunkarendTermekek()
+                MunkarendTermekek mrt = (from x in MunkarendTermekek.getAll()
                                          where x.MrtID == Convert.ToInt32(munkarendGyartasGridView.Rows[e.RowIndex].Cells["MrtID"].Value)
                                          select x).First();
                 munkarendTermekModositasForm frm = new munkarendTermekModositasForm(mrt);
                 frm.ShowDialog();
                 termekGridFeltolt();
             } else if (munkarendGyartasGridView.Columns[e.ColumnIndex] == torlesColumnBtn) {
-                MunkarendTermekek mrt = (from x in database.getAllMunkarendTermekek()
+                MunkarendTermekek mrt = (from x in MunkarendTermekek.getAll()
                                          where x.MrtID == Convert.ToInt32(munkarendGyartasGridView.Rows[e.RowIndex].Cells["MrtID"].Value)
                                          select x).First();
-                if (munkarendGyartasGridView.Rows[e.RowIndex].Cells["Statusz"].Value.ToString() != (from x in database.getAllMunkarendStatuszok() where x.Sorszam == 1 select x).First().Megnevezes) {
-                    string a = (from x in database.getAllMunkarendStatuszok() where x.Sorszam == 1 select x).First().Megnevezes;
+                if (munkarendGyartasGridView.Rows[e.RowIndex].Cells["Statusz"].Value.ToString() != (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes) {
+                    string a = (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes;
                     MessageBox.Show("Nem módosítható a gyártás ha a státusza megváltozott!\nNem [" + a + "]!", "Törlés hiba");
                 } else {
                     database.munkarendTermekDel(mrt);
@@ -101,7 +101,7 @@ namespace IMM.Forms.GyartasForms {
                 termekGridFeltolt();
             } else if (munkarendGyartasGridView.Columns[e.ColumnIndex] == gepListaColumn) {
                 Model.Termek termek = Model.Termek.findByID(Convert.ToInt32(munkarendGyartasGridView.Rows[e.RowIndex].Cells["TermekID"].Value));
-                List<GepKategoria> gepLista = (from x in database.getAllGepKategoria()
+                List<GepKategoria> gepLista = (from x in GepKategoria.getAll()
                                       where x.KategoriaId == termek.KategoriaID
                                       select x).OrderBy(x => x.GepId).ToList();
                 Form frm = new Form();

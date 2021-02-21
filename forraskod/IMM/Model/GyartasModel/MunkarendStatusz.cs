@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using IMM.Classes;
+using System.Data.SQLite;
 namespace IMM.Model.GyartasModel {
    public class MunkarendStatusz {
 
@@ -23,5 +24,29 @@ namespace IMM.Model.GyartasModel {
         public string Megnevezes { get => megnevezes; set => megnevezes = value; }
         public string Szin { get => szin; set => szin = value; }
         public int Sorszam { get => sorszam; set => sorszam = value; }
+
+        public static List<MunkarendStatusz> getAll() {
+            List<MunkarendStatusz> _munkarendStatuszLista = new List<MunkarendStatusz>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            SQLiteDataReader dr;
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "SELECT * FROM MunkarendStatuszok";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    MunkarendStatusz jelenlegiMunkarendStatusz = new MunkarendStatusz(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), Convert.ToInt32(dr.GetValue(3)));
+                    _munkarendStatuszLista.Add(jelenlegiMunkarendStatusz);
+                }
+                dr.Close();
+            } catch (Exception ex) {
+                Logger.Log("MunkarendStátusz osztály", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+            return _munkarendStatuszLista;
+        }
+
     }
 }

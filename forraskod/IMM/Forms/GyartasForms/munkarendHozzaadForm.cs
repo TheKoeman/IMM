@@ -47,7 +47,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         void termekGridFeltolt() {
-            munkarendGyartasGridView.DataSource = (from x in database.getAllMunkarendTermekek()
+            munkarendGyartasGridView.DataSource = (from x in MunkarendTermekek.getAll()
                                                    where x.MrID == Convert.ToInt32(munAzonTextbox.Text)
                                                    select x).ToList();
             munkarendGyartasGridView.Columns["MrtID"].Visible = false;
@@ -65,10 +65,10 @@ namespace IMM.Forms.GyartasForms {
 
         private void letrehozasBtn_Click(object sender, EventArgs e) {
             Munkarend mr;
-            if (database.getAllMunkarend().LastOrDefault() == null) {
+            if (Munkarend.getAll().LastOrDefault() == null) {
                 mr = new Munkarend(1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");
             } else {
-                mr = new Munkarend(database.getAllMunkarend().LastOrDefault().MrId + 1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");
+                mr = new Munkarend(Munkarend.getAll().LastOrDefault().MrId + 1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");
             }
             try {
                 database.munkarendAdd(mr);

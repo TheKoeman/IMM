@@ -39,6 +39,7 @@ namespace IMM.Model
                     Kategoria jelenlegiKategoria = new Kategoria(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
                     _kategoriak.Add(jelenlegiKategoria);
                 }
+                dr.Close();
             } catch (Exception ex) {
                 MessageBox.Show("Kategóriák kiolvasása hiba!", ex.Message);
                 Logger.Log("Kategoria getAll", ex.Message);

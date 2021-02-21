@@ -23,7 +23,7 @@ namespace IMM.UControl {
         }
 
         void dataFeltolt() {
-            List<Gep> gepLista = database.getAllGep();
+            List<Gep> gepLista = Gep.getAll();
             gepekGridView.DataSource = gepLista;
             gepekGridView.Columns["Id"].Visible = false;
             
@@ -31,7 +31,7 @@ namespace IMM.UControl {
 
         void listRefresh() {
             dataView.DataSource = null;
-            List<GepKategoria> szurt = (from x in database.getAllGepKategoria()
+            List<GepKategoria> szurt = (from x in GepKategoria.getAll()
                                         where x.KategoriaId == kategoriaid
                                         select x).ToList();
             dataView.DataSource = szurt;
@@ -49,7 +49,7 @@ namespace IMM.UControl {
 
 
         private void mentesBtn_Click(object sender, EventArgs e) {
-            List<GepKategoria> gkat = (from x in database.getAllGepKategoria()
+            List<GepKategoria> gkat = (from x in GepKategoria.getAll()
                                        where x.KategoriaId == kategoriaid
                                        select x).ToList();
 

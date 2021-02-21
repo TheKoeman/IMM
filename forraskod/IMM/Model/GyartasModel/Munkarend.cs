@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using IMM.Classes;
+using System.Data.SQLite;
 namespace IMM.Model.GyartasModel {
    public class Munkarend {
 
@@ -29,5 +30,25 @@ namespace IMM.Model.GyartasModel {
         public string MrDatum { get => mrDatum; set => mrDatum = value; }
         public string Letrehozta { get => letrehozta; set => letrehozta = value; }
         public string ElkeszultDatum { get => elkeszultDatum; set => elkeszultDatum = value; }
+
+        public static List<Munkarend> getAll() {
+            List<Munkarend> _munkarendek = new List<Munkarend>();
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            SQLiteDataReader dr;
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "SELECT * FROM Munkarendek";
+                dr = sqlcommand.ExecuteReader();
+                while (dr.Read()) {
+                    Munkarend jelenlegiMunkarend = new Munkarend(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString());
+                    _munkarendek.Add(jelenlegiMunkarend);
+                }
+                dr.Close();
+            } catch (Exception ex) {
+                Logger.Log("Munkarend osztály", ex.Message);
+            }
+            return _munkarendek;
+        }
     }
 }

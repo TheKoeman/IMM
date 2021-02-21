@@ -18,7 +18,7 @@ namespace IMM.UControl {
 
         public void populateGridView() {
             katGepData.DataSource = null;
-            List<GepKategoria> szurt = (from x in database.getAllGepKategoria()
+            List<GepKategoria> szurt = (from x in GepKategoria.getAll()
                                    where x.KategoriaId == Convert.ToInt32(idTextbox.Text.ToString())
                                    orderby x.GepId //sorba kell rendezni, nem pedig össze-vissza
                                    select x).ToList();

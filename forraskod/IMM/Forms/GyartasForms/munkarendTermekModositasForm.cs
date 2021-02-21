@@ -43,8 +43,8 @@ namespace IMM.Forms.GyartasForms {
         }
 
         private void mentesBtn_Click(object sender, EventArgs e) {
-            if (mrT.Statusz != (from x in database.getAllMunkarendStatuszok() where x.Sorszam == 1 select x).First().Megnevezes) {
-                string a = (from x in database.getAllMunkarendStatuszok() where x.Sorszam == 1 select x).First().Megnevezes;
+            if (mrT.Statusz != (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes) {
+                string a = (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes;
                 MessageBox.Show("Nem módosítható a gyártás ha a státusza megváltozott!\nNem [" + a + "]!", "Módosítás hiba");
             } else {
                 MunkarendTermekek _uj = new MunkarendTermekek(mrT.MrtID, mrT.MrID, mrT.TermekID, Convert.ToInt32(megrendeltMennyisegTextbox.Text), mrT.Statusz);

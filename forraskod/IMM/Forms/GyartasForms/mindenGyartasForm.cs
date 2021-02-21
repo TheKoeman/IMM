@@ -27,7 +27,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         void dataGridFeltolt() {
-            List<MunkarendTermekek> gyartasLista = database.getAllMunkarendTermekek().OrderBy(x => x.MrID).ToList();
+            List<MunkarendTermekek> gyartasLista = MunkarendTermekek.getAll().OrderBy(x => x.MrID).ToList();
             mindenGyartasGridView.DataSource = gyartasLista;
             mindenGyartasGridView.Columns["MrtID"].Visible = false;
             mindenGyartasGridView.Columns["MrID"].Visible = false;
@@ -45,7 +45,7 @@ namespace IMM.Forms.GyartasForms {
         void sorokSzinez() {
             foreach (DataGridViewRow dgvr in mindenGyartasGridView.Rows) {
                 if (dgvr.Cells["Statusz"].Value.ToString().Length > 1) {
-                    MunkarendStatusz mrs = (from x in database.getAllMunkarendStatuszok()
+                    MunkarendStatusz mrs = (from x in MunkarendStatusz.getAll()
                                             where x.Megnevezes == dgvr.Cells["Statusz"].Value.ToString()
                                             select x).First();
                     if (dgvr.Cells["Statusz"].Value.ToString() == mrs.Megnevezes) {

@@ -21,10 +21,10 @@ namespace IMM.Forms {
        void populateTreeview() {
             kategoriakTree.Nodes.Clear();
             List<Kategoria> katList = Kategoria.getAll();
-            List<GepKategoria> gkLista = database.getAllGepKategoria();
+            List<GepKategoria> gkLista = GepKategoria.getAll();
             try {
                 foreach (var kategoria in katList) {
-                    List<GepKategoria> szurtGepkategoriak = (from x in database.getAllGepKategoria()
+                    List<GepKategoria> szurtGepkategoriak = (from x in GepKategoria.getAll()
                                                              where x.KategoriaId == kategoria.Id
                                                              orderby x.GepId
                                                              select x).ToList();

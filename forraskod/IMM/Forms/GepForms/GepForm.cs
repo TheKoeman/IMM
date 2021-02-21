@@ -31,7 +31,7 @@ namespace IMM.Forms {
 
 
         void gridFeltolt() {
-            gepekGridView.DataSource = database.getAllGep();
+            gepekGridView.DataSource = Gep.getAll();
             gepekGridView.Columns[1].HeaderText = "Gép ID";
             gepekGridView.Columns[2].HeaderText = "Gép neve";
             gepekGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -67,7 +67,7 @@ namespace IMM.Forms {
             Form frm = new Form();
             frm.ShowIcon = false;
             frm.StartPosition = FormStartPosition.CenterParent;
-            gkuc = new GepKezelesUC(gepekGridView, database.getAllGep().LastOrDefault().Id+1 , null);
+            gkuc = new GepKezelesUC(gepekGridView, Gep.getAll().LastOrDefault().Id+1 , null);
             gkuc.Parent = frm;
             frm.Size = gkuc.Size;
             gkuc.Dock = DockStyle.Fill;
@@ -76,7 +76,7 @@ namespace IMM.Forms {
         }
 
         private void frissitesBtn_Click(object sender, EventArgs e) {
-            gepekGridView.DataSource = database.getAllGep();
+            gepekGridView.DataSource = Gep.getAll();
         }
     }
 }

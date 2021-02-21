@@ -40,7 +40,7 @@ namespace IMM.UControl {
         private void GepKezelesUC_Load(object sender, EventArgs e) {
             if (_gepAdatok != null) {
                 gepIdTextbox.Text = _gepAdatok.Gepid.ToString();
-                gepNevTextbox.Text = (from x in database.getAllGep()
+                gepNevTextbox.Text = (from x in Gep.getAll()
                                       where x.Id == _gepAdatok.Gepid
                                       select x.GepNev).FirstOrDefault();
                 gepMarkajaTextbox.Text = _gepAdatok.Gepmarka;
@@ -54,7 +54,7 @@ namespace IMM.UControl {
                 betoltve = true;
             } else {
                 gepIdTextbox.Text = hozottId.ToString();
-                gepNevTextbox.Text = (from x in database.getAllGep()
+                gepNevTextbox.Text = (from x in Gep.getAll()
                                       where x.Id == hozottId
                                       select x.GepNev).FirstOrDefault();
                 allomasokComboBox.Enabled = false;
@@ -202,7 +202,7 @@ namespace IMM.UControl {
                         GepAdatok gepadat = new GepAdatok(_gepAdatok.GaId, gep.Id, Convert.ToInt32(gepLokaciojaTextbox.SelectedValue), gepMarkajaTextbox.Text, ciklusidoTextbox.Text, karbantartasTextbox.Text, ismetlodesTextbox.SelectedItem.ToString());
                         database.gepAdatokModositas(gepadat);
                         if (_dgv != null) {
-                            _dgv.DataSource = database.getAllGep();
+                            _dgv.DataSource = Gep.getAll();
                         }
                     } catch (Exception ex) {
                         MessageBox.Show(ex.Message, "Mentés error!");
@@ -214,7 +214,7 @@ namespace IMM.UControl {
                         GepAdatok gepadat = new GepAdatok(0, hozottId, Convert.ToInt32(gepLokaciojaTextbox.SelectedValue), gepMarkajaTextbox.Text, ciklusidoTextbox.Text, karbantartasTextbox.Text, ismetlodesTextbox.SelectedItem.ToString());
                         database.gepAdatokAdd(gepadat);
                         if (_dgv != null) {
-                            _dgv.DataSource = database.getAllGep();
+                            _dgv.DataSource = Gep.getAll();
                         }
                     } catch (Exception ex) {
                         MessageBox.Show(ex.Message, "Mentés error!");

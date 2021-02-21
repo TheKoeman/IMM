@@ -1,4 +1,5 @@
 ﻿using IMM.Classes;
+using IMM.Model.GyartasModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         void gridFeltolt() {
-            munkarendekGridView.DataSource = database.getAllMunkarend();
+            munkarendekGridView.DataSource = Munkarend.getAll();
             munkarendekGridView.Columns["MrID"].Visible = false;
             munkarendekGridView.Columns["MrAzonosito"].HeaderText = "Munkarend azonosító";
             munkarendekGridView.Columns["MrMegnevezes"].HeaderText = "Munkarend megnevezés";

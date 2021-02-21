@@ -27,179 +27,8 @@ namespace IMM.Classes
             }
         }
         #region GETALL
-        #region Termék Modul
-      /*  public List<Termek> getAllTermek() {
-            List<Termek> termekek = new List<Termek>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM Termekek";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    Termek jelenlegiTermek = new Termek(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), Convert.ToInt32(dr.GetValue(4)), Convert.ToInt32(dr.GetValue(5)),Convert.ToInt32(dr.GetValue(6)), Convert.ToInt32(dr.GetValue(7)), Convert.ToInt32(dr.GetValue(8)), Convert.ToInt32(dr.GetValue(9)), Convert.ToInt32(dr.GetValue(10)));
-
-                    termekek.Add(jelenlegiTermek);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Termékek kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-
-            return termekek;
-
-        }
-        public List<Kategoria> getAllKategoria() {
-            List<Kategoria> kategoriak = new List<Kategoria>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM Kategoriak";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    Kategoria jelenlegiKategoria = new Kategoria(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
-                    kategoriak.Add(jelenlegiKategoria);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Kategóriák kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return kategoriak;
-        }
-        public List<Lokacio> getAllLokacio() {
-            List<Lokacio> lokaciok = new List<Lokacio>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM Lokaciok";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    Lokacio jelenlegiLokacio = new Lokacio(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
-
-                    lokaciok.Add(jelenlegiLokacio);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Lokációk kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return lokaciok;
-        }*/
-        #endregion
-        #region Felhasználó modul
-      /*  public List<User> getAllUser() {
-            List<User> felhasznalok = new List<User>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM Felhasznalok";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    User jelenlegiUser = new User(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), Convert.ToInt32(dr.GetValue(6)));
-                    felhasznalok.Add(jelenlegiUser);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Felhasználók kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return felhasznalok;
-        }*/
-        #endregion
-        #region Gép Modul
-        public List<Gep> getAllGep() {
-            List<Gep> gepek = new List<Gep>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM Gepek";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    Gep jelenlegiGep = new Gep(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString());
-                    gepek.Add(jelenlegiGep);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Gépek kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-
-            return gepek;
-
-        }
-        public List<GepKategoria> getAllGepKategoria() {
-            List<GepKategoria> gkat = new List<GepKategoria>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM GepKategoriak";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    GepKategoria jelenlegiGKat = new GepKategoria(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), Convert.ToInt32(dr.GetValue(2)));
-                    gkat.Add(jelenlegiGKat);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Gép kategóriák kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-
-            return gkat;
-
-
-        }
-        public List<GepAllomas> getAllGepAllomas() {
-            List<GepAllomas> allomasok = new List<GepAllomas>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM GepAllomasok";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    GepAllomas jelenlegiAllomas = new GepAllomas(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), Convert.ToInt32(dr.GetValue(2)),dr.GetValue(3).ToString());
-
-                    allomasok.Add(jelenlegiAllomas);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Gép állomások kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return allomasok;
-        }
-        public List<GepAllomasParameter> getAllGepAllomasParameter() {
-            List<GepAllomasParameter> parameterek = new List<GepAllomasParameter>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM GepAllomasParameterek";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    GepAllomasParameter jelenlegiParameter = new GepAllomasParameter(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), dr.GetValue(2).ToString(),dr.GetValue(3).ToString(),dr.GetValue(4).ToString(),dr.GetValue(5).ToString());
-
-                    parameterek.Add(jelenlegiParameter);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Gép állomás paraméterek kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return parameterek;
-        }
-        public List<GepAdatok> getAllGepAdat() {
-            List<GepAdatok> adatok = new List<GepAdatok>();
-            SQLiteDataReader dr;
-            try {
-                sqlc.CommandText = "SELECT * FROM GepAdatok";
-                dr = sqlc.ExecuteReader();
-                while (dr.Read()) {
-                    GepAdatok jelenlegiAdat = new GepAdatok(Convert.ToInt32(dr.GetValue(0)), Convert.ToInt32(dr.GetValue(1)), Convert.ToInt32(dr.GetValue(2)),dr.GetValue(3).ToString(), dr.GetValue(4).ToString(),dr.GetValue(5).ToString(), dr.GetValue(6).ToString());
-
-                    adatok.Add(jelenlegiAdat);
-                }
-                dr.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "GépAdatok kiolvasása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-            return adatok;
-        }
-        #endregion
         #region Gyártás modul
-        public List<Munkarend> getAllMunkarend() {
+       /* public List<Munkarend> getAllMunkarend() {
             List<Munkarend> munkarendek = new List<Munkarend>();
             SQLiteDataReader dr;
             try {
@@ -252,7 +81,7 @@ namespace IMM.Classes
             }
 
             return munkarendStatuszok;
-        }
+        }*/
         #endregion
         #region Raktár modul
         public List<Raktar> getAllRaktar() {
@@ -292,44 +121,28 @@ namespace IMM.Classes
         #endregion
         #endregion
         #region FINDBY
-        #region Termék Modul
-       /* public List<Termek> termekFindById(int id) {
-            List<Termek> actual = new List<Termek>();
-            actual = (from x in getAllTermek()
-                     where x.ID == id
-                     select x).ToList();
-            return actual;
-        }
-        public List<Kategoria> kategoriaFindByName(string name) {
-            List<Kategoria> actualKategoria = new List<Kategoria>();
-            actualKategoria = (from x in getAllKategoria()
-                               where x.KategoriaNev == name
-                               select x).ToList();
-            return actualKategoria;
-        }*/
-        #endregion
         #region Gép Modul
         public List<Gep> gepFindById(int id) {
             List<Gep> actualGep = new List<Gep>();
-            actualGep = (from x in getAllGep()
+            actualGep = (from x in Gep.getAll()
                          where x.Id == id
                          select x).ToList();
             return actualGep;
         }
         public List<GepKategoria> gepKatFindByIds(int gepid, int katid) {
-            List<GepKategoria> gepkatList = (from x in getAllGepKategoria()
+            List<GepKategoria> gepkatList = (from x in GepKategoria.getAll()
                                              where x.GepId == gepid & x.KategoriaId == katid
                                              select x).ToList();
             return gepkatList;
         }
         public List<GepAllomas> gepAllomasFindByGepId(int gepid) {
-            List<GepAllomas> allomasok = (from x in getAllGepAllomas()
+            List<GepAllomas> allomasok = (from x in GepAllomas.getAll()
                                           where x.GepId == gepid
                                           select x).ToList();
             return allomasok;
         }
         public List<GepAllomas> gepAllomasFindByAllomasSzam(int allomas,int gepid) {
-            List<GepAllomas> allomasLista = (from x in getAllGepAllomas()
+            List<GepAllomas> allomasLista = (from x in GepAllomas.getAll()
                                              where x.AllomasSzam == allomas && x.GepId==gepid
                                              select x).ToList();
             return allomasLista;
@@ -341,25 +154,25 @@ namespace IMM.Classes
             return allomas;
         }
         public List<GepAllomas> gepAllomasFindByID(int gaid) {
-            List<GepAllomas> allomas = (from x in getAllGepAllomas()
+            List<GepAllomas> allomas = (from x in GepAllomas.getAll()
                                         where x.GaId == gaid
                                         select x).ToList();
             return allomas;
         }
         public List<GepAllomasParameter> gepAllomasParameterFindByAllomasId(int allomasId) {
-            List<GepAllomasParameter> parameterek = (from x in getAllGepAllomasParameter()
+            List<GepAllomasParameter> parameterek = (from x in GepAllomasParameter.getAll()
                                                      where x.AllomasId == allomasId
                                                      select x).ToList();
             return parameterek;
         }
         public List<GepAllomasParameter> gepAllomasParameterFindByID(int id) {
-            List<GepAllomasParameter> parameterek = (from x in getAllGepAllomasParameter()
+            List<GepAllomasParameter> parameterek = (from x in GepAllomasParameter.getAll()
                                                      where x.GapId == id
                                                      select x).ToList();
             return parameterek;
         }
         public List<GepAdatok> gepAdatokByGepId(int gepid) {
-            List<GepAdatok> adatok = (from x in getAllGepAdat()
+            List<GepAdatok> adatok = (from x in GepAdatok.getAll()
                                       where x.Gepid == gepid
                                       select x).ToList();
             return adatok;
@@ -367,13 +180,13 @@ namespace IMM.Classes
         #endregion
         #region Gyártás modul
         public List<Munkarend> munkarendFindByID(int id) {
-            List<Munkarend> jelenlegiLista = (from x in getAllMunkarend()
+            List<Munkarend> jelenlegiLista = (from x in Munkarend.getAll()
                                               where x.MrId == id
                                               select x).ToList();
             return jelenlegiLista;
         }
         public List<Munkarend> munkarendFindByAzonosito(string azon) {
-            List<Munkarend> jelenlegiLista = (from x in getAllMunkarend()
+            List<Munkarend> jelenlegiLista = (from x in Munkarend.getAll()
                                               where x.MrAzonosito == azon
                                               select x).ToList();
             return jelenlegiLista;
@@ -397,15 +210,6 @@ namespace IMM.Classes
         #endregion
         #region UPDATE/INSERT/DELETE
         #region Termék Modul
-       /* public void termekModositas(Termek _termek) {
-            try {
-                sqlc.CommandText = "UPDATE Termekek SET termekNev='"+ _termek.TermekNev+"',termekNev2='"+ _termek.TermekNev2 + "',cikkszam='"+ _termek.Cikkszam + "',kategoria='"+ _termek.Kategoria+ "',csomagolasidarabszam='"+_termek.CsomagolasiDarabszam+"',minimumgyarthato='"+_termek.MinimumGyarthato+"',felkesztermek='"+_termek.Felkesztermek+"',beepuloanyag='"+_termek.BeepuloAnyag+"',aktiv='"+_termek.Aktiv+"',raktar='"+_termek.Raktar+"' where id='" + _termek.ID + "'";
-                sqlc.ExecuteNonQuery();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");
-                Logger.Log("Database", ex.Message);
-            }
-        }*/
         public void termekHozzaad(Termek _termek) {
             try {
                 sqlc.CommandText = "INSERT INTO Termekek (termekNev,termekNev2,cikkszam,kategoria,raktar) VALUES('" + _termek.TermekNev + "','" + _termek.TermekNev2 + "','" + _termek.Cikkszam + "','"+ _termek.KategoriaID+"','"+_termek.Raktar+"')";
@@ -571,7 +375,7 @@ namespace IMM.Classes
             }
         }
         bool statuszCheck(MunkarendTermekek _mt) {
-            if (_mt.Statusz == (from x in getAllMunkarendStatuszok() where x.Sorszam == 1 select x).First().Megnevezes) {
+            if (_mt.Statusz == (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes) {
                 return true;
             } else {
                 return false;
