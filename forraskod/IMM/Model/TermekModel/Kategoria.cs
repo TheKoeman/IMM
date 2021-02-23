@@ -55,7 +55,21 @@ namespace IMM.Model
                                     select x).First();
             return _kategoria;
         }
-
+        public static void Modosit(Kategoria _kategoria) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "UPDATE Kategoriak SET kategoriaNev='" + _kategoria.KategoriaNev + "' WHERE id='" + _kategoria.Id + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Kategória módosítás SQL hiba!");
+                Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
 
     }
 }

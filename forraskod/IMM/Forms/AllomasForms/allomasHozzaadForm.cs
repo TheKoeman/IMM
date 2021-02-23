@@ -30,10 +30,10 @@ namespace IMM.Forms {
 
         private void allomasHozzaadBtn_Click(object sender, EventArgs e) {
             try {
-                if (database.gepAllomasFindByAllomasSzam(Convert.ToInt32(allomasSzamTextbox.Text),Convert.ToInt32(kivalasztottGepIdTextbox.Text)).Count > 0) {
+                if (GepAllomas.findByAllomasSzam(Convert.ToInt32(allomasSzamTextbox.Text),Convert.ToInt32(kivalasztottGepIdTextbox.Text)).Count > 0) {
                     MessageBox.Show("Ez az állomás szám már foglalt");
                 } else {
-                    database.gepAllomasAdd(_gep.Id, Convert.ToInt32(allomasSzamTextbox.Text), allomasNevTextbox.Text);
+                    GepAllomas.Hozzaad(_gep.Id, Convert.ToInt32(allomasSzamTextbox.Text), allomasNevTextbox.Text);
                 }
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Állomás hozzáadása hiba!");

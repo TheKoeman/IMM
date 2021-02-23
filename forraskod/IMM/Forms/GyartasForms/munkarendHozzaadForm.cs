@@ -41,7 +41,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         private void termekGyartasbaBtn_Click(object sender, EventArgs e) {
-            termekGyartashozForm frm = new termekGyartashozForm(database.munkarendFindByAzonosito(munAzonTextbox.Text).First().MrId);
+            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId);
             frm.ShowDialog();
             termekGridFeltolt();
         }
@@ -71,14 +71,14 @@ namespace IMM.Forms.GyartasForms {
                 mr = new Munkarend(Munkarend.getAll().LastOrDefault().MrId + 1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");
             }
             try {
-                database.munkarendAdd(mr);
+                Munkarend.Hozzaad(mr);
                 checkSucc();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             } 
         }
         void checkSucc() {
-            if (database.munkarendFindByAzonosito(munAzonTextbox.Text).First() != null) {
+            if (Munkarend.findByAzonosito(munAzonTextbox.Text) != null) {
                 termekGyartasbaBtn.Enabled = true;
             }
         }

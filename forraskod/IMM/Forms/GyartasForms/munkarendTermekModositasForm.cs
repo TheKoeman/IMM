@@ -48,7 +48,7 @@ namespace IMM.Forms.GyartasForms {
                 MessageBox.Show("Nem módosítható a gyártás ha a státusza megváltozott!\nNem [" + a + "]!", "Módosítás hiba");
             } else {
                 MunkarendTermekek _uj = new MunkarendTermekek(mrT.MrtID, mrT.MrID, mrT.TermekID, Convert.ToInt32(megrendeltMennyisegTextbox.Text), mrT.Statusz);
-                database.munkarendTermekUpdate(_uj);
+                MunkarendTermekek.Modosit(_uj);
                 this.Close();
             }
         }

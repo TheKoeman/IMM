@@ -55,7 +55,76 @@ namespace IMM.Model {
             }
             return _gepAllomasLista;
         }
+        public static List<GepAllomas> findByGepID(int gepid) {
+            List<GepAllomas> allomasok = (from x in getAll()
+                                          where x.GepId == gepid
+                                          select x).ToList();
+            return allomasok;
+        }
+        public static List<GepAllomas> findByAllomasSzam(int allomas, int gepid) {
+            List<GepAllomas> allomasLista = (from x in getAll()
+                                             where x.AllomasSzam == allomas && x.GepId == gepid
+                                             select x).ToList();
+            return allomasLista;
+        }
+        public static List<GepAllomas> findByGepIdAllomasNev(int gepid, string allomasnev) {
+            List<GepAllomas> allomas = (from x in findByGepID(gepid)
+                                        where x.AllomasNev == allomasnev
+                                        select x).ToList();
+            return allomas;
+        }
+        public static List<GepAllomas> findByID(int gaid) {
+            List<GepAllomas> allomas = (from x in getAll()
+                                        where x.GaId == gaid
+                                        select x).ToList();
+            return allomas;
+        }
 
-       
+        public static void Hozzaad(int gepid, int allomas, string nev) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO GepAllomasok (gepid,allomasszam,allomasnev) VALUES('" + gepid + "','" + allomas + "','" + nev + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás hozzáadás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Torol(GepAllomas _allomas) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "DELETE FROM GepAllomasok WHERE allomasszam='" + _allomas.AllomasSzam + "' AND gepid='" + _allomas.GepId + "'";
+                sqlcommand.ExecuteNonQuery();
+                sqlcommand.CommandText = "DELETE FROM GepAllomasParameterek WHERE gepallomasid='" + _allomas.GaId + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás törlés osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Modosit(GepAllomas _allomas) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "UPDATE GepAllomasok SET allomasszam='" + _allomas.AllomasSzam + "',allomasnev='" + _allomas.AllomasNev + "' WHERE gaid ='" + _allomas.GaId + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás módosítás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+
+
     }
 }

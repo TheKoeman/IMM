@@ -54,7 +54,7 @@ namespace IMM.Forms.GyartasForms {
                     Model.Termek _termek = Model.Termek.findByID(Convert.ToInt32(dgvr.Cells["ID"].Value));
                     MunkarendTermekek _mrT = new MunkarendTermekek(0, MunkarendID, _termek.ID, _termek.MinimumGyarthato, (from x in MunkarendStatusz.getAll() where x.Sorszam==1 select x).First().Megnevezes);
                     // database.munkarendTermekAdd(MunkarendID, Convert.ToInt32(dgvr.Cells["ID"].Value), _termek.MinimumGyarthato, "Felvéve");
-                    database.munkarendTermekAdd(_mrT);
+                    MunkarendTermekek.Hozzaad(_mrT);
                 }
             }
             this.Close();

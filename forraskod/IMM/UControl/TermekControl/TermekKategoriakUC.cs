@@ -71,7 +71,7 @@ namespace IMM.UControl {
                 if (katGepData.Columns[e.ColumnIndex] == selectBtn) {
                     Form _frm = new Form();
                     
-                    GepAdatok gepAdat = database.gepAdatokByGepId(Convert.ToInt32(katGepData.Rows[e.RowIndex].Cells["gepid"].Value)).FirstOrDefault();
+                    GepAdatok gepAdat = GepAdatok.findByGepID(Convert.ToInt32(katGepData.Rows[e.RowIndex].Cells["gepid"].Value)).FirstOrDefault();
                     GepKezelesUC gkuc = new GepKezelesUC(null, Convert.ToInt32(Convert.ToInt32(katGepData.Rows[e.RowIndex].Cells["gepid"].Value)),gepAdat);
                     _frm.StartPosition = FormStartPosition.CenterParent;
                     _frm.Size = gkuc.Size;
@@ -106,7 +106,7 @@ namespace IMM.UControl {
         }
 
         private void mentesBtn_Click(object sender, EventArgs e) {
-            database.kategoriaModositas(new Kategoria(Convert.ToInt32(idTextbox.Text), kategoriaNevTextbox.Text));
+            Model.Kategoria.Modosit(new Kategoria(Convert.ToInt32(idTextbox.Text), kategoriaNevTextbox.Text));
             mentesBtn.Visible = false;
             kategoriaNevTextbox.Enabled = false;
         }
@@ -117,7 +117,7 @@ namespace IMM.UControl {
             if (katGepData.SelectedCells.Count >0) {
                 int rowIndex = katGepData.SelectedCells[0].RowIndex;
                 DataGridViewRow dgvr = katGepData.Rows[rowIndex];
-                database.gepKategoriabolDel(Convert.ToInt32(dgvr.Cells["gepid"].Value), Convert.ToInt32(idTextbox.Text));
+                GepKategoria.Torol(Convert.ToInt32(dgvr.Cells["gepid"].Value), Convert.ToInt32(idTextbox.Text));
                 populateGridView();
             }
         }

@@ -54,6 +54,60 @@ namespace IMM.Model {
             }
             return _gaParameterLista;
         }
-       
+        public static List<GepAllomasParameter> findByAllomasID(int allomasId) {
+            List<GepAllomasParameter> parameterek = (from x in getAll()
+                                                     where x.AllomasId == allomasId
+                                                     select x).ToList();
+            return parameterek;
+        }
+        public static List<GepAllomasParameter> findByID(int id) {
+            List<GepAllomasParameter> parameterek = (from x in getAll()
+                                                     where x.GapId == id
+                                                     select x).ToList();
+            return parameterek;
+        }
+
+        public static void Hozzaad(GepAllomasParameter _parameter) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO GepAllomasParameterek (gepallomasid,parameternev,parameterertek,modositasdatuma) VALUES('" + _parameter.AllomasId + "','" + _parameter.ParameterNev + "','" + _parameter.ParameterErtek + "','" + _parameter.ModositasDatuma + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás Paraméter hozzáadás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Torol(GepAllomasParameter _parameter) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "DELETE FROM GepAllomasParameterek WHERE gapid='" + _parameter.GapId + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás Paraméter törlés osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Modosit(GepAllomasParameter _parameter) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "UPDATE GepAllomasParameterek SET parameternev='" + _parameter.ParameterNev + "',parameterertek='" + _parameter.ParameterErtek + "' ,modositasdatuma='" + _parameter.ModositasDatuma + "'WHERE gapid ='" + _parameter.GapId + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Állomás Paraméter módosítás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

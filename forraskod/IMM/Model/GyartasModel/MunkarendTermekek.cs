@@ -24,7 +24,7 @@ namespace IMM.Model.GyartasModel {
         }
         public string MunkarendMegnevezes {
             get {
-                return database.munkarendFindByID(MrID).First().MrMegnevezes;
+                return Munkarend.findByID(MrID).MrMegnevezes;
             }
         }
 
@@ -59,6 +59,59 @@ namespace IMM.Model.GyartasModel {
                 sqlc.Close();
             }
             return _mTermekLista;
+        }
+        public static void Hozzaad(MunkarendTermekek _mt) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO MunkarendTermekek (mrid,termekid,szuksegesdarabszam,statusz)VALUES('" + _mt.MrID + "','" + _mt.TermekID + "','" + Termek.findByID(_mt.TermekID).MinimumGyarthato + "','" + _mt.Statusz + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Torol(MunkarendTermekek _mt) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                if (statuszCheck(_mt)) {
+                    sqlcommand.CommandText = "DELETE FROM MunkarendTermekek WHERE mrtid='" + _mt.MrtID + "'";
+                    sqlcommand.ExecuteNonQuery();
+                }
+            } catch (Exception ex) {
+                Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        static bool statuszCheck(MunkarendTermekek _mt) {
+            if (_mt.Statusz == (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public static void Modosit(MunkarendTermekek _mt) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                if (statuszCheck(_mt)) {
+                    sqlcommand.CommandText = "UPDATE MunkarendTermekek SET szuksegesdarabszam='" + _mt.SzuksegesDarabszam + "' WHERE mrtid='" + _mt.MrtID + "'";
+                    sqlcommand.ExecuteNonQuery();
+                }
+            } catch (Exception ex) {
+                Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
         }
     }
 }

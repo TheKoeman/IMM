@@ -25,7 +25,7 @@ namespace IMM.Forms {
         private void allomasModositasForm_Load(object sender, EventArgs e) {
             if (_allomas != null) {
                 database = new Database();
-                gepNev = database.gepFindById(_allomas.GepId).FirstOrDefault().GepNev;
+                gepNev = Gep.findByID(_allomas.GepId).GepNev;
                 this.Text = "Állomás módosítása - " + gepNev + " | " + _allomas.AllomasSzam;
                 kivalasztottGepIdTextbox.Text = _allomas.GepId.ToString();
                 kivalasztottGepTextbox.Text = gepNev;
@@ -63,7 +63,7 @@ namespace IMM.Forms {
                 gombnyomva++;
                 torlesBtn.Text = "Állomás törlése " + gombnyomva.ToString();
             } else if (gombnyomva == 5) {
-                database.gepAllomasSzamDel(_allomas);
+                GepAllomas.Torol(_allomas);
                 torlesBtn.Text = "Állomás törlése";
                 this.Close();
             }
@@ -72,7 +72,7 @@ namespace IMM.Forms {
         private void mentesBtn_Click(object sender, EventArgs e) {
             //ide megint egy mentés funkció adatbázisba!
             GepAllomas allomas = new GepAllomas(_allomas.GaId, _allomas.GepId, Convert.ToInt32(allomasSzamTextbox.Text), allomasNevTextbox.Text);
-            database.gepAllomasModositas(allomas);
+            GepAllomas.Modosit(allomas);
             allomasSzamTextbox.Text = "";
             allomasNevTextbox.Text = "";
             modositas();

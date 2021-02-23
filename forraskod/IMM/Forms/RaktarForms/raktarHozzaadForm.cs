@@ -17,7 +17,7 @@ namespace IMM.Forms.RaktarForms {
         List<Raktar> raktarLista;
         public raktarHozzaadForm() {
             InitializeComponent();
-            raktarLista = database.getAllRaktar();
+            raktarLista = Raktar.getAll();
         }
 
         private void raktarMegnevezesTextbox_TextChanged(object sender, EventArgs e) {
@@ -37,7 +37,7 @@ namespace IMM.Forms.RaktarForms {
 
         private void mentesBtn_Click(object sender, EventArgs e) {
             Raktar raktar = new Raktar(0, raktarMegnevezesTextbox.Text.ToString());
-            database.raktarAdd(raktar);
+            Raktar.Hozzaad(raktar);
             this.Close();
         }
     }

@@ -62,7 +62,40 @@ namespace IMM.Model {
             }
             return _gepKategoriaLista;
         }
+        public static GepKategoria findByID(int gepid, int katid) {
+            GepKategoria gepKategoria = (from x in getAll()
+                                         where x.GepId == gepid & x.KategoriaId == katid
+                                         select x).First();
+            return gepKategoria;
+        }
 
-
+        public static void Hozzaad(int gepid, int katid) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO GepKategoriak (gepid,kategoriaid) VALUES('" + gepid + "','" + katid + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gépkategória hozzáad osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Torol(int gepid, int katid) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "DELETE FROM GepKategoriak WHERE gepid='" + gepid + "' and kategoriaid='" + katid + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gépkategória törlése osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

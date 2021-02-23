@@ -43,6 +43,39 @@ namespace IMM.Model {
             }
             return _gepLista;
         }
-        
+        public static Gep findByID(int id) {
+            Gep gep = (from x in getAll()
+                       where x.Id == id
+                       select x).First();
+            return gep;
+        }
+        public static void Modosit(Gep _gep) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "UPDATE Gepek SET gepnev='" + _gep.GepNev + "' where id='" + _gep.Id + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép modosítás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Hozzaad(Gep _gep) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO Gepek (id,gepnev,aktiv)VALUES('" + _gep.Id + "','" + _gep.GepNev + "','1')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép hozzáadás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace IMM.Forms.Parameter {
         private void parameterKezelesForm_Load(object sender, EventArgs e) {
             if (_parameter != null) {
                 database = new Database();
-                kivalasztottGepNevTextbox.Text = database.gepFindById(database.gepAllomasFindByID(_parameter.AllomasId).FirstOrDefault().GepId).FirstOrDefault().GepNev;
+                kivalasztottGepNevTextbox.Text = Gep.findByID(GepAllomas.findByID(_parameter.AllomasId).FirstOrDefault().GepId).GepNev;
                 parameterErtekeTextbox.Text = _parameter.ParameterErtek;
                 parameterNeveTextbox.Text = _parameter.ParameterNev;
             }
@@ -53,7 +53,7 @@ namespace IMM.Forms.Parameter {
                 torles++;
             } else if (torles == 3) {
 
-                database.gepAllomasParameterDel(_parameter);
+                GepAllomasParameter.Torol(_parameter);
                 parameterTorlesBtn.Text = "Paraméter törlése";
                 parameterErtekeTextbox.Text = "";
                 parameterNeveTextbox.Text = "";
@@ -64,7 +64,7 @@ namespace IMM.Forms.Parameter {
 
         private void mentesBtn_Click(object sender, EventArgs e) {
             GepAllomasParameter _ujParameter = new GepAllomasParameter(_parameter.GapId,_parameter.AllomasId,parameterNeveTextbox.Text,parameterErtekeTextbox.Text,DateTime.Now.ToString(),"");
-            database.gepAllomasParameterModositas(_ujParameter);
+            GepAllomasParameter.Modosit(_ujParameter);
             modositas();
         }
     }

@@ -66,8 +66,8 @@ namespace IMM.UControl {
 
         void allomasEllenorzes(int selectedV) {
             try {
-                if (database.gepAllomasFindByGepId(_gepAdatok.GaId).Count > 0) {
-                    allomasokComboBox.DataSource = database.gepAllomasFindByGepId(_gepAdatok.GaId);
+                if (GepAllomas.findByGepID(_gepAdatok.GaId).Count > 0) {
+                    allomasokComboBox.DataSource = GepAllomas.findByGepID(_gepAdatok.GaId);
                     allomasokComboBox.DisplayMember = "AllomasMegnevezes";
                     allomasokComboBox.ValueMember = "GaId";
                     allomasokComboBox.Text = "";
@@ -118,7 +118,7 @@ namespace IMM.UControl {
             ujParameterBtn.Visible = true;
             allomasModositasBtn.Visible = true;
             allomasModositasBtn.Visible = true;
-            allomasParameterGrid.DataSource = database.gepAllomasParameterFindByAllomasId(Convert.ToInt32(allomasokComboBox.SelectedValue));
+            allomasParameterGrid.DataSource = GepAllomasParameter.findByAllomasID(Convert.ToInt32(allomasokComboBox.SelectedValue));
             allomasParameterGrid.Columns[0].Visible = true;
             allomasParameterGrid.Columns[1].Visible = false;
             allomasParameterGrid.Columns[1].ReadOnly = true;
@@ -146,13 +146,13 @@ namespace IMM.UControl {
 
         private void allomasModositasBtn_Click(object sender, EventArgs e) {
 
-           allomasModositasForm frm = new allomasModositasForm(database.gepAllomasFindByID(Convert.ToInt32(allomasokComboBox.SelectedValue)).FirstOrDefault());
+           allomasModositasForm frm = new allomasModositasForm(GepAllomas.findByID(Convert.ToInt32(allomasokComboBox.SelectedValue)).FirstOrDefault());
             frm.ShowDialog();
             allomasEllenorzes(Convert.ToInt32(allomasokComboBox.SelectedValue));
         }
 
         private void ujParameterBtn_Click(object sender, EventArgs e) {
-            parameterHozzaadForm frm = new parameterHozzaadForm(database.gepAllomasFindByID(Convert.ToInt32(allomasokComboBox.SelectedValue)).FirstOrDefault());
+            parameterHozzaadForm frm = new parameterHozzaadForm(GepAllomas.findByID(Convert.ToInt32(allomasokComboBox.SelectedValue)).FirstOrDefault());
             frm.ShowDialog();
             parameterBetoltes();
         }
@@ -160,7 +160,7 @@ namespace IMM.UControl {
         private void allomasParameterGrid_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (e.RowIndex >= 0) {
                 if (allomasParameterGrid.Columns[e.ColumnIndex] == SelectBtn) {
-                    parameterKezelesForm frm = new parameterKezelesForm(database.gepAllomasParameterFindByID(Convert.ToInt32(allomasParameterGrid.Rows[e.RowIndex].Cells["GapId"].Value)).FirstOrDefault());
+                    parameterKezelesForm frm = new parameterKezelesForm(GepAllomasParameter.findByID(Convert.ToInt32(allomasParameterGrid.Rows[e.RowIndex].Cells["GapId"].Value)).FirstOrDefault());
                     frm.ShowDialog();
                     parameterBetoltes();
                 } 
@@ -198,9 +198,9 @@ namespace IMM.UControl {
                 if (_gepAdatok != null) {
                     try {
                         Gep gep = new Gep(_gepAdatok.Gepid, gepNevTextbox.Text);
-                        database.gepModositas(gep);
+                        Gep.Modosit(gep);
                         GepAdatok gepadat = new GepAdatok(_gepAdatok.GaId, gep.Id, Convert.ToInt32(gepLokaciojaTextbox.SelectedValue), gepMarkajaTextbox.Text, ciklusidoTextbox.Text, karbantartasTextbox.Text, ismetlodesTextbox.SelectedItem.ToString());
-                        database.gepAdatokModositas(gepadat);
+                        GepAdatok.Modosit(gepadat);
                         if (_dgv != null) {
                             _dgv.DataSource = Gep.getAll();
                         }
@@ -210,9 +210,9 @@ namespace IMM.UControl {
                 } else {
                     try {
                         Gep gep = new Gep(hozottId, gepNevTextbox.Text);
-                        database.gepAdd(gep);
+                        Gep.Hozzaad(gep);
                         GepAdatok gepadat = new GepAdatok(0, hozottId, Convert.ToInt32(gepLokaciojaTextbox.SelectedValue), gepMarkajaTextbox.Text, ciklusidoTextbox.Text, karbantartasTextbox.Text, ismetlodesTextbox.SelectedItem.ToString());
-                        database.gepAdatokAdd(gepadat);
+                        GepAdatok.Hozzaad(gepadat);
                         if (_dgv != null) {
                             _dgv.DataSource = Gep.getAll();
                         }

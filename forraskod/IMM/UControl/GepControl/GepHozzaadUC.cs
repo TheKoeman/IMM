@@ -56,10 +56,10 @@ namespace IMM.UControl {
             foreach (DataGridViewRow dgvr in gepekGridView.Rows) {
                 if (Convert.ToBoolean(dgvr.Cells[0].Value)) {
                     if (gkat.Count != 0) {
-                        if (database.gepKatFindByIds(Convert.ToInt32(dgvr.Cells[1].Value), kategoriaid).Count != 0) {
+                        if (GepKategoria.findByID(Convert.ToInt32(dgvr.Cells[1].Value), kategoriaid) != null) {
                             MessageBox.Show(dgvr.Cells["gepnev"].Value.ToString() + " már szerepel a listában, figyelmen kívül hagytam!");
                         } else {
-                            database.gepKategoriahozAdd(Convert.ToInt32(dgvr.Cells[1].Value), kategoriaid);
+                            GepKategoria.Hozzaad(Convert.ToInt32(dgvr.Cells[1].Value), kategoriaid);
                         }
                     }
                 }

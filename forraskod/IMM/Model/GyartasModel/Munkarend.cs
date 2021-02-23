@@ -50,5 +50,31 @@ namespace IMM.Model.GyartasModel {
             }
             return _munkarendek;
         }
+        public static Munkarend findByID(int id) {
+            Munkarend munkarend = (from x in getAll()
+                                   where x.MrId == id
+                                   select x).First();
+            return munkarend;
+        }
+        public static Munkarend findByAzonosito(string azon) {
+            Munkarend munkarend = (from x in getAll()
+                                   where x.MrAzonosito == azon
+                                   select x).First();
+            return munkarend;
+        }
+        public static void Hozzaad(Munkarend _mr) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO Munkarendek (mrazonosito,mrmegnevezes,mrdatum,letrehozta)VALUES('" + _mr.MrAzonosito + "','" + _mr.MrMegnevezes + "','" + _mr.MrDatum + "','" + _mr.Letrehozta + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Munkarend hozzáadás", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

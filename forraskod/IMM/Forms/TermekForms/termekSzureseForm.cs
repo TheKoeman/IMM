@@ -31,7 +31,7 @@ namespace IMM.Forms.Termek {
             kategoriaCombobox.DisplayMember = "KategoriaNev";
         }
         void raktarFeltoltes() {
-            raktarCombobox.DataSource = database.getAllRaktar();
+            raktarCombobox.DataSource = Raktar.getAll();
             raktarCombobox.ValueMember = "RaktarID";
             raktarCombobox.DisplayMember = "RaktarMegnevezes";
         }

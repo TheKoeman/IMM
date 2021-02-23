@@ -52,7 +52,7 @@ namespace IMM.UControl
             this._dgv = dgv;
             InitializeComponent();
             kategoriak = Kategoria.getAll();
-            raktarak = database.getAllRaktar();
+            raktarak = Raktar.getAll();
         }
 
 
@@ -60,7 +60,7 @@ namespace IMM.UControl
         #region EVENTS
         void updateEllenoriz(Termek t) {
             try {
-                Model.Termek.termekModosit(t);
+                Model.Termek.Modosit(t);
                 _dgv.DataSource = Model.Termek.getAll();
                 modositas();
                 MessageBox.Show("Termék módosítása sikeres volt!", "Sikeres termék módosítás");
@@ -76,7 +76,7 @@ namespace IMM.UControl
                     if (t.MinimumGyarthato != 0) {
                         if (t.CsomagolasiDarabszam != 0) {
                             try {
-                                database.termekHozzaad(t);
+                                Termek.Hozzaad(t);
                                 _dgv.DataSource = Model.Termek.getAll();
                                 ujTermek();
                                 MessageBox.Show("Termék hozzáadása sikeres volt!","Sikeres termék hozzáadás");
@@ -160,7 +160,7 @@ namespace IMM.UControl
             }
         }
         void raktarFeltolt() {
-            raktarCombobox.DataSource = database.getAllRaktar();
+            raktarCombobox.DataSource = Raktar.getAll();
             raktarCombobox.DisplayMember = "RaktarMegnevezes";
             raktarCombobox.ValueMember = "RaktarID";
         }

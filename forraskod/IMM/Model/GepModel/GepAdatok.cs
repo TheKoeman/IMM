@@ -59,6 +59,40 @@ namespace IMM.Model {
             }
             return _gepAdatLista;
         }
+        public static List<GepAdatok> findByGepID(int gepid) {
+            List<GepAdatok> adatok = (from x in getAll()
+                                      where x.Gepid == gepid
+                                      select x).ToList();
+            return adatok;
+        }
 
+        public static void Modosit(GepAdatok _gepAdatok) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "UPDATE GepAdatok SET geplokacio='" + _gepAdatok.Lokacio + "',gepmarka='" + _gepAdatok.Gepmarka + "',ciklusido='" + _gepAdatok.Ciklusido + "',karbantartaskezdes='" + _gepAdatok.Karbidatum + "',karbantartasismetlodes='" + _gepAdatok.Ismetlodes + "' WHERE id='" + _gepAdatok.GaId + "'";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Adatok módosítás osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Hozzaad(GepAdatok _gepAdatok) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            try {
+                sqlc.Open();
+                sqlcommand.CommandText = "INSERT INTO GepAdatok (gepid,geplokacio,gepmarka,ciklusido,karbantartaskezdes,karbantartasismetlodes) VALUES('" + _gepAdatok.Gepid + "','" + _gepAdatok.Lokacio + "','" + _gepAdatok.Gepmarka + "','" + _gepAdatok.Ciklusido + "','" + _gepAdatok.Karbidatum + "','" + _gepAdatok.Ismetlodes + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Gép Adatok hozzáadása osztály hiba", ex.Message);
+            }
+            if (sqlc.State == System.Data.ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
     }
 }

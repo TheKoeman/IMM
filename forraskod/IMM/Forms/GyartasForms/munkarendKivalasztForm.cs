@@ -26,7 +26,7 @@ namespace IMM.Forms.GyartasForms {
 
         private void munkarendKivalasztForm_Load(object sender, EventArgs e) {
             if (munkarendId >= 0) {
-                mr = database.munkarendFindByID(munkarendId).First();
+                mr = Munkarend.findByID(munkarendId);
                 mrt = (from x in MunkarendTermekek.getAll()
                       where x.MrID==munkarendId
                       select x).ToList();
@@ -75,7 +75,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         private void termekGyartasbaBtn_Click(object sender, EventArgs e) {
-            termekGyartashozForm frm = new termekGyartashozForm(database.munkarendFindByAzonosito(munAzonTextbox.Text).First().MrId);
+            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId);
             frm.ShowDialog();
             termekGridFeltolt();
         }
@@ -96,7 +96,7 @@ namespace IMM.Forms.GyartasForms {
                     string a = (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes;
                     MessageBox.Show("Nem módosítható a gyártás ha a státusza megváltozott!\nNem [" + a + "]!", "Törlés hiba");
                 } else {
-                    database.munkarendTermekDel(mrt);
+                    MunkarendTermekek.Torol(mrt);
                 }
                 termekGridFeltolt();
             } else if (munkarendGyartasGridView.Columns[e.ColumnIndex] == gepListaColumn) {

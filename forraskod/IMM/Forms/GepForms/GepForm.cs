@@ -53,7 +53,7 @@ namespace IMM.Forms {
                 Form frm = new Form();
                 frm.ShowIcon = false;
                 frm.StartPosition = FormStartPosition.CenterParent;
-                gkuc = new GepKezelesUC(gepekGridView,Convert.ToInt32(gepekGridView.Rows[e.RowIndex].Cells["id"].Value), database.gepAdatokByGepId(Convert.ToInt32(gepekGridView.Rows[e.RowIndex].Cells["id"].Value)).FirstOrDefault());
+                gkuc = new GepKezelesUC(gepekGridView,Convert.ToInt32(gepekGridView.Rows[e.RowIndex].Cells["id"].Value), GepAdatok.findByGepID(Convert.ToInt32(gepekGridView.Rows[e.RowIndex].Cells["id"].Value)).FirstOrDefault());
                 gkuc.Parent = frm;
                 frm.Size = gkuc.Size;
                 gkuc.Dock = DockStyle.Fill;

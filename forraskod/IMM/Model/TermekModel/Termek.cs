@@ -54,8 +54,8 @@ namespace IMM.Model
         public int Raktar { get => raktar; set => raktar = value; }
         public string RaktarNev {
             get {
-                if ((from x in database.getAllRaktar() where x.RaktarID == Raktar select x.RaktarMegnevezes).Count() > 0) {
-                    return (from x in database.getAllRaktar() where x.RaktarID == Raktar select x.RaktarMegnevezes).First().ToString();
+                if ((from x in Model.RaktarModel.Raktar.getAll() where x.RaktarID == Raktar select x.RaktarMegnevezes).Count() > 0) {
+                    return (from x in Model.RaktarModel.Raktar.getAll() where x.RaktarID == Raktar select x.RaktarMegnevezes).First().ToString();
                 } else {
                     return "Nincs ilyen raktár!";
                 }
@@ -102,7 +102,7 @@ namespace IMM.Model
                               select x).First();
             return _termek;
         }
-        public static void termekModosit(Termek _termek) {
+        public static void Modosit(Termek _termek) {
             SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
@@ -112,6 +112,20 @@ namespace IMM.Model
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");
                 Logger.Log("Database", ex.Message);
+            }
+            if (sqlc.State == ConnectionState.Open) {
+                sqlc.Close();
+            }
+        }
+        public static void Hozzaad(Termek _termek) {
+            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
+            sqlc.Open();
+            try {
+                sqlcommand.CommandText = "INSERT INTO Termekek (termekNev,termekNev2,cikkszam,kategoria,raktar) VALUES('" + _termek.TermekNev + "','" + _termek.TermekNev2 + "','" + _termek.Cikkszam + "','" + _termek.KategoriaID + "','" + _termek.Raktar + "')";
+                sqlcommand.ExecuteNonQuery();
+            } catch (Exception ex) {
+                Logger.Log("Terméh hozzáadás hiba", ex.Message);
             }
             if (sqlc.State == ConnectionState.Open) {
                 sqlc.Close();
