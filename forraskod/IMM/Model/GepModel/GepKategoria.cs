@@ -47,6 +47,7 @@ namespace IMM.Model {
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
+                sqlc.Open();
                 sqlcommand.CommandText = "SELECT * FROM GepKategoriak";
                 dr = sqlcommand.ExecuteReader();
                 while (dr.Read()) {

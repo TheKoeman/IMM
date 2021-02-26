@@ -71,6 +71,7 @@
             // 
             this.bottomMenu.BackColor = System.Drawing.Color.White;
             this.bottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomMenu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.bottomMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.bottomMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bottomMenuUNBox,
@@ -85,6 +86,7 @@
             // bottomMenuUNBox
             // 
             this.bottomMenuUNBox.BackColor = System.Drawing.Color.White;
+            this.bottomMenuUNBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuUNBox.Name = "bottomMenuUNBox";
             this.bottomMenuUNBox.ReadOnly = true;
             this.bottomMenuUNBox.Size = new System.Drawing.Size(298, 31);
@@ -92,6 +94,7 @@
             // bottomMenuRoleBox
             // 
             this.bottomMenuRoleBox.BackColor = System.Drawing.Color.White;
+            this.bottomMenuRoleBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuRoleBox.Name = "bottomMenuRoleBox";
             this.bottomMenuRoleBox.ReadOnly = true;
             this.bottomMenuRoleBox.Size = new System.Drawing.Size(298, 31);
@@ -100,6 +103,7 @@
             // 
             this.bottomMenuLoggerTextbox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.bottomMenuLoggerTextbox.BackColor = System.Drawing.Color.White;
+            this.bottomMenuLoggerTextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuLoggerTextbox.ForeColor = System.Drawing.Color.Black;
             this.bottomMenuLoggerTextbox.Name = "bottomMenuLoggerTextbox";
             this.bottomMenuLoggerTextbox.ReadOnly = true;
@@ -183,7 +187,6 @@
             this.mindenTermekBtn.Text = "Minden termék";
             this.mindenTermekBtn.UseVisualStyleBackColor = false;
             this.mindenTermekBtn.Click += new System.EventHandler(this.mindenTermekBtn_Click);
-            this.mindenTermekBtn.Resize += new System.EventHandler(this.mindenTermekBtn_Resize);
             // 
             // tabPage2
             // 
@@ -236,7 +239,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage3.Size = new System.Drawing.Size(0, 84);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Megrendelés & Gyártás";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -465,14 +468,12 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.bottomMenu;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1411, 782);
+            this.MinimumSize = new System.Drawing.Size(1466, 818);
             this.Name = "main";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Industry Manufacturing Manager [ Industry 4.0 ]";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.main_FormClosing);
             this.Load += new System.EventHandler(this.main_Load);
-            this.Resize += new System.EventHandler(this.main_Resize);
             this.bottomMenu.ResumeLayout(false);
             this.bottomMenu.PerformLayout();
             this.tabControl1.ResumeLayout(false);

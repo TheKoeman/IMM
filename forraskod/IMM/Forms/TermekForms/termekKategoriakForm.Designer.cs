@@ -44,9 +44,10 @@
             this.close.BackColor = System.Drawing.Color.LightBlue;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.ForeColor = System.Drawing.Color.Black;
-            this.close.Location = new System.Drawing.Point(995, 0);
+            this.close.Location = new System.Drawing.Point(1005, 0);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(24, 23);
+            this.close.Size = new System.Drawing.Size(36, 35);
             this.close.TabIndex = 5;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = false;
@@ -61,8 +62,9 @@
             this.flowLayoutPanel1.Controls.Add(this.gyartasTervBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1019, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1041, 60);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // frissitesBtn
@@ -70,9 +72,10 @@
             this.frissitesBtn.BackColor = System.Drawing.Color.Teal;
             this.frissitesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.frissitesBtn.ForeColor = System.Drawing.Color.White;
-            this.frissitesBtn.Location = new System.Drawing.Point(3, 3);
+            this.frissitesBtn.Location = new System.Drawing.Point(4, 5);
+            this.frissitesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.frissitesBtn.Name = "frissitesBtn";
-            this.frissitesBtn.Size = new System.Drawing.Size(105, 30);
+            this.frissitesBtn.Size = new System.Drawing.Size(158, 46);
             this.frissitesBtn.TabIndex = 0;
             this.frissitesBtn.Text = "Frissítés";
             this.frissitesBtn.UseVisualStyleBackColor = false;
@@ -83,9 +86,10 @@
             this.ujTermekBtn.BackColor = System.Drawing.Color.Teal;
             this.ujTermekBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ujTermekBtn.ForeColor = System.Drawing.Color.White;
-            this.ujTermekBtn.Location = new System.Drawing.Point(114, 3);
+            this.ujTermekBtn.Location = new System.Drawing.Point(170, 5);
+            this.ujTermekBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ujTermekBtn.Name = "ujTermekBtn";
-            this.ujTermekBtn.Size = new System.Drawing.Size(172, 30);
+            this.ujTermekBtn.Size = new System.Drawing.Size(258, 46);
             this.ujTermekBtn.TabIndex = 1;
             this.ujTermekBtn.Text = "Új kategória felvétele";
             this.ujTermekBtn.UseVisualStyleBackColor = false;
@@ -95,9 +99,10 @@
             this.gyartasTervBtn.BackColor = System.Drawing.Color.Teal;
             this.gyartasTervBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.gyartasTervBtn.ForeColor = System.Drawing.Color.White;
-            this.gyartasTervBtn.Location = new System.Drawing.Point(292, 3);
+            this.gyartasTervBtn.Location = new System.Drawing.Point(436, 5);
+            this.gyartasTervBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gyartasTervBtn.Name = "gyartasTervBtn";
-            this.gyartasTervBtn.Size = new System.Drawing.Size(304, 30);
+            this.gyartasTervBtn.Size = new System.Drawing.Size(456, 46);
             this.gyartasTervBtn.TabIndex = 2;
             this.gyartasTervBtn.Text = "Kijelölt kategória gyártási folyamatok";
             this.gyartasTervBtn.UseVisualStyleBackColor = false;
@@ -109,20 +114,22 @@
             this.tabControl1.Controls.Add(this.adatokTabpage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 39);
+            this.tabControl1.Location = new System.Drawing.Point(0, 60);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1019, 487);
+            this.tabControl1.Size = new System.Drawing.Size(1041, 749);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.kategoriakTree);
             this.tabPage1.Controls.Add(this.termekekFaNezet);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1011, 454);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1033, 707);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kategóriák lista";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -130,40 +137,44 @@
             // kategoriakTree
             // 
             this.kategoriakTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kategoriakTree.Location = new System.Drawing.Point(3, 3);
+            this.kategoriakTree.Location = new System.Drawing.Point(4, 5);
+            this.kategoriakTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kategoriakTree.Name = "kategoriakTree";
-            this.kategoriakTree.Size = new System.Drawing.Size(1005, 448);
+            this.kategoriakTree.Size = new System.Drawing.Size(1025, 697);
             this.kategoriakTree.TabIndex = 1;
             this.kategoriakTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.kategoriakTree_NodeMouseDoubleClick);
             // 
             // termekekFaNezet
             // 
             this.termekekFaNezet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.termekekFaNezet.Location = new System.Drawing.Point(3, 3);
+            this.termekekFaNezet.Location = new System.Drawing.Point(4, 5);
+            this.termekekFaNezet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termekekFaNezet.Name = "termekekFaNezet";
-            this.termekekFaNezet.Size = new System.Drawing.Size(1005, 448);
+            this.termekekFaNezet.Size = new System.Drawing.Size(1025, 697);
             this.termekekFaNezet.TabIndex = 0;
             // 
             // adatokTabpage
             // 
-            this.adatokTabpage.Location = new System.Drawing.Point(4, 29);
+            this.adatokTabpage.Location = new System.Drawing.Point(4, 38);
+            this.adatokTabpage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.adatokTabpage.Name = "adatokTabpage";
-            this.adatokTabpage.Padding = new System.Windows.Forms.Padding(3);
-            this.adatokTabpage.Size = new System.Drawing.Size(1011, 454);
+            this.adatokTabpage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.adatokTabpage.Size = new System.Drawing.Size(1033, 707);
             this.adatokTabpage.TabIndex = 1;
             this.adatokTabpage.Text = "Adatok";
             this.adatokTabpage.UseVisualStyleBackColor = true;
             // 
             // termekKategoriakForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1019, 526);
+            this.ClientSize = new System.Drawing.Size(1041, 809);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "termekKategoriakForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Termék kategóriák";

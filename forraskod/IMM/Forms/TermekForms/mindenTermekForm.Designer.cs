@@ -41,7 +41,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.frissitesBtn = new System.Windows.Forms.Button();
             this.ujTermekBtn = new System.Windows.Forms.Button();
-            this.gyartasTervBtn = new System.Windows.Forms.Button();
             this.termekekSzureseBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -55,9 +54,10 @@
             this.close.BackColor = System.Drawing.Color.LightBlue;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.ForeColor = System.Drawing.Color.Black;
-            this.close.Location = new System.Drawing.Point(1119, 0);
+            this.close.Location = new System.Drawing.Point(1678, 0);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(24, 23);
+            this.close.Size = new System.Drawing.Size(36, 35);
             this.close.TabIndex = 2;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = false;
@@ -71,20 +71,22 @@
             this.tabControl1.Controls.Add(this.adatokTabpage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 39);
+            this.tabControl1.Location = new System.Drawing.Point(0, 60);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1142, 644);
+            this.tabControl1.Size = new System.Drawing.Size(1713, 991);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.termekekGrid);
             this.tabPage1.Controls.Add(this.termekTree);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1134, 611);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1705, 949);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Termékek lista";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -113,10 +115,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.termekekGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.termekekGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.termekekGrid.Location = new System.Drawing.Point(3, 3);
+            this.termekekGrid.Location = new System.Drawing.Point(4, 5);
+            this.termekekGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termekekGrid.Name = "termekekGrid";
             this.termekekGrid.ReadOnly = true;
-            this.termekekGrid.Size = new System.Drawing.Size(1128, 605);
+            this.termekekGrid.RowHeadersWidth = 62;
+            this.termekekGrid.Size = new System.Drawing.Size(1697, 939);
             this.termekekGrid.TabIndex = 2;
             this.termekekGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.termekekGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -132,25 +136,28 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.selectBtn.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectBtn.HeaderText = "Kiválaszt";
+            this.selectBtn.MinimumWidth = 8;
             this.selectBtn.Name = "selectBtn";
             this.selectBtn.ReadOnly = true;
             this.selectBtn.Text = "Select";
-            this.selectBtn.Width = 77;
+            this.selectBtn.Width = 113;
             // 
             // termekTree
             // 
             this.termekTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.termekTree.Location = new System.Drawing.Point(3, 3);
+            this.termekTree.Location = new System.Drawing.Point(4, 5);
+            this.termekTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termekTree.Name = "termekTree";
-            this.termekTree.Size = new System.Drawing.Size(1128, 605);
+            this.termekTree.Size = new System.Drawing.Size(1697, 939);
             this.termekTree.TabIndex = 1;
             // 
             // adatokTabpage
             // 
-            this.adatokTabpage.Location = new System.Drawing.Point(4, 29);
+            this.adatokTabpage.Location = new System.Drawing.Point(4, 38);
+            this.adatokTabpage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.adatokTabpage.Name = "adatokTabpage";
-            this.adatokTabpage.Padding = new System.Windows.Forms.Padding(3);
-            this.adatokTabpage.Size = new System.Drawing.Size(1134, 611);
+            this.adatokTabpage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.adatokTabpage.Size = new System.Drawing.Size(1705, 949);
             this.adatokTabpage.TabIndex = 1;
             this.adatokTabpage.Text = "Adatok";
             this.adatokTabpage.UseVisualStyleBackColor = true;
@@ -159,12 +166,12 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.frissitesBtn);
             this.flowLayoutPanel1.Controls.Add(this.ujTermekBtn);
-            this.flowLayoutPanel1.Controls.Add(this.gyartasTervBtn);
             this.flowLayoutPanel1.Controls.Add(this.termekekSzureseBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1142, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1713, 60);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // frissitesBtn
@@ -173,9 +180,10 @@
             this.frissitesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frissitesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.frissitesBtn.ForeColor = System.Drawing.Color.White;
-            this.frissitesBtn.Location = new System.Drawing.Point(3, 3);
+            this.frissitesBtn.Location = new System.Drawing.Point(4, 5);
+            this.frissitesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.frissitesBtn.Name = "frissitesBtn";
-            this.frissitesBtn.Size = new System.Drawing.Size(105, 30);
+            this.frissitesBtn.Size = new System.Drawing.Size(158, 46);
             this.frissitesBtn.TabIndex = 0;
             this.frissitesBtn.Text = "Frissítés";
             this.frissitesBtn.UseVisualStyleBackColor = false;
@@ -187,35 +195,24 @@
             this.ujTermekBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ujTermekBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ujTermekBtn.ForeColor = System.Drawing.Color.White;
-            this.ujTermekBtn.Location = new System.Drawing.Point(114, 3);
+            this.ujTermekBtn.Location = new System.Drawing.Point(170, 5);
+            this.ujTermekBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ujTermekBtn.Name = "ujTermekBtn";
-            this.ujTermekBtn.Size = new System.Drawing.Size(172, 30);
+            this.ujTermekBtn.Size = new System.Drawing.Size(258, 46);
             this.ujTermekBtn.TabIndex = 1;
             this.ujTermekBtn.Text = "Új termék felvétele";
             this.ujTermekBtn.UseVisualStyleBackColor = false;
             this.ujTermekBtn.Click += new System.EventHandler(this.ujTermekBtn_Click);
-            // 
-            // gyartasTervBtn
-            // 
-            this.gyartasTervBtn.BackColor = System.Drawing.Color.Teal;
-            this.gyartasTervBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gyartasTervBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gyartasTervBtn.ForeColor = System.Drawing.Color.White;
-            this.gyartasTervBtn.Location = new System.Drawing.Point(292, 3);
-            this.gyartasTervBtn.Name = "gyartasTervBtn";
-            this.gyartasTervBtn.Size = new System.Drawing.Size(304, 30);
-            this.gyartasTervBtn.TabIndex = 2;
-            this.gyartasTervBtn.Text = "Kijelölt termék gyártás tervezése";
-            this.gyartasTervBtn.UseVisualStyleBackColor = false;
             // 
             // termekekSzureseBtn
             // 
             this.termekekSzureseBtn.BackColor = System.Drawing.Color.DarkGray;
             this.termekekSzureseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.termekekSzureseBtn.ForeColor = System.Drawing.Color.Black;
-            this.termekekSzureseBtn.Location = new System.Drawing.Point(602, 3);
+            this.termekekSzureseBtn.Location = new System.Drawing.Point(436, 5);
+            this.termekekSzureseBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termekekSzureseBtn.Name = "termekekSzureseBtn";
-            this.termekekSzureseBtn.Size = new System.Drawing.Size(304, 30);
+            this.termekekSzureseBtn.Size = new System.Drawing.Size(456, 46);
             this.termekekSzureseBtn.TabIndex = 4;
             this.termekekSzureseBtn.Text = "Termékek szűrése";
             this.termekekSzureseBtn.UseVisualStyleBackColor = false;
@@ -223,13 +220,14 @@
             // 
             // mindenTermekForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 683);
+            this.ClientSize = new System.Drawing.Size(1713, 1051);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "mindenTermekForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -251,7 +249,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button frissitesBtn;
         private System.Windows.Forms.Button ujTermekBtn;
-        private System.Windows.Forms.Button gyartasTervBtn;
         private System.Windows.Forms.TreeView termekTree;
         private System.Windows.Forms.DataGridView termekekGrid;
         private System.Windows.Forms.DataGridViewButtonColumn selectBtn;

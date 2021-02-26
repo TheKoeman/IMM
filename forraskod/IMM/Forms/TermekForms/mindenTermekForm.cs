@@ -78,8 +78,6 @@ namespace IMM
             termekekGrid.Columns["MinimumGyarthato"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["CsomagolasiDarabszam"].HeaderText = "Csomagolási darabszám";
             termekekGrid.Columns["MinimumGyarthato"].HeaderText = "Minimum gyártható";
-            termekekGrid.Columns["felkesztermek"].Visible = false;
-            termekekGrid.Columns["beepuloanyag"].Visible = false;
             termekekGrid.Columns["aktiv"].Visible = false;
             termekekGrid.Columns["Raktar"].Visible = false;
             termekekGrid.Columns["RaktarNev"].HeaderText = "Raktár név";
@@ -103,6 +101,7 @@ namespace IMM
             {
                 if (e.RowIndex >= 0)
                     tauc.Termek = Termek.findByID(Convert.ToInt32(termekekGrid.Rows[e.RowIndex].Cells["ID"].Value));
+                adatokTabpage.Text = string.Format("Adatok | {0} ", termekekGrid.Rows[e.RowIndex].Cells["TermekNev"].Value.ToString());
             }
             catch (Exception ex)
             {
@@ -115,6 +114,7 @@ namespace IMM
             if (termekekGrid.Columns[e.ColumnIndex] == selectBtn)
             {
                 tabControl1.SelectedTab = adatokTabpage;
+                adatokTabpage.Text = string.Format("Adatok | {0} ", termekekGrid.Rows[e.RowIndex].Cells["TermekNev"].Value.ToString());
             }
         }
 

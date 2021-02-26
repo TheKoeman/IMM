@@ -17,11 +17,10 @@ namespace IMM
             this.loggedUser = uname;
             bottomMenuUNBox.Text = veznev + " " + kernev;
         }
-        Database db = new Database();
 
         private void main_Load(object sender, EventArgs e)
         {
-            Logger.Log("Fő oldal", "Főoldal betöltése, sikeres bejelentkezés felhasználó:"+loggedUser);      
+        
         }
 
 
@@ -106,20 +105,8 @@ namespace IMM
 
         #endregion
 
-        private void main_FormClosing(object sender, FormClosingEventArgs e) {
-            Logger.Log("Fő oldal", "Program bezárása");
-        }
-
         private void bottomMenuLoggerTextbox_Click(object sender, EventArgs e) {
             Logger.mappaMegnyit();
-        }
-
-        private void mindenTermekBtn_Resize(object sender, EventArgs e) {
-
-        }
-
-        private void main_Resize(object sender, EventArgs e) {
-           
         }
 
 

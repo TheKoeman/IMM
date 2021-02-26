@@ -1,0 +1,2 @@
+Termek getAll | Database is not open | 2021. 02. 26. 19:18:38 | 
+Minden termék | Termékek szűrése | 2021. 02. 26. 19:18:58 | 
