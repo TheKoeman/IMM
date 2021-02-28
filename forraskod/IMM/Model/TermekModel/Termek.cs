@@ -23,11 +23,9 @@ namespace IMM.Model
         private int raktar;
         private int csomagolasiDarabszam;
         private int minimumGyarthato;
-        private int felkesztermek;
-        private int beepuloAnyag;
         private int aktiv;
         private int id;
-        public Termek(int id, string tnev, string tnev2, string cszam,int kat,int csomagdb, int mingyarth, int felkesz, int beepulo, int raktar, int aktiv)
+        public Termek(int id, string tnev, string tnev2, string cszam,int kat,int csomagdb, int mingyarth,int raktar, int aktiv)
         {
             this.id = id;
             this.TermekNev = tnev;
@@ -37,8 +35,6 @@ namespace IMM.Model
             this.Raktar = raktar;
             this.CsomagolasiDarabszam = csomagdb;
             this.MinimumGyarthato = mingyarth;
-            this.Felkesztermek = felkesz;
-            this.BeepuloAnyag = beepulo;
             this.Aktiv = aktiv;
         }
         public int ID { get => id; } 
@@ -48,8 +44,6 @@ namespace IMM.Model
         public int KategoriaID { get => kategoriaID; set => kategoriaID = value; }
         public int CsomagolasiDarabszam { get => csomagolasiDarabszam; set => csomagolasiDarabszam = value; }
         public int MinimumGyarthato { get => minimumGyarthato; set => minimumGyarthato = value; }
-        public int Felkesztermek { get => felkesztermek; set => felkesztermek = value; }
-        public int BeepuloAnyag { get => beepuloAnyag; set => beepuloAnyag = value; }
         public int Aktiv { get => aktiv; set => aktiv = value; }
         public int Raktar { get => raktar; set => raktar = value; }
         public string RaktarNev {
@@ -76,13 +70,13 @@ namespace IMM.Model
             List<Termek> _termekek = new List<Termek>();
             SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
-            sqlc.Open();
             SQLiteDataReader dr;
             try {
+                sqlc.Open();
                 sqlcommand.CommandText = "SELECT * FROM Termekek";
                 dr = sqlcommand.ExecuteReader();
                 while (dr.Read()) {
-                    Termek jelenlegiTermek = new Termek(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), Convert.ToInt32(dr.GetValue(4)), Convert.ToInt32(dr.GetValue(5)), Convert.ToInt32(dr.GetValue(6)), Convert.ToInt32(dr.GetValue(7)), Convert.ToInt32(dr.GetValue(8)), Convert.ToInt32(dr.GetValue(9)), Convert.ToInt32(dr.GetValue(10)));
+                    Termek jelenlegiTermek = new Termek(Convert.ToInt32(dr.GetValue(0)), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), Convert.ToInt32(dr.GetValue(4)), Convert.ToInt32(dr.GetValue(5)), Convert.ToInt32(dr.GetValue(6)), Convert.ToInt32(dr.GetValue(7)), Convert.ToInt32(dr.GetValue(8)));
 
                     _termekek.Add(jelenlegiTermek);
                 }
@@ -107,7 +101,7 @@ namespace IMM.Model
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
             try {
-                sqlcommand.CommandText = "UPDATE Termekek SET termekNev='" + _termek.TermekNev + "',termekNev2='" + _termek.TermekNev2 + "',cikkszam='" + _termek.Cikkszam + "',kategoria='" + _termek.KategoriaID + "',csomagolasidarabszam='" + _termek.CsomagolasiDarabszam + "',minimumgyarthato='" + _termek.MinimumGyarthato + "',felkesztermek='" + _termek.Felkesztermek + "',beepuloanyag='" + _termek.BeepuloAnyag + "',aktiv='" + _termek.Aktiv + "',raktar='" + _termek.Raktar + "' where id='" + _termek.ID + "'";
+                sqlcommand.CommandText = "UPDATE Termekek SET termekNev='" + _termek.TermekNev + "',termekNev2='" + _termek.TermekNev2 + "',cikkszam='" + _termek.Cikkszam + "',kategoria='" + _termek.KategoriaID + "',csomagolasidarabszam='" + _termek.CsomagolasiDarabszam + "',minimumgyarthato='" + _termek.MinimumGyarthato + "',aktiv='" + _termek.Aktiv + "',raktar='" + _termek.Raktar + "' where id='" + _termek.ID + "'";
                 sqlcommand.ExecuteNonQuery();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");

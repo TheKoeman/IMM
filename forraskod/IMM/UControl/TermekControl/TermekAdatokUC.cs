@@ -41,9 +41,7 @@ namespace IMM.UControl
                 kategoriaCombobox.Text = (from x in kategoriak where x.Id == _termek.KategoriaID select x.KategoriaNev).First();
                 raktarCombobox.Text = (from x in raktarak where x.RaktarID == _termek.Raktar select x.RaktarMegnevezes).First();
                 if (_termek.Aktiv == 1) { aktivCheckbox.Checked = true; } else { aktivCheckbox.Checked = false; }
-                if (_termek.Felkesztermek == 1) { felkesztermekCheckbox.Checked = true; } else { felkesztermekCheckbox.Checked = false; }
-                if (_termek.BeepuloAnyag == 1) { beepuloCheckbox.Checked = true; } else { beepuloCheckbox.Checked = false; }
-            }
+                }
         }
         #endregion
 
@@ -102,10 +100,10 @@ namespace IMM.UControl
         private void mentesBtn_Click(object sender, EventArgs e) {
             try {
                 if (idTextbox.Text != "") {
-                    Termek update = new Termek(Convert.ToInt32(idTextbox.Text), termekNevTextbox.Text, termekNev2Textbox.Text, cikkszamTextbox.Text, Convert.ToInt32(kategoriaCombobox.SelectedValue),Convert.ToInt32(csomagolasiDbTextbox.Text),Convert.ToInt32(minimumGyarthatoTextbox.Text),felkeszTermekInt,beepuloAnyagInt,Convert.ToInt32(raktarCombobox.SelectedValue),aktivInt);
+                    Termek update = new Termek(Convert.ToInt32(idTextbox.Text), termekNevTextbox.Text, termekNev2Textbox.Text, cikkszamTextbox.Text, Convert.ToInt32(kategoriaCombobox.SelectedValue),Convert.ToInt32(csomagolasiDbTextbox.Text),Convert.ToInt32(minimumGyarthatoTextbox.Text),Convert.ToInt32(raktarCombobox.SelectedValue),aktivInt);
                     updateEllenoriz(update);
                 } else {
-                    Termek insert = new Termek(0, termekNevTextbox.Text, termekNev2Textbox.Text, cikkszamTextbox.Text, Convert.ToInt32(kategoriaCombobox.SelectedValue), Convert.ToInt32(csomagolasiDbTextbox.Text), Convert.ToInt32(minimumGyarthatoTextbox.Text), felkeszTermekInt, beepuloAnyagInt, Convert.ToInt32(raktarCombobox.SelectedValue), aktivInt);
+                    Termek insert = new Termek(0, termekNevTextbox.Text, termekNev2Textbox.Text, cikkszamTextbox.Text, Convert.ToInt32(kategoriaCombobox.SelectedValue), Convert.ToInt32(csomagolasiDbTextbox.Text), Convert.ToInt32(minimumGyarthatoTextbox.Text), Convert.ToInt32(raktarCombobox.SelectedValue), aktivInt);
                     insertEllenoriz(insert);
                 }
             } catch (Exception ex) {
@@ -121,7 +119,6 @@ namespace IMM.UControl
             kategoriaFeltolt();
             raktarFeltolt();
         }
-        bool modosit = false;
         private void modositasBtn_Click(object sender, EventArgs e)
         {
             modositas();
@@ -138,14 +135,10 @@ namespace IMM.UControl
                 kategoriaCombobox.Enabled = false;
                 raktarCombobox.Enabled = false;
                 aktivCheckbox.Enabled = false;
-                felkesztermekCheckbox.Enabled = false;
-                beepuloCheckbox.Enabled = false;
                 csomagolasiDbTextbox.Enabled = false;
                 minimumGyarthatoTextbox.Enabled = false;
                 mentesBtn.Visible = false;
-                modosit = false;
             } else {
-                modosit = true;
                 mentesBtn.Visible = true;
                 termekNevTextbox.Enabled = true;
                 termekNev2Textbox.Enabled = true;
@@ -153,8 +146,6 @@ namespace IMM.UControl
                 kategoriaCombobox.Enabled = true;
                 raktarCombobox.Enabled = true;
                 aktivCheckbox.Enabled = true;
-                felkesztermekCheckbox.Enabled = true;
-                beepuloCheckbox.Enabled = true;
                 csomagolasiDbTextbox.Enabled = true;
                 minimumGyarthatoTextbox.Enabled = true;
             }
@@ -187,25 +178,7 @@ namespace IMM.UControl
         #endregion
 
         #region CHECKBOX EVENT
-        int felkeszTermekInt = 0; int beepuloAnyagInt = 0; int aktivInt = 1;
-        private void felkesztermekCheckbox_CheckedChanged(object sender, EventArgs e) {
-            if (felkesztermekCheckbox.Checked) {
-                felkeszTermekInt = 1;
-                if (modosit) {
-                    beepuloCheckbox.Enabled = true;
-                }
-                beepuloCheckbox.Visible = true;
-               
-            } else {
-                felkeszTermekInt = 0;
-                beepuloCheckbox.Visible = false;
-                beepuloCheckbox.Enabled = false;
-            }
-        }
-
-        private void beepuloCheckbox_CheckedChanged(object sender, EventArgs e) {
-            if (beepuloCheckbox.Checked) { beepuloAnyagInt = 1; } else { beepuloAnyagInt = 0; }
-        }
+        int aktivInt = 1;
 
         private void aktivCheckbox_CheckedChanged(object sender, EventArgs e) {
             if (aktivCheckbox.Checked) { aktivInt = 1; } else { aktivInt = 0; }

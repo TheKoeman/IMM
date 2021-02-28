@@ -14,21 +14,16 @@ namespace IMM.Install
         {
             InitializeComponent();
         }
-        Database database;
         private void loginForm_Load(object sender, EventArgs e)
         {
-            usernameText.Text = IMM.Properties.Settings.Default.lastUser;
             adatbazisCheck();
+            usernameText.Text = IMM.Properties.Settings.Default.lastUser;
         }
         void adatbazisCheck() {
             if (Settings.Default.dbConn == "") {
                 Properties.Settings.Default.dbConn = "URI = file:imm.db";
                 Properties.Settings.Default.Save();
-                MessageBox.Show("Alapértelmezett lett az adatbázis kapcsolat!");
-                loginBtn.Enabled = false;
-            } else {
-                database = new Database();
-                loginBtn.Enabled = true;
+                MessageBox.Show("Nem volt adatbázis kapcsolat mentve, így alapértelmezett lett a kapcsolat!");
             }
         }
         private void loginBtn_Click(object sender, EventArgs e)

@@ -23,8 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mentesBtn = new System.Windows.Forms.Button();
             this.aktivCheckbox = new System.Windows.Forms.CheckBox();
+            this.modositasBtn = new System.Windows.Forms.Button();
             this.idTextbox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.kategoriaNevTextbox = new System.Windows.Forms.TextBox();
@@ -36,47 +37,64 @@
             this.listaFrissitesBtn = new System.Windows.Forms.Button();
             this.gepHozzaadBtn = new System.Windows.Forms.Button();
             this.kijeloltDelBtn = new System.Windows.Forms.Button();
-            this.modositasBtn = new System.Windows.Forms.Button();
-            this.mentesBtn = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.katGepData)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // mentesBtn
             // 
-            this.groupBox1.Controls.Add(this.aktivCheckbox);
-            this.groupBox1.Controls.Add(this.idTextbox);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.kategoriaNevTextbox);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 113);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alap adatok";
+            this.mentesBtn.BackColor = System.Drawing.Color.DarkGreen;
+            this.mentesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mentesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mentesBtn.ForeColor = System.Drawing.Color.White;
+            this.mentesBtn.Location = new System.Drawing.Point(621, 88);
+            this.mentesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mentesBtn.Name = "mentesBtn";
+            this.mentesBtn.Size = new System.Drawing.Size(134, 45);
+            this.mentesBtn.TabIndex = 16;
+            this.mentesBtn.Text = "Mentés";
+            this.mentesBtn.UseVisualStyleBackColor = false;
+            this.mentesBtn.Visible = false;
+            this.mentesBtn.Click += new System.EventHandler(this.mentesBtn_Click);
             // 
             // aktivCheckbox
             // 
             this.aktivCheckbox.AutoSize = true;
             this.aktivCheckbox.Enabled = false;
-            this.aktivCheckbox.Location = new System.Drawing.Point(184, 86);
+            this.aktivCheckbox.Location = new System.Drawing.Point(742, 5);
+            this.aktivCheckbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.aktivCheckbox.Name = "aktivCheckbox";
-            this.aktivCheckbox.Size = new System.Drawing.Size(62, 24);
+            this.aktivCheckbox.Size = new System.Drawing.Size(89, 33);
             this.aktivCheckbox.TabIndex = 12;
             this.aktivCheckbox.Text = "Aktív";
             this.aktivCheckbox.UseVisualStyleBackColor = true;
             // 
+            // modositasBtn
+            // 
+            this.modositasBtn.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.modositasBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modositasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.modositasBtn.ForeColor = System.Drawing.Color.Black;
+            this.modositasBtn.Location = new System.Drawing.Point(621, 5);
+            this.modositasBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.modositasBtn.Name = "modositasBtn";
+            this.modositasBtn.Size = new System.Drawing.Size(134, 45);
+            this.modositasBtn.TabIndex = 15;
+            this.modositasBtn.Text = "Módosítás";
+            this.modositasBtn.UseVisualStyleBackColor = false;
+            this.modositasBtn.Click += new System.EventHandler(this.modositasBtn_Click);
+            // 
             // idTextbox
             // 
             this.idTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.idTextbox.Location = new System.Drawing.Point(136, 22);
+            this.idTextbox.Location = new System.Drawing.Point(185, 5);
+            this.idTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.idTextbox.Name = "idTextbox";
             this.idTextbox.ReadOnly = true;
-            this.idTextbox.Size = new System.Drawing.Size(287, 26);
+            this.idTextbox.Size = new System.Drawing.Size(428, 35);
             this.idTextbox.TabIndex = 7;
             this.idTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -84,9 +102,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(96, 25);
+            this.label7.Location = new System.Drawing.Point(4, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 20);
+            this.label7.Size = new System.Drawing.Size(48, 29);
             this.label7.TabIndex = 6;
             this.label7.Text = "ID :";
             // 
@@ -94,9 +113,10 @@
             // 
             this.kategoriaNevTextbox.Enabled = false;
             this.kategoriaNevTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.kategoriaNevTextbox.Location = new System.Drawing.Point(136, 54);
+            this.kategoriaNevTextbox.Location = new System.Drawing.Point(185, 88);
+            this.kategoriaNevTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kategoriaNevTextbox.Name = "kategoriaNevTextbox";
-            this.kategoriaNevTextbox.Size = new System.Drawing.Size(287, 26);
+            this.kategoriaNevTextbox.Size = new System.Drawing.Size(428, 35);
             this.kategoriaNevTextbox.TabIndex = 1;
             this.kategoriaNevTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -104,23 +124,25 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(16, 57);
+            this.label1.Location = new System.Drawing.Point(4, 83);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 20);
+            this.label1.Size = new System.Drawing.Size(173, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kategória név :";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.katGepData);
             this.groupBox2.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 122);
+            this.groupBox2.Location = new System.Drawing.Point(0, 166);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(956, 443);
-            this.groupBox2.TabIndex = 14;
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(1313, 700);
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kategóriához tartozó gépek";
             // 
@@ -131,26 +153,32 @@
             this.katGepData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selectBtn});
             this.katGepData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.katGepData.Location = new System.Drawing.Point(3, 59);
+            this.katGepData.Location = new System.Drawing.Point(4, 90);
+            this.katGepData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.katGepData.Name = "katGepData";
-            this.katGepData.Size = new System.Drawing.Size(950, 381);
+            this.katGepData.RowHeadersWidth = 62;
+            this.katGepData.Size = new System.Drawing.Size(1305, 605);
             this.katGepData.TabIndex = 0;
             this.katGepData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.katGepData_CellContentClick);
             // 
             // selectBtn
             // 
             this.selectBtn.HeaderText = "Kiválaszt";
+            this.selectBtn.MinimumWidth = 8;
             this.selectBtn.Name = "selectBtn";
+            this.selectBtn.Width = 150;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.listaFrissitesBtn);
             this.flowLayoutPanel1.Controls.Add(this.gepHozzaadBtn);
             this.flowLayoutPanel1.Controls.Add(this.kijeloltDelBtn);
+            this.flowLayoutPanel1.Controls.Add(this.aktivCheckbox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 22);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 33);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(950, 37);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1305, 57);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // listaFrissitesBtn
@@ -158,9 +186,10 @@
             this.listaFrissitesBtn.BackColor = System.Drawing.Color.DarkSlateGray;
             this.listaFrissitesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.listaFrissitesBtn.ForeColor = System.Drawing.Color.White;
-            this.listaFrissitesBtn.Location = new System.Drawing.Point(3, 3);
+            this.listaFrissitesBtn.Location = new System.Drawing.Point(4, 5);
+            this.listaFrissitesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listaFrissitesBtn.Name = "listaFrissitesBtn";
-            this.listaFrissitesBtn.Size = new System.Drawing.Size(159, 29);
+            this.listaFrissitesBtn.Size = new System.Drawing.Size(238, 45);
             this.listaFrissitesBtn.TabIndex = 2;
             this.listaFrissitesBtn.Text = "Lista frissítése";
             this.listaFrissitesBtn.UseVisualStyleBackColor = false;
@@ -171,9 +200,10 @@
             this.gepHozzaadBtn.BackColor = System.Drawing.Color.DarkSlateGray;
             this.gepHozzaadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gepHozzaadBtn.ForeColor = System.Drawing.Color.White;
-            this.gepHozzaadBtn.Location = new System.Drawing.Point(168, 3);
+            this.gepHozzaadBtn.Location = new System.Drawing.Point(250, 5);
+            this.gepHozzaadBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gepHozzaadBtn.Name = "gepHozzaadBtn";
-            this.gepHozzaadBtn.Size = new System.Drawing.Size(159, 29);
+            this.gepHozzaadBtn.Size = new System.Drawing.Size(238, 45);
             this.gepHozzaadBtn.TabIndex = 0;
             this.gepHozzaadBtn.Text = "Gép hozzáadása";
             this.gepHozzaadBtn.UseVisualStyleBackColor = false;
@@ -184,66 +214,57 @@
             this.kijeloltDelBtn.BackColor = System.Drawing.Color.DarkSlateGray;
             this.kijeloltDelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kijeloltDelBtn.ForeColor = System.Drawing.Color.White;
-            this.kijeloltDelBtn.Location = new System.Drawing.Point(333, 3);
+            this.kijeloltDelBtn.Location = new System.Drawing.Point(496, 5);
+            this.kijeloltDelBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kijeloltDelBtn.Name = "kijeloltDelBtn";
-            this.kijeloltDelBtn.Size = new System.Drawing.Size(159, 29);
+            this.kijeloltDelBtn.Size = new System.Drawing.Size(238, 45);
             this.kijeloltDelBtn.TabIndex = 1;
             this.kijeloltDelBtn.Text = "Kijelölt eltávolítása";
             this.kijeloltDelBtn.UseVisualStyleBackColor = false;
             this.kijeloltDelBtn.Click += new System.EventHandler(this.kijeloltDelBtn_Click);
             // 
-            // modositasBtn
+            // tableLayoutPanel1
             // 
-            this.modositasBtn.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.modositasBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modositasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.modositasBtn.ForeColor = System.Drawing.Color.Black;
-            this.modositasBtn.Location = new System.Drawing.Point(438, 19);
-            this.modositasBtn.Name = "modositasBtn";
-            this.modositasBtn.Size = new System.Drawing.Size(159, 29);
-            this.modositasBtn.TabIndex = 15;
-            this.modositasBtn.Text = "Módosítás";
-            this.modositasBtn.UseVisualStyleBackColor = false;
-            this.modositasBtn.Click += new System.EventHandler(this.modositasBtn_Click);
-            // 
-            // mentesBtn
-            // 
-            this.mentesBtn.BackColor = System.Drawing.Color.DarkGreen;
-            this.mentesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mentesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mentesBtn.ForeColor = System.Drawing.Color.White;
-            this.mentesBtn.Location = new System.Drawing.Point(438, 71);
-            this.mentesBtn.Name = "mentesBtn";
-            this.mentesBtn.Size = new System.Drawing.Size(159, 29);
-            this.mentesBtn.TabIndex = 16;
-            this.mentesBtn.Text = "Mentés";
-            this.mentesBtn.UseVisualStyleBackColor = false;
-            this.mentesBtn.Visible = false;
-            this.mentesBtn.Click += new System.EventHandler(this.mentesBtn_Click);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.mentesBtn, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.modositasBtn, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.idTextbox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.kategoriaNevTextbox, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 166);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TermekKategoriakUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.mentesBtn);
-            this.Controls.Add(this.modositasBtn);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TermekKategoriakUC";
-            this.Size = new System.Drawing.Size(962, 568);
+            this.Size = new System.Drawing.Size(1313, 874);
             this.Load += new System.EventHandler(this.TermekKategoriakUC_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.katGepData)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox aktivCheckbox;
         private System.Windows.Forms.TextBox idTextbox;
         private System.Windows.Forms.Label label7;
@@ -258,5 +279,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn selectBtn;
         private System.Windows.Forms.Button modositasBtn;
         private System.Windows.Forms.Button mentesBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

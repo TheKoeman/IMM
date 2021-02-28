@@ -56,11 +56,13 @@ namespace IMM.Forms {
                         Kategoria kat = new Kategoria(Convert.ToInt32(Kategoria.findByName(kivalasztott.Parent.Text).Id), kivalasztott.Parent.Text.ToString());
                         terkatUC.Kategoria = kat;
                         tabControl1.SelectedTab = adatokTabpage;
+                        adatokTabpage.Text = string.Format("Adatok | {0} ", Kategoria.findByName(kivalasztott.Parent.Text).KategoriaNev);
                         terkatUC.populateGridView();
                     } else {
                         Kategoria kat = new Kategoria(Convert.ToInt32(Kategoria.findByName(kivalasztott.Text).Id), kivalasztott.Text.ToString());
                         terkatUC.Kategoria = kat;
                         tabControl1.SelectedTab = adatokTabpage;
+                        adatokTabpage.Text = string.Format("Adatok | {0} ", Kategoria.findByName(kivalasztott.Text).KategoriaNev);
                         terkatUC.populateGridView();
                     }
                 }
@@ -69,9 +71,6 @@ namespace IMM.Forms {
             }
         }
         private void termekKategoriakForm_Load(object sender, EventArgs e) {
-            AutoSize = false;
-            this.HorizontalScroll.Enabled = false;
-            AutoSize = true;
             database = new Database();
             terkatUC = new TermekKategoriakUC();
             terkatUC.Parent = adatokTabpage;
