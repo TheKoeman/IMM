@@ -60,6 +60,12 @@ namespace IMM.Model.GyartasModel {
             }
             return _mTermekLista;
         }
+        public static MunkarendTermekek findByMRTID(int id) {
+            MunkarendTermekek termek = (from x in getAll()
+                                        where x.MrtID == id
+                                        select x).First();
+            return termek;
+        }
         public static void Hozzaad(MunkarendTermekek _mt) {
             SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);

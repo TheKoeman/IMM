@@ -30,6 +30,7 @@ namespace IMM.UControl
                 _termek.Cikkszam = cikkszamTextbox.Text;
                 _termek.KategoriaID = (from x in kategoriak where x.Id == _termek.KategoriaID select x.Id).First();
                 _termek.Raktar = (from x in raktarak where x.RaktarID == _termek.Raktar select x.RaktarID).First();
+                _termek.CsomagolasiDarabszam = Convert.ToInt32(csomagolasiDbTextbox.Text);
                 return _termek;
             }
             set {
@@ -40,6 +41,7 @@ namespace IMM.UControl
                 cikkszamTextbox.Text = _termek.Cikkszam;
                 kategoriaCombobox.Text = (from x in kategoriak where x.Id == _termek.KategoriaID select x.KategoriaNev).First();
                 raktarCombobox.Text = (from x in raktarak where x.RaktarID == _termek.Raktar select x.RaktarMegnevezes).First();
+                csomagolasiDbTextbox.Text = _termek.CsomagolasiDarabszam.ToString();
                 if (_termek.Aktiv == 1) { aktivCheckbox.Checked = true; } else { aktivCheckbox.Checked = false; }
                 }
         }
@@ -170,10 +172,15 @@ namespace IMM.UControl
             cikkszamTextbox.Text = "";
             kategoriaCombobox.Text = "";
 
+            mentesBtn.Visible = true;
+            mentesBtn.Enabled = true;
             termekNevTextbox.Enabled = true;
             termekNev2Textbox.Enabled = true;
             cikkszamTextbox.Enabled = true;
             kategoriaCombobox.Enabled = true;
+            minimumGyarthatoTextbox.Enabled = true;
+            raktarCombobox.Enabled = true;
+            csomagolasiDbTextbox.Enabled = true;
         }
         #endregion
 

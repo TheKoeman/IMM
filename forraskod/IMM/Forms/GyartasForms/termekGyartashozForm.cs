@@ -40,11 +40,9 @@ namespace IMM.Forms.GyartasForms {
             termekekGridView.Columns["TermekNev"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGridView.Columns["TermekNev2"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGridView.Columns["Cikkszam"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGridView.Columns["Kategoria"].Visible = false;
+            termekekGridView.Columns["KategoriaID"].Visible = false;
             termekekGridView.Columns["CsomagolasiDarabszam"].Visible = false;
             termekekGridView.Columns["MinimumGyarthato"].Visible = false;
-            termekekGridView.Columns["Felkesztermek"].Visible = false;
-            termekekGridView.Columns["BeepuloAnyag"].Visible = false;
             termekekGridView.Columns["Aktiv"].Visible = false;
         }
 

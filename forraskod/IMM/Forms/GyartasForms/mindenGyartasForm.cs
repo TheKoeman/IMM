@@ -81,6 +81,9 @@ namespace IMM.Forms.GyartasForms {
             if (mindenGyartasGridView.Columns[e.ColumnIndex] == munkarendOldalBtn) {
                 munkarendKivalasztForm frm = new munkarendKivalasztForm(Convert.ToInt32(mindenGyartasGridView.Rows[e.RowIndex].Cells["MrID"].Value));
                 frm.ShowDialog();
+            } else if (mindenGyartasGridView.Columns[e.ColumnIndex] == gyartasOldalBtn) {
+                munkarendTermekGyartasForm frm = new munkarendTermekGyartasForm(MunkarendTermekek.findByMRTID(Convert.ToInt32(mindenGyartasGridView.Rows[e.RowIndex].Cells["MrtID"].Value)));
+                frm.ShowDialog();
             }
         }
 

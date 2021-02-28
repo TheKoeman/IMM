@@ -1,0 +1,28 @@
+Termek getAll | Database is not open | 2021. 02. 28. 9:48:09 | 
+Termek getAll | Database is not open | 2021. 02. 28. 9:48:15 | 
+Termek getAll | Database is not open | 2021. 02. 28. 9:49:58 | 
+Termek getAll | Database is not open | 2021. 02. 28. 9:50:19 | 
+Termek getAll | Database is not open | 2021. 02. 28. 9:50:23 | 
+Termek getAll | Database is not open | 2021. 02. 28. 9:50:26 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:39:47 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:39:47 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:40:23 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:40:23 | 
+Termék adatok | Termék módosítása sikeres:Negyedik Termék2 | 2021. 02. 28. 10:43:10 | 
+Termék adatok | Termék módosítása sikeres:Első Termék | 2021. 02. 28. 10:43:34 | 
+Termék adatok | Termék módosítása sikeres:Első Termék | 2021. 02. 28. 10:43:59 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:48:50 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:48:50 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:51:39 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:51:39 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:52:18 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:52:18 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:52:53 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 10:52:53 | 
+Minden termék | Termékek szűrése | 2021. 02. 28. 10:53:55 | 
+Minden termék | Termékek szűrése | 2021. 02. 28. 10:53:59 | 
+Termék adatok | Termék hozzáadása sikeres:Ez egy teszt termék | 2021. 02. 28. 10:58:21 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 11:00:34 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 11:00:34 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 11:00:43 | 
+MunkarendCsomagolás osztály getAll | Database is not open | 2021. 02. 28. 11:00:43 | 

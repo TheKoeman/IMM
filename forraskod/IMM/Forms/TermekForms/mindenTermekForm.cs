@@ -124,7 +124,7 @@ namespace IMM
         }
 
         private void ujTermekBtn_Click(object sender, EventArgs e) {
-            if ((from x in Model.RaktarModel.Raktar.getAll() where x.RaktarID==222 select x).ToList().Count() > 0) {
+            if (Model.RaktarModel.Raktar.getAll().Count > 0) {
                 tauc.ujTermek();
                 tabControl1.SelectedTab = adatokTabpage;
             } else {

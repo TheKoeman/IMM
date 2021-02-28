@@ -28,7 +28,7 @@ namespace IMM.Forms.GyartasForms {
 
         private void munkarendTermekModositasForm_Load(object sender, EventArgs e) {
             termek = Model.Termek.findByID(mrT.TermekID);
-            egyDobozLabel.Text = "Egy dobozba : "+termek.CsomagolasiDarabszam.ToString() + " termék megy!";
+            egyDobozLabel.Text = "Egy dobozba : "+termek.CsomagolasiDarabszam.ToString() + " termék kerül!";
         }
 
         void dobozSzamol() {

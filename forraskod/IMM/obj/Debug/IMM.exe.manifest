@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IMM.exe" size="182752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IMM.exe" size="189408">
       <assemblyIdentity name="IMM" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hCp9mov/zELTGjYArI3/zhapqy3Ao6ODroSV0HFwIL4=</dsig:DigestValue>
+        <dsig:DigestValue>7Wq3P/rutacO/pti292rmcm11Dofnsr+ShZ0WJfnxOs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
