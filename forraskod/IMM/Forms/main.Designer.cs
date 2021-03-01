@@ -157,6 +157,7 @@
             this.anyagokBtn.TabIndex = 2;
             this.anyagokBtn.Text = "Anyagok";
             this.anyagokBtn.UseVisualStyleBackColor = false;
+            this.anyagokBtn.Visible = false;
             // 
             // termekKategoriakBtn
             // 
@@ -196,7 +197,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(0, 84);
+            this.tabPage2.Size = new System.Drawing.Size(1436, 84);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Raktár & Lokáció";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -214,6 +215,7 @@
             this.anyagRaktarozasBtn.TabIndex = 3;
             this.anyagRaktarozasBtn.Text = "Leltár";
             this.anyagRaktarozasBtn.UseVisualStyleBackColor = false;
+            this.anyagRaktarozasBtn.Visible = false;
             // 
             // raktarBtn
             // 
@@ -239,7 +241,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(0, 84);
+            this.tabPage3.Size = new System.Drawing.Size(1436, 84);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Megrendelés & Gyártás";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -257,6 +259,7 @@
             this.statuszokBtn.TabIndex = 10;
             this.statuszokBtn.Text = "Státuszok";
             this.statuszokBtn.UseVisualStyleBackColor = false;
+            this.statuszokBtn.Visible = false;
             this.statuszokBtn.Click += new System.EventHandler(this.statuszokBtn_Click);
             // 
             // azonGeneralBtn
@@ -272,6 +275,7 @@
             this.azonGeneralBtn.TabIndex = 9;
             this.azonGeneralBtn.Text = "Azonosító generálás beállítások";
             this.azonGeneralBtn.UseVisualStyleBackColor = false;
+            this.azonGeneralBtn.Visible = false;
             this.azonGeneralBtn.Click += new System.EventHandler(this.azonGeneralBtn_Click);
             // 
             // mindenGyartasBtn
@@ -311,7 +315,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(0, 84);
+            this.tabPage4.Size = new System.Drawing.Size(1436, 84);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Gépek";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -329,6 +333,7 @@
             this.button4.TabIndex = 9;
             this.button4.Text = "Gépstátuszok";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             // 
             // gepekBtn
             // 
@@ -353,7 +358,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(0, 84);
+            this.tabPage5.Size = new System.Drawing.Size(1436, 84);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Felhasználók";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -371,6 +376,7 @@
             this.vevoKezelesBtn.TabIndex = 4;
             this.vevoKezelesBtn.Text = "Vevők kezelése";
             this.vevoKezelesBtn.UseVisualStyleBackColor = false;
+            this.vevoKezelesBtn.Visible = false;
             // 
             // button2
             // 
@@ -385,6 +391,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Jogosultságok";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             // 
             // felhasznaloKezelesBtn
             // 
@@ -399,13 +406,14 @@
             this.felhasznaloKezelesBtn.TabIndex = 2;
             this.felhasznaloKezelesBtn.Text = "Felhasználók kezelése";
             this.felhasznaloKezelesBtn.UseVisualStyleBackColor = false;
+            this.felhasznaloKezelesBtn.Visible = false;
             // 
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(0, 84);
+            this.tabPage6.Size = new System.Drawing.Size(1436, 84);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Riportok";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -416,7 +424,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(0, 84);
+            this.tabPage7.Size = new System.Drawing.Size(1436, 84);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Karbantartás";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -434,6 +442,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Esedékes karbantartások";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             // 
             // tabPage8
             // 

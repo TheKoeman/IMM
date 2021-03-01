@@ -90,20 +90,21 @@
             // 
             this.keresesRaktarbanBtn.BackColor = System.Drawing.Color.Turquoise;
             this.keresesRaktarbanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.keresesRaktarbanBtn.Location = new System.Drawing.Point(710, 247);
+            this.keresesRaktarbanBtn.Location = new System.Drawing.Point(710, 208);
             this.keresesRaktarbanBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.keresesRaktarbanBtn.Name = "keresesRaktarbanBtn";
             this.keresesRaktarbanBtn.Size = new System.Drawing.Size(246, 37);
             this.keresesRaktarbanBtn.TabIndex = 11;
             this.keresesRaktarbanBtn.Text = "Keresés raktáron belül";
             this.keresesRaktarbanBtn.UseVisualStyleBackColor = false;
+            this.keresesRaktarbanBtn.Visible = false;
             // 
             // raktarCombobox
             // 
             this.raktarCombobox.Enabled = false;
             this.raktarCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.raktarCombobox.FormattingEnabled = true;
-            this.raktarCombobox.Location = new System.Drawing.Point(251, 247);
+            this.raktarCombobox.Location = new System.Drawing.Point(251, 208);
             this.raktarCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.raktarCombobox.Name = "raktarCombobox";
             this.raktarCombobox.Size = new System.Drawing.Size(451, 33);
@@ -113,7 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(4, 242);
+            this.label4.Location = new System.Drawing.Point(4, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 25);
@@ -148,18 +149,18 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.raktarCombobox, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.kategoriaCombobox, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.termekNevTextbox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.termekNev2Textbox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.idTextbox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cikkszamTextbox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.aktivCheckbox, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.aktivCheckbox, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.kategoriaCombobox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 33);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -181,7 +182,7 @@
             // 
             this.minimumGyarthatoTextbox.Enabled = false;
             this.minimumGyarthatoTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.minimumGyarthatoTextbox.Location = new System.Drawing.Point(251, 325);
+            this.minimumGyarthatoTextbox.Location = new System.Drawing.Point(251, 286);
             this.minimumGyarthatoTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.minimumGyarthatoTextbox.Name = "minimumGyarthatoTextbox";
             this.minimumGyarthatoTextbox.Size = new System.Drawing.Size(332, 30);
@@ -194,7 +195,7 @@
             // 
             this.csomagolasiDbTextbox.Enabled = false;
             this.csomagolasiDbTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.csomagolasiDbTextbox.Location = new System.Drawing.Point(251, 294);
+            this.csomagolasiDbTextbox.Location = new System.Drawing.Point(251, 255);
             this.csomagolasiDbTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.csomagolasiDbTextbox.Name = "csomagolasiDbTextbox";
             this.csomagolasiDbTextbox.Size = new System.Drawing.Size(332, 30);
@@ -336,7 +337,7 @@
             this.aktivCheckbox.Enabled = false;
             this.aktivCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aktivCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.aktivCheckbox.Location = new System.Drawing.Point(710, 208);
+            this.aktivCheckbox.Location = new System.Drawing.Point(710, 5);
             this.aktivCheckbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.aktivCheckbox.Name = "aktivCheckbox";
             this.aktivCheckbox.Size = new System.Drawing.Size(76, 29);
@@ -349,7 +350,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(4, 289);
+            this.label5.Location = new System.Drawing.Point(4, 250);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(239, 25);
@@ -360,7 +361,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(4, 320);
+            this.label6.Location = new System.Drawing.Point(4, 281);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(188, 25);
@@ -392,6 +393,7 @@
             this.csatolmanyokBtn.TabIndex = 3;
             this.csatolmanyokBtn.Text = "Csatolmányok";
             this.csatolmanyokBtn.UseVisualStyleBackColor = false;
+            this.csatolmanyokBtn.Visible = false;
             // 
             // TermekAdatokUC
             // 

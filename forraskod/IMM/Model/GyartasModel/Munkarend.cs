@@ -53,14 +53,14 @@ namespace IMM.Model.GyartasModel {
         public static Munkarend findByID(int id) {
             Munkarend munkarend = (from x in getAll()
                                    where x.MrId == id
-                                   select x).First();
+                                   select x).FirstOrDefault();
             return munkarend;
         }
         public static Munkarend findByAzonosito(string azon) {
             Munkarend munkarend = (from x in getAll()
                                    where x.MrAzonosito == azon
-                                   select x).First();
-            return munkarend;
+                                   select x).FirstOrDefault();
+                return munkarend;
         }
         public static void Hozzaad(Munkarend _mr) {
             SQLiteConnection sqlc = new SQLiteConnection(Database.connection);

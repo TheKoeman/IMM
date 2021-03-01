@@ -60,10 +60,10 @@ namespace IMM.Forms.RaktarForms {
         }
 
         private void mindenRaktarGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (mindenRaktarGridView.Columns[e.ColumnIndex] == kivalasztBtn) {
+            /*if (mindenRaktarGridView.Columns[e.ColumnIndex] == kivalasztBtn) {
                 rkuc.Rlokacio = RaktarLokacio.findByRaktarID(Convert.ToInt32(mindenRaktarGridView.Rows[e.RowIndex].Cells["RaktarID"].Value)).ToList();
                 tabControl1.SelectedTab = tabPage2;
-            }
+            }*/
         }
     }
 }
