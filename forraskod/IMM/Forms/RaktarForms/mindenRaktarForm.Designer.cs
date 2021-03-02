@@ -29,10 +29,10 @@
             this.frissitesBtn = new System.Windows.Forms.Button();
             this.ujRaktarBtn = new System.Windows.Forms.Button();
             this.mindenRaktarGridView = new System.Windows.Forms.DataGridView();
+            this.kivalasztBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.kivalasztBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mindenRaktarGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -45,7 +45,7 @@
             this.close.BackColor = System.Drawing.Color.LightBlue;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.ForeColor = System.Drawing.Color.Black;
-            this.close.Location = new System.Drawing.Point(1804, 0);
+            this.close.Location = new System.Drawing.Point(755, 0);
             this.close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(36, 35);
@@ -62,7 +62,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1839, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(790, 72);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // frissitesBtn
@@ -114,9 +114,19 @@
             this.mindenRaktarGridView.Name = "mindenRaktarGridView";
             this.mindenRaktarGridView.ReadOnly = true;
             this.mindenRaktarGridView.RowHeadersWidth = 62;
-            this.mindenRaktarGridView.Size = new System.Drawing.Size(1823, 834);
+            this.mindenRaktarGridView.Size = new System.Drawing.Size(774, 834);
             this.mindenRaktarGridView.TabIndex = 10;
             this.mindenRaktarGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mindenRaktarGridView_CellContentClick);
+            // 
+            // kivalasztBtn
+            // 
+            this.kivalasztBtn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.kivalasztBtn.HeaderText = "Kiválaszt";
+            this.kivalasztBtn.MinimumWidth = 8;
+            this.kivalasztBtn.Name = "kivalasztBtn";
+            this.kivalasztBtn.ReadOnly = true;
+            this.kivalasztBtn.Visible = false;
+            this.kivalasztBtn.Width = 150;
             // 
             // tabControl1
             // 
@@ -127,7 +137,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1839, 877);
+            this.tabControl1.Size = new System.Drawing.Size(790, 877);
             this.tabControl1.TabIndex = 11;
             // 
             // tabPage1
@@ -137,7 +147,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1831, 844);
+            this.tabPage1.Size = new System.Drawing.Size(782, 844);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Minden raktár";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -153,23 +163,13 @@
             this.tabPage2.Text = "Adatok";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // kivalasztBtn
-            // 
-            this.kivalasztBtn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.kivalasztBtn.HeaderText = "Kiválaszt";
-            this.kivalasztBtn.MinimumWidth = 8;
-            this.kivalasztBtn.Name = "kivalasztBtn";
-            this.kivalasztBtn.ReadOnly = true;
-            this.kivalasztBtn.Visible = false;
-            this.kivalasztBtn.Width = 77;
-            // 
             // mindenRaktarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1839, 949);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(790, 949);
             this.Controls.Add(this.close);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
