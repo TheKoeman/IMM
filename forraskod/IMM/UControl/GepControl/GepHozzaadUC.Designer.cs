@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.gepekGridView = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.mentesBtn = new System.Windows.Forms.Button();
             this.selectCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mentesBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gepekGridView)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gepekGridView
@@ -39,47 +39,54 @@
             this.selectCheckbox});
             this.gepekGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gepekGridView.Location = new System.Drawing.Point(0, 0);
+            this.gepekGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gepekGridView.Name = "gepekGridView";
-            this.gepekGridView.Size = new System.Drawing.Size(1051, 560);
+            this.gepekGridView.RowHeadersWidth = 62;
+            this.gepekGridView.Size = new System.Drawing.Size(581, 489);
             this.gepekGridView.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // selectCheckbox
             // 
-            this.flowLayoutPanel1.Controls.Add(this.mentesBtn);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 560);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1051, 36);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.selectCheckbox.HeaderText = "Kiválaszt";
+            this.selectCheckbox.MinimumWidth = 8;
+            this.selectCheckbox.Name = "selectCheckbox";
+            this.selectCheckbox.Width = 150;
             // 
             // mentesBtn
             // 
             this.mentesBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.mentesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mentesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mentesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mentesBtn.Location = new System.Drawing.Point(3, 3);
+            this.mentesBtn.Location = new System.Drawing.Point(0, 0);
+            this.mentesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mentesBtn.Name = "mentesBtn";
-            this.mentesBtn.Size = new System.Drawing.Size(228, 33);
+            this.mentesBtn.Size = new System.Drawing.Size(581, 50);
             this.mentesBtn.TabIndex = 0;
             this.mentesBtn.Text = "Változtatások mentése";
             this.mentesBtn.UseVisualStyleBackColor = false;
             this.mentesBtn.Click += new System.EventHandler(this.mentesBtn_Click);
             // 
-            // selectCheckbox
+            // panel1
             // 
-            this.selectCheckbox.HeaderText = "Kiválaszt";
-            this.selectCheckbox.Name = "selectCheckbox";
+            this.panel1.Controls.Add(this.mentesBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 489);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(581, 50);
+            this.panel1.TabIndex = 1;
             // 
             // GepHozzaadUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gepekGridView);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GepHozzaadUC";
-            this.Size = new System.Drawing.Size(1051, 596);
+            this.Size = new System.Drawing.Size(581, 539);
             ((System.ComponentModel.ISupportInitialize)(this.gepekGridView)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -87,8 +94,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gepekGridView;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button mentesBtn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectCheckbox;
+        private System.Windows.Forms.Panel panel1;
     }
 }

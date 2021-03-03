@@ -34,6 +34,7 @@ namespace IMM.Forms {
             gepekGridView.DataSource = Gep.getAll();
             gepekGridView.Columns[1].HeaderText = "Gép ID";
             gepekGridView.Columns[2].HeaderText = "Gép neve";
+            gepekGridView.Columns[1].Visible = false;
             gepekGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             gepekGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             gepekGridView.Rows[1].Selected = true;

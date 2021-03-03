@@ -42,7 +42,7 @@ namespace IMM.Model.RaktarModel {
         public static Raktar findByID(int id) {
             Raktar raktar = (from x in getAll()
                              where x.RaktarID == id
-                             select x).First();
+                             select x).FirstOrDefault();
             return raktar;
         }
         public static void Hozzaad(Raktar _rak) {

@@ -52,7 +52,7 @@ namespace IMM.Model
         public static Kategoria findByName(string name) {
             Kategoria _kategoria = (from x in getAll()
                                     where x.kategoriaNev == name
-                                    select x).First();
+                                    select x).FirstOrDefault();
             return _kategoria;
         }
         public static void Modosit(Kategoria _kategoria) {

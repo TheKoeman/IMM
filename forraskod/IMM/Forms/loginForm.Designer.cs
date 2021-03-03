@@ -42,9 +42,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Location = new System.Drawing.Point(18, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
+            this.label1.Size = new System.Drawing.Size(181, 29);
             this.label1.TabIndex = 99;
             this.label1.Text = "Felhasználónév";
             // 
@@ -52,9 +53,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(82, 40);
+            this.label2.Location = new System.Drawing.Point(123, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(82, 29);
             this.label2.TabIndex = 99;
             this.label2.Text = "Jelszó";
             // 
@@ -62,10 +64,11 @@
             // 
             this.usernameText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.usernameText.Location = new System.Drawing.Point(142, 6);
+            this.usernameText.Location = new System.Drawing.Point(213, 9);
+            this.usernameText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.usernameText.MaxLength = 20;
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(153, 26);
+            this.usernameText.Size = new System.Drawing.Size(228, 35);
             this.usernameText.TabIndex = 1;
             this.usernameText.Text = "admin";
             // 
@@ -73,13 +76,13 @@
             // 
             this.passText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passText.Location = new System.Drawing.Point(142, 38);
+            this.passText.Location = new System.Drawing.Point(213, 58);
+            this.passText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.passText.MaxLength = 20;
             this.passText.Name = "passText";
             this.passText.PasswordChar = '*';
-            this.passText.Size = new System.Drawing.Size(153, 26);
+            this.passText.Size = new System.Drawing.Size(228, 35);
             this.passText.TabIndex = 2;
-            this.passText.Text = "admin";
             // 
             // loginBtn
             // 
@@ -88,9 +91,10 @@
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.Location = new System.Drawing.Point(0, 109);
+            this.loginBtn.Location = new System.Drawing.Point(0, 141);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(307, 37);
+            this.loginBtn.Size = new System.Drawing.Size(452, 57);
             this.loginBtn.TabIndex = 3;
             this.loginBtn.Text = "Bejelentkezés";
             this.loginBtn.UseVisualStyleBackColor = false;
@@ -101,9 +105,10 @@
             // 
             this.showPassBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.showPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.showPassBtn.Location = new System.Drawing.Point(0, 86);
+            this.showPassBtn.Location = new System.Drawing.Point(0, 106);
+            this.showPassBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.showPassBtn.Name = "showPassBtn";
-            this.showPassBtn.Size = new System.Drawing.Size(307, 23);
+            this.showPassBtn.Size = new System.Drawing.Size(452, 35);
             this.showPassBtn.TabIndex = 4;
             this.showPassBtn.Text = "Jelszó megjelenítése";
             this.showPassBtn.UseVisualStyleBackColor = true;
@@ -112,17 +117,19 @@
             // loginFormServerStatusLabel
             // 
             this.loginFormServerStatusLabel.AutoSize = true;
-            this.loginFormServerStatusLabel.Location = new System.Drawing.Point(12, 70);
+            this.loginFormServerStatusLabel.Location = new System.Drawing.Point(18, 108);
+            this.loginFormServerStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginFormServerStatusLabel.Name = "loginFormServerStatusLabel";
-            this.loginFormServerStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.loginFormServerStatusLabel.Size = new System.Drawing.Size(0, 20);
             this.loginFormServerStatusLabel.TabIndex = 6;
             // 
             // dbSet
             // 
             this.dbSet.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.dbSet.Location = new System.Drawing.Point(12, 33);
+            this.dbSet.Location = new System.Drawing.Point(18, 51);
+            this.dbSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbSet.Name = "dbSet";
-            this.dbSet.Size = new System.Drawing.Size(67, 37);
+            this.dbSet.Size = new System.Drawing.Size(100, 57);
             this.dbSet.TabIndex = 5;
             this.dbSet.Text = "Beállítás";
             this.dbSet.UseVisualStyleBackColor = true;
@@ -130,10 +137,10 @@
             // 
             // loginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(307, 146);
+            this.ClientSize = new System.Drawing.Size(452, 198);
             this.Controls.Add(this.dbSet);
             this.Controls.Add(this.loginFormServerStatusLabel);
             this.Controls.Add(this.showPassBtn);
@@ -143,8 +150,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(323, 185);
-            this.MinimumSize = new System.Drawing.Size(323, 185);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(474, 254);
+            this.MinimumSize = new System.Drawing.Size(474, 254);
             this.Name = "loginForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

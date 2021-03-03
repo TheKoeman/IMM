@@ -58,6 +58,7 @@ namespace IMM.Model {
         public static List<GepAllomas> findByGepID(int gepid) {
             List<GepAllomas> allomasok = (from x in getAll()
                                           where x.GepId == gepid
+                                          orderby x.AllomasSzam
                                           select x).ToList();
             return allomasok;
         }

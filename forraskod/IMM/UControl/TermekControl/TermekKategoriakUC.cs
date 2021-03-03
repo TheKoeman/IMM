@@ -86,7 +86,7 @@ namespace IMM.UControl {
         private void gepHozzaadBtn_Click(object sender, EventArgs e) {
             Form frm = new Form();
             frm.StartPosition = FormStartPosition.CenterScreen;
-            GepHozzaadUC ghuc = new GepHozzaadUC(katGepData,Convert.ToInt32(idTextbox.Text));
+            GepHozzaadUC ghuc = new GepHozzaadUC(katGepData,Convert.ToInt32(idTextbox.Text),frm);
             frm.Text = "Gép hozzáadása";
             ghuc.Parent = frm;
             frm.Size = ghuc.Size;

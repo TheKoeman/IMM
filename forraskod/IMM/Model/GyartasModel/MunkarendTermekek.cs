@@ -63,7 +63,7 @@ namespace IMM.Model.GyartasModel {
         public static MunkarendTermekek findByMRTID(int id) {
             MunkarendTermekek termek = (from x in getAll()
                                         where x.MrtID == id
-                                        select x).First();
+                                        select x).FirstOrDefault();
             return termek;
         }
         public static void Hozzaad(MunkarendTermekek _mt) {

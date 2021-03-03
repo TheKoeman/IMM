@@ -15,7 +15,9 @@ namespace IMM.UControl {
         private DataGridView dataView;
         Database database = new Database();
         private int kategoriaid;
-        public GepHozzaadUC(DataGridView dgv,int katid) {
+        private Form form;
+        public GepHozzaadUC(DataGridView dgv,int katid,Form frm) {
+            this.form = frm;
             this.dataView = dgv;
             this.kategoriaid = katid;
             InitializeComponent();
@@ -65,6 +67,7 @@ namespace IMM.UControl {
                 }
             }
             listRefresh();
+            form.Close();
         }
     }
 }

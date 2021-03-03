@@ -46,7 +46,7 @@ namespace IMM.Model {
         public static Gep findByID(int id) {
             Gep gep = (from x in getAll()
                        where x.Id == id
-                       select x).First();
+                       select x).FirstOrDefault();
             return gep;
         }
         public static void Modosit(Gep _gep) {

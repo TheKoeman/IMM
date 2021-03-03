@@ -93,7 +93,7 @@ namespace IMM.Model
         public static Termek findByID(int id) {
             Termek _termek = (from x in getAll()
                               where x.id == id
-                              select x).First();
+                              select x).FirstOrDefault();
             return _termek;
         }
         public static void Modosit(Termek _termek) {

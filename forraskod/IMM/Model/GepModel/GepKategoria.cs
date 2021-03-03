@@ -66,7 +66,7 @@ namespace IMM.Model {
         public static GepKategoria findByID(int gepid, int katid) {
             GepKategoria gepKategoria = (from x in getAll()
                                          where x.GepId == gepid & x.KategoriaId == katid
-                                         select x).First();
+                                         select x).FirstOrDefault();
             return gepKategoria;
         }
 
