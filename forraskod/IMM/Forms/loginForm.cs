@@ -78,6 +78,12 @@ namespace IMM.Install
             }
         }
 
+        private void passText_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                textboxCheck();
+            }
+        }
+
         private void dbSet_Click(object sender, EventArgs e)
         {
             DBBeallitasForm frm = new DBBeallitasForm();

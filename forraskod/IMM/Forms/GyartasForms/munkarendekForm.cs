@@ -71,5 +71,9 @@ namespace IMM.Forms.GyartasForms {
                 frm.ShowDialog();
             }
         }
+
+        private void frissitesBtn_Click(object sender, EventArgs e) {
+            munkarendekGridView.DataSource = Munkarend.getAll();
+        }
     }
 }

@@ -42,8 +42,9 @@
             this.flowLayoutPanel1.Controls.Add(this.ujMunkarendBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1178, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1767, 68);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // frissitesBtn
@@ -52,12 +53,14 @@
             this.frissitesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frissitesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.frissitesBtn.ForeColor = System.Drawing.Color.White;
-            this.frissitesBtn.Location = new System.Drawing.Point(3, 3);
+            this.frissitesBtn.Location = new System.Drawing.Point(4, 5);
+            this.frissitesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.frissitesBtn.Name = "frissitesBtn";
-            this.frissitesBtn.Size = new System.Drawing.Size(88, 35);
+            this.frissitesBtn.Size = new System.Drawing.Size(132, 54);
             this.frissitesBtn.TabIndex = 0;
             this.frissitesBtn.Text = "Frissítés";
             this.frissitesBtn.UseVisualStyleBackColor = false;
+            this.frissitesBtn.Click += new System.EventHandler(this.frissitesBtn_Click);
             // 
             // ujMunkarendBtn
             // 
@@ -65,9 +68,10 @@
             this.ujMunkarendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ujMunkarendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ujMunkarendBtn.ForeColor = System.Drawing.Color.White;
-            this.ujMunkarendBtn.Location = new System.Drawing.Point(97, 3);
+            this.ujMunkarendBtn.Location = new System.Drawing.Point(144, 5);
+            this.ujMunkarendBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ujMunkarendBtn.Name = "ujMunkarendBtn";
-            this.ujMunkarendBtn.Size = new System.Drawing.Size(204, 35);
+            this.ujMunkarendBtn.Size = new System.Drawing.Size(306, 54);
             this.ujMunkarendBtn.TabIndex = 1;
             this.ujMunkarendBtn.Text = "Új munkarend felvétele";
             this.ujMunkarendBtn.UseVisualStyleBackColor = false;
@@ -79,9 +83,10 @@
             this.close.BackColor = System.Drawing.Color.LightBlue;
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.ForeColor = System.Drawing.Color.Black;
-            this.close.Location = new System.Drawing.Point(1153, 2);
+            this.close.Location = new System.Drawing.Point(1730, 3);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(24, 23);
+            this.close.Size = new System.Drawing.Size(36, 35);
             this.close.TabIndex = 3;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = false;
@@ -113,10 +118,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.munkarendekGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.munkarendekGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.munkarendekGridView.Location = new System.Drawing.Point(0, 44);
+            this.munkarendekGridView.Location = new System.Drawing.Point(0, 68);
+            this.munkarendekGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.munkarendekGridView.Name = "munkarendekGridView";
             this.munkarendekGridView.ReadOnly = true;
-            this.munkarendekGridView.Size = new System.Drawing.Size(1178, 588);
+            this.munkarendekGridView.RowHeadersWidth = 62;
+            this.munkarendekGridView.Size = new System.Drawing.Size(1767, 904);
             this.munkarendekGridView.TabIndex = 4;
             this.munkarendekGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.munkarendekGridView_CellContentClick);
             // 
@@ -131,20 +138,22 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.selectBtn.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectBtn.HeaderText = "Kiválaszt";
+            this.selectBtn.MinimumWidth = 8;
             this.selectBtn.Name = "selectBtn";
             this.selectBtn.ReadOnly = true;
             this.selectBtn.Text = "Select";
-            this.selectBtn.Width = 77;
+            this.selectBtn.Width = 113;
             // 
             // munkarendekForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 632);
+            this.ClientSize = new System.Drawing.Size(1767, 972);
             this.Controls.Add(this.munkarendekGridView);
             this.Controls.Add(this.close);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "munkarendekForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

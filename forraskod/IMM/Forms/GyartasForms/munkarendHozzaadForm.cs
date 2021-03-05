@@ -20,28 +20,34 @@ namespace IMM.Forms.GyartasForms {
 
         bool megfelelo() {
             if (munAzonTextbox.Text.Length >= 5) {
-                return true;
+                if (Munkarend.findByAzonosito(munAzonTextbox.Text.ToString()) == null) {
+                    ellenorzoLabel.Text = "Megfelelő!";
+                    ellenorzoLabel.ForeColor = Color.Green;
+                    return true;
+                } else {
+                    ellenorzoLabel.Text = "Foglalt!";
+                    ellenorzoLabel.ForeColor = Color.Red;
+                    return false;
+                }
             } else {
+                ellenorzoLabel.Text = "Nem megfelelő!";
+                ellenorzoLabel.ForeColor = Color.Red;
                 return false;
             }
         }
 
         private void munAzonTextbox_TextChanged(object sender, EventArgs e) {
             if (megfelelo()) {
-                ellenorzoLabel.Text = "Megfelelő!";
-                ellenorzoLabel.ForeColor = Color.Green;
                 megnevezesTextbox.Enabled = true;
                 letrehozasBtn.Visible = true;
             } else {
-                ellenorzoLabel.Text = "Nem megfelelő!";
-                ellenorzoLabel.ForeColor = Color.Red;
                 megnevezesTextbox.Enabled = false;
                 letrehozasBtn.Visible = false;
             }
         }
 
         private void termekGyartasbaBtn_Click(object sender, EventArgs e) {
-            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId);
+            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId,munkarendGyartasGridView);
             frm.ShowDialog();
             termekGridFeltolt();
         }
@@ -65,7 +71,7 @@ namespace IMM.Forms.GyartasForms {
 
         private void letrehozasBtn_Click(object sender, EventArgs e) {
             Munkarend mr;
-            if (Munkarend.getAll().LastOrDefault() == null) {
+            if (Munkarend.getAll().Count==0 ) {
                 mr = new Munkarend(1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");
             } else {
                 mr = new Munkarend(Munkarend.getAll().LastOrDefault().MrId + 1, munAzonTextbox.Text, megnevezesTextbox.Text, DateTime.Now.ToShortDateString(), "", "");

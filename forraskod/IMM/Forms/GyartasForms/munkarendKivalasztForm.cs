@@ -75,7 +75,7 @@ namespace IMM.Forms.GyartasForms {
         }
 
         private void termekGyartasbaBtn_Click(object sender, EventArgs e) {
-            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId);
+            termekGyartashozForm frm = new termekGyartashozForm(Munkarend.findByAzonosito(munAzonTextbox.Text).MrId,munkarendGyartasGridView);
             frm.ShowDialog();
             termekGridFeltolt();
         }

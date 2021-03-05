@@ -14,7 +14,9 @@ namespace IMM.Forms.GyartasForms {
     public partial class termekGyartashozForm : Form {
         private Database database;
         private int MunkarendID;
-        public termekGyartashozForm(int munkarendid) {
+        private DataGridView dgv;
+        public termekGyartashozForm(int munkarendid,DataGridView _dgv) {
+            this.dgv = _dgv;
             this.MunkarendID = munkarendid;
             database = new Database();
             InitializeComponent();
@@ -53,6 +55,9 @@ namespace IMM.Forms.GyartasForms {
                     MunkarendTermekek _mrT = new MunkarendTermekek(0, MunkarendID, _termek.ID, _termek.MinimumGyarthato, (from x in MunkarendStatusz.getAll() where x.Sorszam==1 select x).First().Megnevezes);
                     // database.munkarendTermekAdd(MunkarendID, Convert.ToInt32(dgvr.Cells["ID"].Value), _termek.MinimumGyarthato, "Felvéve");
                     MunkarendTermekek.Hozzaad(_mrT);
+                    dgv.DataSource = (from x in MunkarendTermekek.getAll()
+                                      where x.MrID == MunkarendID
+                                      select x).ToList();
                 }
             }
             this.Close();
