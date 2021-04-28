@@ -15,27 +15,12 @@ using IMM.Model.RaktarModel;
 namespace IMM.Classes
 {
     public class Database {
-        private string conString = Properties.Settings.Default.dbConn;
-        public static string connection = Properties.Settings.Default.dbConn;
-        private SQLiteConnection con;
-        private SQLiteCommand sqlc;
-        public Database() {
-            if (conString != null) {
-                con = new SQLiteConnection(conString);
-                sqlc = new SQLiteCommand(con);
-                con.Open();
-            }
-        }
+        public static string Connection = Properties.Settings.Default.dbConn;
 
         public static void checkConnectionState(SqlConnection con) {
             if (con.State == System.Data.ConnectionState.Open) {
                 con.Close();
             }
         }
-
-
-
-
-
     }
 }

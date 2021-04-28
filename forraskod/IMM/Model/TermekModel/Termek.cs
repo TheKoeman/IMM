@@ -68,7 +68,7 @@ namespace IMM.Model
 
         public static List<Termek> getAll() {
             List<Termek> _termekek = new List<Termek>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -97,7 +97,7 @@ namespace IMM.Model
             return _termek;
         }
         public static void Modosit(Termek _termek) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
             try {
@@ -112,7 +112,7 @@ namespace IMM.Model
             }
         }
         public static void Hozzaad(Termek _termek) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
             try {

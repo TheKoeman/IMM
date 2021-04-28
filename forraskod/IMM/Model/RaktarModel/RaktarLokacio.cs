@@ -23,7 +23,7 @@ namespace IMM.Model.RaktarModel {
         }
         public static List<RaktarLokacio> getAll() {
             List<RaktarLokacio> raktarLokaciok = new List<RaktarLokacio>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {

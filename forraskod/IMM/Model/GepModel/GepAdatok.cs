@@ -39,7 +39,7 @@ namespace IMM.Model {
 
         public static List<GepAdatok> getAll() {
             List<GepAdatok> _gepAdatLista = new List<GepAdatok>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -67,7 +67,7 @@ namespace IMM.Model {
         }
 
         public static void Modosit(GepAdatok _gepAdatok) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -81,7 +81,7 @@ namespace IMM.Model {
             }
         }
         public static void Hozzaad(GepAdatok _gepAdatok) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

@@ -40,7 +40,7 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendTermekek> getAll() {
             List<MunkarendTermekek> _mTermekLista = new List<MunkarendTermekek>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -67,7 +67,7 @@ namespace IMM.Model.GyartasModel {
             return termek;
         }
         public static void Hozzaad(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -81,7 +81,7 @@ namespace IMM.Model.GyartasModel {
             }
         }
         public static void Torol(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -104,7 +104,7 @@ namespace IMM.Model.GyartasModel {
             }
         }
         public static void Modosit(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

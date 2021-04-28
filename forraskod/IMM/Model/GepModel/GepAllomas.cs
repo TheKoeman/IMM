@@ -35,7 +35,7 @@ namespace IMM.Model {
 
         public static List<GepAllomas> getAll() {
             List<GepAllomas> _gepAllomasLista = new List<GepAllomas>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -82,7 +82,7 @@ namespace IMM.Model {
         }
 
         public static void Hozzaad(int gepid, int allomas, string nev) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -96,7 +96,7 @@ namespace IMM.Model {
             }
         }
         public static void Torol(GepAllomas _allomas) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -112,7 +112,7 @@ namespace IMM.Model {
             }
         }
         public static void Modosit(GepAllomas _allomas) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

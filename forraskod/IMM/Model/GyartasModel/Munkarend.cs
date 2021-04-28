@@ -33,7 +33,7 @@ namespace IMM.Model.GyartasModel {
 
         public static List<Munkarend> getAll() {
             List<Munkarend> _munkarendek = new List<Munkarend>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -63,7 +63,7 @@ namespace IMM.Model.GyartasModel {
                 return munkarend;
         }
         public static void Hozzaad(Munkarend _mr) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

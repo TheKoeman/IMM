@@ -99,7 +99,7 @@ namespace IMM.Model
 
         public static List<User> getAll() {
             List<User> _userek = new List<User>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();

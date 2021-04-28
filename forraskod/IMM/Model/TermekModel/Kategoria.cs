@@ -28,7 +28,7 @@ namespace IMM.Model
 
         public static List<Kategoria> getAll() {
             List<Kategoria> _kategoriak = new List<Kategoria>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();
@@ -56,7 +56,7 @@ namespace IMM.Model
             return _kategoria;
         }
         public static void Modosit(Kategoria _kategoria) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

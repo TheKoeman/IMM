@@ -27,7 +27,7 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendStatusz> getAll() {
             List<MunkarendStatusz> _munkarendStatuszLista = new List<MunkarendStatusz>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {

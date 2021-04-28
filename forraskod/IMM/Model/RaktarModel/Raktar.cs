@@ -18,7 +18,7 @@ namespace IMM.Model.RaktarModel {
         }
         public static List<Raktar> getAll() {
             List<Raktar> raktarak = new List<Raktar>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
 
             SQLiteDataReader dr;
@@ -46,7 +46,7 @@ namespace IMM.Model.RaktarModel {
             return raktar;
         }
         public static void Hozzaad(Raktar _rak) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();

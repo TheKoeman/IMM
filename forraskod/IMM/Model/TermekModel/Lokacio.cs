@@ -22,7 +22,7 @@ namespace IMM.Model {
 
         public static List<Lokacio> getAll() {
             List<Lokacio> _lokaciok = new List<Lokacio>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();

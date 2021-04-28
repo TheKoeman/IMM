@@ -31,7 +31,7 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendCsomagolas> getAll() {
             List<MunkarendCsomagolas> csomagolasLista = new List<MunkarendCsomagolas>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {

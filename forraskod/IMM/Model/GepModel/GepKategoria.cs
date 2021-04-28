@@ -43,7 +43,7 @@ namespace IMM.Model {
 
         public static List<GepKategoria> getAll() {
             List<GepKategoria> _gepKategoriaLista = new List<GepKategoria>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -71,7 +71,7 @@ namespace IMM.Model {
         }
 
         public static void Hozzaad(int gepid, int katid) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -85,7 +85,7 @@ namespace IMM.Model {
             }
         }
         public static void Torol(int gepid, int katid) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.connection);
+            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
