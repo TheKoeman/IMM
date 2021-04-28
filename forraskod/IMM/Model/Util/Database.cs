@@ -27,6 +27,12 @@ namespace IMM.Classes
             }
         }
 
+        public static void checkConnectionState(SqlConnection con) {
+            if (con.State == System.Data.ConnectionState.Open) {
+                con.Close();
+            }
+        }
+
 
 
 

@@ -17,9 +17,8 @@ namespace IMM
 {
     public partial class mindenTermekForm : Form
     {
-        string oldalSzoveg;
+        private string oldalSzoveg;
         TabControl frmControl;
-        Database database = new Database();
         List<Termek> termekekLista;
         TermekAdatokUC tauc;
         public mindenTermekForm(TabControl tc)
@@ -51,11 +50,7 @@ namespace IMM
 
         private void close_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < frmControl.TabCount; i++) {
-                if (frmControl.TabPages[i].Text == oldalSzoveg) {
-                    frmControl.TabPages.RemoveAt(i);
-                }
-            }
+            main.closeTabpage(oldalSzoveg);
         }
         #endregion
 

@@ -72,18 +72,27 @@ namespace IMM.Model
 
         }
 
-        public static bool CheckUser(List<User> mindenUser, string uname, string pass)
+        public static bool CheckUser(string uname, string pass)
         {
-            var szurtUser = from x in mindenUser
-                            where x.FelhasznaloNev == uname
-                            && x.Jelszo == pass
+            var felhasznaloCheck = from x in getAll()
+                                   where x.FelhasznaloNev == uname
                             select x;
-            if (szurtUser.Any())
+            if (felhasznaloCheck.Any())
             {
-                return true;
+                var passCheck = (from x in getAll() where x.FelhasznaloNev == uname && x.Jelszo == pass select x).FirstOrDefault();
+                if (passCheck != null) {
+                    return true;
+                } else {
+                    //jelszó hiba
+                    MessageBox.Show("jelszhiba!");
+                    return false;
+                    
+                }
             }
             else
             {
+                //felhasználónév hiba
+                MessageBox.Show("felhasznhiba!");
                 return false;
             }
         }

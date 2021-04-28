@@ -48,27 +48,19 @@ namespace IMM.Install
             else
                 passText.PasswordChar = '*';
         }
-        string vez, ker;
         void parseLogin(string uname, string pass)
         {
-            List<User> ur = User.getAll();
-            if (User.CheckUser(ur, uname,pass)){
-                var kiolvasott = from x in ur
+            if (User.CheckUser(uname,pass)){
+                User kiolvasott = (from x in User.getAll()
                                  where x.FelhasznaloNev == uname
                                  && x.Jelszo == pass
-                                 select x;
-                foreach (var sor in kiolvasott){
-                    vez = sor.VezetekNev;
-                    ker = sor.KeresztNev;
-                }
-                main frm = new main(uname, vez, ker);
+                                 select x).FirstOrDefault();
+                main frm = new main(kiolvasott);
                 Settings.Default.lastUser = uname;
                 Settings.Default.Save();
                 this.Hide();
                 frm.ShowDialog();
                 this.Close();
-            }else{
-                MessageBox.Show("Kérlek ellenőrizd a felhasználónevet vagy a jelszót!");
             }
         }
 

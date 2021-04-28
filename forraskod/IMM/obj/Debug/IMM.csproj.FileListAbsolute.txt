@@ -187,3 +187,4 @@ C:\Users\rober\Documents\GitHub\IMM\forraskod\IMM\obj\Debug\IMM.exe
 C:\Users\rober\Documents\GitHub\IMM\forraskod\IMM\obj\Debug\IMM.pdb
 C:\Users\rober\Documents\GitHub\IMM\forraskod\IMM\obj\Debug\IMM.Forms.GyartasForms.gyartasSzuresForm.resources
 C:\Users\rober\Documents\GitHub\IMM\forraskod\IMM\obj\Debug\IMM.Forms.GyartasForms.munkarendTermekGyartasForm.resources
+C:\Users\rober\Documents\GitHub\IMM\forraskod\IMM\obj\Debug\IMM.Forms.NyelvForms.NyelvForm.resources

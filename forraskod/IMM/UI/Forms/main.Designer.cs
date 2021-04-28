@@ -57,6 +57,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.nyelvBtn = new System.Windows.Forms.Button();
             this.bottomMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -65,13 +66,13 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // bottomMenu
             // 
             this.bottomMenu.BackColor = System.Drawing.Color.White;
             this.bottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomMenu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.bottomMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.bottomMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bottomMenuUNBox,
@@ -86,7 +87,6 @@
             // bottomMenuUNBox
             // 
             this.bottomMenuUNBox.BackColor = System.Drawing.Color.White;
-            this.bottomMenuUNBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuUNBox.Name = "bottomMenuUNBox";
             this.bottomMenuUNBox.ReadOnly = true;
             this.bottomMenuUNBox.Size = new System.Drawing.Size(298, 31);
@@ -94,7 +94,6 @@
             // bottomMenuRoleBox
             // 
             this.bottomMenuRoleBox.BackColor = System.Drawing.Color.White;
-            this.bottomMenuRoleBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuRoleBox.Name = "bottomMenuRoleBox";
             this.bottomMenuRoleBox.ReadOnly = true;
             this.bottomMenuRoleBox.Size = new System.Drawing.Size(298, 31);
@@ -103,7 +102,6 @@
             // 
             this.bottomMenuLoggerTextbox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.bottomMenuLoggerTextbox.BackColor = System.Drawing.Color.White;
-            this.bottomMenuLoggerTextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bottomMenuLoggerTextbox.ForeColor = System.Drawing.Color.Black;
             this.bottomMenuLoggerTextbox.Name = "bottomMenuLoggerTextbox";
             this.bottomMenuLoggerTextbox.ReadOnly = true;
@@ -197,7 +195,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage2.Size = new System.Drawing.Size(0, 84);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Raktár & Lokáció";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -241,7 +239,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage3.Size = new System.Drawing.Size(0, 84);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Megrendelés & Gyártás";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -315,7 +313,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage4.Size = new System.Drawing.Size(0, 84);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Gépek";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -358,7 +356,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage5.Size = new System.Drawing.Size(0, 84);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Felhasználók";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -413,7 +411,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1436, 84);
+            this.tabPage6.Size = new System.Drawing.Size(0, 84);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Riportok";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -446,11 +444,12 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.nyelvBtn);
             this.tabPage8.Location = new System.Drawing.Point(4, 29);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage8.Size = new System.Drawing.Size(0, 84);
+            this.tabPage8.Size = new System.Drawing.Size(1436, 84);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Beállítások";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -464,6 +463,22 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(1444, 610);
             this.tabControl2.TabIndex = 4;
+            // 
+            // nyelvBtn
+            // 
+            this.nyelvBtn.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.nyelvBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nyelvBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nyelvBtn.ForeColor = System.Drawing.Color.White;
+            this.nyelvBtn.Location = new System.Drawing.Point(9, 11);
+            this.nyelvBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nyelvBtn.Name = "nyelvBtn";
+            this.nyelvBtn.Size = new System.Drawing.Size(315, 63);
+            this.nyelvBtn.TabIndex = 3;
+            this.nyelvBtn.Text = "Nyelv beállítások";
+            this.nyelvBtn.UseVisualStyleBackColor = false;
+            this.nyelvBtn.Visible = false;
+            this.nyelvBtn.Click += new System.EventHandler(this.nyelvBtn_Click);
             // 
             // main
             // 
@@ -492,6 +507,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,6 +544,7 @@
         private System.Windows.Forms.Button azonGeneralBtn;
         private System.Windows.Forms.Button statuszokBtn;
         private System.Windows.Forms.Button vevoKezelesBtn;
+        private System.Windows.Forms.Button nyelvBtn;
     }
 }
 
