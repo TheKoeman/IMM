@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IMM.Model {
     public class Lokacio {
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int lokId;
         private string lokNev;
         public int LokId { get => lokId; set => lokId = value; }
@@ -22,7 +22,6 @@ namespace IMM.Model {
 
         public static List<Lokacio> getAll() {
             List<Lokacio> _lokaciok = new List<Lokacio>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();
@@ -38,9 +37,7 @@ namespace IMM.Model {
                 MessageBox.Show("Lokációk kiolvasása hiba!", ex.Message);
                 Logger.Log("Lokaciok getAll", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _lokaciok;
         }
     }

@@ -9,6 +9,7 @@ using IMM.Classes;
 
 namespace IMM.Model.GyartasModel {
     public class MunkarendCsomagolas {
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int mcsID;
         private int mcsTID;
         private int mcsDobozSzam;
@@ -31,7 +32,6 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendCsomagolas> getAll() {
             List<MunkarendCsomagolas> csomagolasLista = new List<MunkarendCsomagolas>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -46,9 +46,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("MunkarendCsomagolás osztály getAll", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return csomagolasLista;
         
         }

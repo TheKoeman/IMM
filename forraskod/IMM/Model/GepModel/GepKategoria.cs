@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace IMM.Model {
     public class GepKategoria {
-        Database database = new Database();
         private int id;
         private int gepId;
         private int kategoriaId;
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public int Id { get => id; set => id = value; }
         public int GepId { get => gepId; set => gepId = value; }
         public int KategoriaId { get => kategoriaId; set => kategoriaId = value; }
@@ -43,7 +42,6 @@ namespace IMM.Model {
 
         public static List<GepKategoria> getAll() {
             List<GepKategoria> _gepKategoriaLista = new List<GepKategoria>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -58,9 +56,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("GépKategória osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _gepKategoriaLista;
         }
         public static GepKategoria findByID(int gepid, int katid) {
@@ -71,7 +67,6 @@ namespace IMM.Model {
         }
 
         public static void Hozzaad(int gepid, int katid) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -80,12 +75,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gépkategória hozzáad osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Torol(int gepid, int katid) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -94,9 +86,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gépkategória törlése osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

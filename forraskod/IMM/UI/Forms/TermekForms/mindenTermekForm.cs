@@ -18,14 +18,12 @@ namespace IMM
     public partial class mindenTermekForm : Form
     {
         private string oldalSzoveg;
-        TabControl frmControl;
         List<Termek> termekekLista;
         TermekAdatokUC tauc;
-        public mindenTermekForm(TabControl tc)
+        public mindenTermekForm()
         {
             InitializeComponent();
             oldalSzoveg = this.Text;
-            frmControl = tc;
         }
         private void mindenTermekForm_Load(object sender, EventArgs e)
         {
@@ -65,20 +63,12 @@ namespace IMM
             termekekGrid.Columns["TermekNev2"].HeaderText = "Terméknév 2";
             termekekGrid.Columns["Cikkszam"].HeaderText = "Cikkszám";
             termekekGrid.Columns["KategoriaID"].HeaderText = "KategóriaID";
-            termekekGrid.Columns["TermekNev"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["TermekNev2"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["Cikkszam"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["KategoriaID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["CsomagolasiDarabszam"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            termekekGrid.Columns["MinimumGyarthato"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["CsomagolasiDarabszam"].HeaderText = "Csomagolási darabszám";
             termekekGrid.Columns["MinimumGyarthato"].HeaderText = "Minimum gyártható";
             termekekGrid.Columns["aktiv"].Visible = false;
             termekekGrid.Columns["Raktar"].Visible = false;
             termekekGrid.Columns["RaktarNev"].HeaderText = "Raktár név";
-            termekekGrid.Columns["RaktarNev"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             termekekGrid.Columns["KategoriaNev"].HeaderText = "Kategória";
-            termekekGrid.Columns["KategoriaNev"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         #region EVENTS

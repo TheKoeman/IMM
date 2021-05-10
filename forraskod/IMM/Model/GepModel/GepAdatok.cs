@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMM.Model {
     public class GepAdatok {
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int gaid;
         private int gepid;
         private string gepmarka;
@@ -39,7 +40,6 @@ namespace IMM.Model {
 
         public static List<GepAdatok> getAll() {
             List<GepAdatok> _gepAdatLista = new List<GepAdatok>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -54,9 +54,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("GepAdatok osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _gepAdatLista;
         }
         public static List<GepAdatok> findByGepID(int gepid) {
@@ -67,7 +65,6 @@ namespace IMM.Model {
         }
 
         public static void Modosit(GepAdatok _gepAdatok) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -76,12 +73,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Adatok módosítás osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Hozzaad(GepAdatok _gepAdatok) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -90,9 +84,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Adatok hozzáadása osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

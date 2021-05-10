@@ -75,7 +75,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1026, 991);
+            this.tabControl1.Size = new System.Drawing.Size(1026, 409);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -86,7 +86,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1018, 949);
+            this.tabPage1.Size = new System.Drawing.Size(1018, 367);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Termékek lista";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -94,6 +94,8 @@
             // termekekGrid
             // 
             this.termekekGrid.AllowUserToOrderColumns = true;
+            this.termekekGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.termekekGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.termekekGrid.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
@@ -120,7 +122,7 @@
             this.termekekGrid.Name = "termekekGrid";
             this.termekekGrid.ReadOnly = true;
             this.termekekGrid.RowHeadersWidth = 62;
-            this.termekekGrid.Size = new System.Drawing.Size(1010, 939);
+            this.termekekGrid.Size = new System.Drawing.Size(1010, 357);
             this.termekekGrid.TabIndex = 2;
             this.termekekGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.termekekGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -148,7 +150,7 @@
             this.termekTree.Location = new System.Drawing.Point(4, 5);
             this.termekTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termekTree.Name = "termekTree";
-            this.termekTree.Size = new System.Drawing.Size(1010, 939);
+            this.termekTree.Size = new System.Drawing.Size(1010, 357);
             this.termekTree.TabIndex = 1;
             // 
             // adatokTabpage
@@ -157,7 +159,7 @@
             this.adatokTabpage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.adatokTabpage.Name = "adatokTabpage";
             this.adatokTabpage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.adatokTabpage.Size = new System.Drawing.Size(1705, 949);
+            this.adatokTabpage.Size = new System.Drawing.Size(1018, 949);
             this.adatokTabpage.TabIndex = 1;
             this.adatokTabpage.Text = "Adatok";
             this.adatokTabpage.UseVisualStyleBackColor = true;
@@ -222,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 1051);
+            this.ClientSize = new System.Drawing.Size(1026, 469);
             this.Controls.Add(this.close);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.flowLayoutPanel1);

@@ -15,7 +15,7 @@ namespace IMM.Model {
         private string parameterErtek;
         private string modositasDatuma;
         private string modositotta;
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public int GapId { get => gapId; set => gapId = value; }
         public int AllomasId { get => allomasId; set => allomasId = value; }
         public string ParameterNev { get => parameterNev; set => parameterNev = value; }
@@ -34,7 +34,6 @@ namespace IMM.Model {
 
         public static List<GepAllomasParameter> getAll() {
             List<GepAllomasParameter> _gaParameterLista = new List<GepAllomasParameter>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -68,7 +67,6 @@ namespace IMM.Model {
         }
 
         public static void Hozzaad(GepAllomasParameter _parameter) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -77,12 +75,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás Paraméter hozzáadás osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Torol(GepAllomasParameter _parameter) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -91,12 +86,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás Paraméter törlés osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Modosit(GepAllomasParameter _parameter) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -105,9 +97,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás Paraméter módosítás osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

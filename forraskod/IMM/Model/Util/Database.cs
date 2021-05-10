@@ -17,7 +17,7 @@ namespace IMM.Classes
     public class Database {
         public static string Connection = Properties.Settings.Default.dbConn;
 
-        public static void checkConnectionState(SqlConnection con) {
+        public static void checkConnectionState(SQLiteConnection con) {
             if (con.State == System.Data.ConnectionState.Open) {
                 con.Close();
             }

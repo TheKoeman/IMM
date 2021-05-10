@@ -21,7 +21,6 @@ namespace IMM.Forms {
        void populateTreeview() {
             kategoriakTree.Nodes.Clear();
             List<Kategoria> katList = Kategoria.getAll();
-            List<GepKategoria> gkLista = GepKategoria.getAll();
             try {
                 foreach (var kategoria in katList) {
                     List<GepKategoria> szurtGepkategoriak = (from x in GepKategoria.getAll()

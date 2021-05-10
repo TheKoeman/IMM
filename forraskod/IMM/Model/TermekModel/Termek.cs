@@ -15,7 +15,7 @@ namespace IMM.Model
 {
     public class Termek
     {
-        Database database = new Database();
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private string termekNev;
         private string termekNev2;
         private string cikkszam;
@@ -68,7 +68,6 @@ namespace IMM.Model
 
         public static List<Termek> getAll() {
             List<Termek> _termekek = new List<Termek>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -85,9 +84,7 @@ namespace IMM.Model
                 MessageBox.Show(ex.Message, "Termékek kiolvasása SQL hiba!");
                 Logger.Log("Termek getAll", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _termekek;
         }
         public static Termek findByID(int id) {
@@ -97,7 +94,6 @@ namespace IMM.Model
             return _termek;
         }
         public static void Modosit(Termek _termek) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
             try {
@@ -107,12 +103,9 @@ namespace IMM.Model
                 MessageBox.Show(ex.Message, "Termek módosítása SQL hiba!");
                 Logger.Log("Database", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Hozzaad(Termek _termek) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             sqlc.Open();
             try {
@@ -121,9 +114,7 @@ namespace IMM.Model
             } catch (Exception ex) {
                 Logger.Log("Terméh hozzáadás hiba", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

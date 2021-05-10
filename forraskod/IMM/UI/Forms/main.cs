@@ -44,7 +44,7 @@ namespace IMM
             mdiMutat(frm);
         }
         private void mindenTermekBtn_Click(object sender, EventArgs e) {
-            mindenTermekForm frm = new mindenTermekForm(tabControl2);
+            mindenTermekForm frm = new mindenTermekForm();
             mdiMutat(frm);
         }
         private void termekKategoriakBtn_Click(object sender, EventArgs e) {
@@ -80,7 +80,6 @@ namespace IMM
         }
 
         private bool formActive(Form _frm) {
-
             if (tabControl2.TabCount > 0) {
                 foreach (TabPage item in tabControl2.TabPages) {
                     if (_frm.Text == item.Text) {

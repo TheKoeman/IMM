@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMM.Model {
    public class GepAllomas {
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int gaId;
         private int allomasSzam;
         private int gepId;
@@ -35,7 +35,6 @@ namespace IMM.Model {
 
         public static List<GepAllomas> getAll() {
             List<GepAllomas> _gepAllomasLista = new List<GepAllomas>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -50,9 +49,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("GepÁllomás osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _gepAllomasLista;
         }
         public static List<GepAllomas> findByGepID(int gepid) {
@@ -82,7 +79,6 @@ namespace IMM.Model {
         }
 
         public static void Hozzaad(int gepid, int allomas, string nev) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -91,12 +87,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás hozzáadás osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Torol(GepAllomas _allomas) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -107,12 +100,9 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás törlés osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Modosit(GepAllomas _allomas) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -121,9 +111,7 @@ namespace IMM.Model {
             } catch (Exception ex) {
                 Logger.Log("Gép Állomás módosítás osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
 
 

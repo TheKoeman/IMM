@@ -20,7 +20,7 @@ namespace IMM.Model
         private string vezetekNev;
         private string keresztNev;
         private int jogkor;
-        private Database database;
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public int Id { get => id; set => id = value; }
         public string FelhasznaloNev { get => felhasznaloNev; set => felhasznaloNev = value; }
         public string Jelszo { get => jelszo; set => jelszo = value; }
@@ -28,7 +28,6 @@ namespace IMM.Model
         public string VezetekNev { get => vezetekNev; set => vezetekNev = value; }
         public string KeresztNev { get => keresztNev; set => keresztNev = value; }
         public int Jogkor { get => jogkor; set => jogkor = value; }
-        internal Database Database { get => database; set => database = value; }
         #endregion
         public User(int id,string user, string pass, string mail, string veznev, string kernev, int jog)
         {
@@ -45,7 +44,6 @@ namespace IMM.Model
         {
             get
             {
-                Database = new Database();
                 List<User> mindenUser = getAll();
                 var szurtUser = from x in mindenUser
                             where x.FelhasznaloNev == FelhasznaloNev
@@ -99,7 +97,6 @@ namespace IMM.Model
 
         public static List<User> getAll() {
             List<User> _userek = new List<User>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();
@@ -114,9 +111,7 @@ namespace IMM.Model
                 MessageBox.Show("Felhasználók kiolvasása hiba!", ex.Message);
                 Logger.Log("users getAll", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _userek;
         }
 

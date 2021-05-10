@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 namespace IMM.Model.GyartasModel {
     public class MunkarendTermekek {
-        Database database = new Database();
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int mrtID;
         private int mrID;
         private int termekID;
@@ -40,7 +40,6 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendTermekek> getAll() {
             List<MunkarendTermekek> _mTermekLista = new List<MunkarendTermekek>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -55,9 +54,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("MunkarendTermékek osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _mTermekLista;
         }
         public static MunkarendTermekek findByMRTID(int id) {
@@ -67,7 +64,6 @@ namespace IMM.Model.GyartasModel {
             return termek;
         }
         public static void Hozzaad(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -76,12 +72,9 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("Database", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         public static void Torol(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -92,9 +85,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("Database", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
         static bool statuszCheck(MunkarendTermekek _mt) {
             if (_mt.Statusz == (from x in MunkarendStatusz.getAll() where x.Sorszam == 1 select x).First().Megnevezes) {
@@ -104,7 +95,6 @@ namespace IMM.Model.GyartasModel {
             }
         }
         public static void Modosit(MunkarendTermekek _mt) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -115,9 +105,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("Database", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

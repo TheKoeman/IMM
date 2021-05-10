@@ -12,7 +12,7 @@ namespace IMM.Model.GyartasModel {
         private string megnevezes;
         private string szin;
         private int sorszam;
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public MunkarendStatusz(int id, string megnev, string szi, int szam) {
             this.MsID = id;
             this.Megnevezes = megnev;
@@ -27,7 +27,6 @@ namespace IMM.Model.GyartasModel {
 
         public static List<MunkarendStatusz> getAll() {
             List<MunkarendStatusz> _munkarendStatuszLista = new List<MunkarendStatusz>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -42,9 +41,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("MunkarendStátusz osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _munkarendStatuszLista;
         }
 

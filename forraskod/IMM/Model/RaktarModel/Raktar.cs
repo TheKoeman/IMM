@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMM.Model.RaktarModel {
     public class Raktar {
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         private int raktarID;
         private string raktarMegnevezes;
         public int RaktarID { get => raktarID; set => raktarID = value; }
@@ -18,7 +19,6 @@ namespace IMM.Model.RaktarModel {
         }
         public static List<Raktar> getAll() {
             List<Raktar> raktarak = new List<Raktar>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
 
             SQLiteDataReader dr;
@@ -34,9 +34,7 @@ namespace IMM.Model.RaktarModel {
             } catch (Exception ex) {
                 Logger.Log("Raktár osztály", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return raktarak;
         }
         public static Raktar findByID(int id) {
@@ -46,7 +44,6 @@ namespace IMM.Model.RaktarModel {
             return raktar;
         }
         public static void Hozzaad(Raktar _rak) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -55,9 +52,7 @@ namespace IMM.Model.RaktarModel {
             } catch (Exception ex) {
                 Logger.Log("Raktár hozzáad osztály hiba", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

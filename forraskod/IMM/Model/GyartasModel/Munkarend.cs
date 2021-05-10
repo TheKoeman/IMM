@@ -14,7 +14,7 @@ namespace IMM.Model.GyartasModel {
         private string mrDatum;
         private string elkeszultDatum;
         private string letrehozta;
-
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public Munkarend(int id, string azon, string megnev, string datum, string letrehoz,string elkeszult) {
             this.MrId = id;
             this.MrAzonosito = azon;
@@ -33,7 +33,6 @@ namespace IMM.Model.GyartasModel {
 
         public static List<Munkarend> getAll() {
             List<Munkarend> _munkarendek = new List<Munkarend>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             try {
@@ -48,6 +47,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("Munkarend osztály", ex.Message);
             }
+            Database.checkConnectionState(sqlc);
             return _munkarendek;
         }
         public static Munkarend findByID(int id) {
@@ -63,7 +63,6 @@ namespace IMM.Model.GyartasModel {
                 return munkarend;
         }
         public static void Hozzaad(Munkarend _mr) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -72,9 +71,7 @@ namespace IMM.Model.GyartasModel {
             } catch (Exception ex) {
                 Logger.Log("Munkarend hozzáadás", ex.Message);
             }
-            if (sqlc.State == System.Data.ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
     }
 }

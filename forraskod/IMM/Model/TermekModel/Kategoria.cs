@@ -15,7 +15,7 @@ namespace IMM.Model
         private int id;
         private string kategoriaNev;
         private int aktiv;
-        
+        private static SQLiteConnection sqlc = new SQLiteConnection(Database.Connection);
         public Kategoria(int id, string katnev)
         {
             this.Id = id;
@@ -28,7 +28,6 @@ namespace IMM.Model
 
         public static List<Kategoria> getAll() {
             List<Kategoria> _kategoriak = new List<Kategoria>();
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             SQLiteDataReader dr;
             sqlc.Open();
@@ -44,9 +43,7 @@ namespace IMM.Model
                 MessageBox.Show("Kategóriák kiolvasása hiba!", ex.Message);
                 Logger.Log("Kategoria getAll", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
             return _kategoriak;
         }
         public static Kategoria findByName(string name) {
@@ -56,7 +53,6 @@ namespace IMM.Model
             return _kategoria;
         }
         public static void Modosit(Kategoria _kategoria) {
-            SQLiteConnection sqlc = new SQLiteConnection(Database.Connection1);
             SQLiteCommand sqlcommand = new SQLiteCommand(sqlc);
             try {
                 sqlc.Open();
@@ -66,9 +62,7 @@ namespace IMM.Model
                 MessageBox.Show(ex.Message, "Kategória módosítás SQL hiba!");
                 Logger.Log("Database", ex.Message);
             }
-            if (sqlc.State == ConnectionState.Open) {
-                sqlc.Close();
-            }
+            Database.checkConnectionState(sqlc);
         }
 
     }
